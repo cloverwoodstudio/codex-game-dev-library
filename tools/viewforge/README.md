@@ -1,4 +1,4 @@
-# ViewForge — calibrated views to a 3D starting mesh
+# ViewForge — calibrated or rectified views to a 3D starting mesh
 
 Reviewed: 2026-08-29
 
@@ -39,6 +39,14 @@ For grounded work, add `calibration.horizontal` and `calibration.vertical` to ev
 The required mapping is front = width/height, side = depth/height and top = width/depth. ViewForge rejects a wrong axis or conflicting ledger IDs across views. It records pixel span, pixels per source unit and source units per pixel in `validation.json`. This makes the scale traceable to dimension-ledger entries instead of silently stretching each detected silhouette independently. The crate example uses `DIM-W`, `DIM-D` and `DIM-H` anchors.
 
 If `calibration` is omitted, ViewForge retains the convenient `detected_content_bounds` mapping for exploratory class-C blockouts and reports that strategy explicitly. Do not treat that fallback as dimension evidence.
+
+### Perspective and keystone rectification
+
+For a planar drawing photographed at an angle, replace `calibration` with `perspective_rectification`. Mark the same physical rectangle in top-left, top-right, bottom-right, bottom-left order using absolute source-pixel coordinates, then attach horizontal/vertical dimension names and ledger IDs. ViewForge computes a four-point projective homography and inverse-samples the normalized mask from that quadrilateral. It records mean opposing-edge pixel lengths and scale ratios, and rejects out-of-crop, degenerate, non-convex and incorrectly ordered corners. The two mapping modes are mutually exclusive.
+
+The `examples/perspective/` fixture proves that a skewed trapezoid becomes a rectangular mask with IoU `1.0`. This follows the standard four-correspondence perspective-transform model documented by [OpenCV](https://docs.opencv.org/doc/doxygen/html/d9/ded/group__geometry__shape.html).
+
+This corrects planar keystone only. It cannot remove lens distortion, rolling shutter, folds, page curvature, perspective/parallax within a photographed 3D object, or an incorrect/non-rectangular datum. Correct lens distortion upstream and use orthographic drawings or multi-photo reconstruction when depth varies. A visually straight result is not proof that the selected corners represent stated dimensions.
 
 See `manifest.schema.json` and the example manifest. Resolution controls the reconstruction grid, not the output image size. Start around 32–64 cells on the longest axis; high resolutions grow memory and face counts cubically.
 

@@ -93,6 +93,8 @@ Never let a photograph override a dimensioned drawing without recording why. Per
 
 When calibrated front, side and top silhouettes exist, use `tools/viewforge/` to construct a deterministic visual hull before free-form modeling. Its volume contains only voxels supported by every supplied projection, and its validation report measures how well the resulting volume reprojects into each mask. This turns multi-view agreement into a testable input contract.
 
+For a planar drawing photographed obliquely, ViewForge can map an ordered four-corner physical rectangle through a projective homography before reconstruction. Preserve the selected corners and their dimension-ledger IDs in the manifest. This is limited to planar keystone: correct lens distortion separately, and do not use it to claim orthography for a photographed 3D object with parallax or for a curved/folded page.
+
 The hull cannot reveal hidden concavities, holes or actual curvature. Preserve it as evidence, refine a duplicate and label unsupported features as estimated. Load `.agents/skills/reference-sheet-to-3d/SKILL.md` for Codex routing and stopping conditions.
 
 ## 6. Validate the technical master

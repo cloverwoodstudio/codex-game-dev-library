@@ -69,6 +69,26 @@
           },
           "additionalProperties": false
         },
+        "perspective_rectification": {
+          "type": "object",
+          "required": ["corners", "horizontal", "vertical"],
+          "properties": {
+            "corners": {
+              "type": "object",
+              "required": ["top_left", "top_right", "bottom_right", "bottom_left"],
+              "properties": {
+                "top_left": { "$ref": "#/$defs/point" },
+                "top_right": { "$ref": "#/$defs/point" },
+                "bottom_right": { "$ref": "#/$defs/point" },
+                "bottom_left": { "$ref": "#/$defs/point" }
+              },
+              "additionalProperties": false
+            },
+            "horizontal": { "$ref": "#/$defs/dimensionAxis" },
+            "vertical": { "$ref": "#/$defs/dimensionAxis" }
+          },
+          "additionalProperties": false
+        },
         "crop": {
           "type": "object",
           "required": ["x", "y", "width", "height"],
@@ -83,6 +103,9 @@
         "flip_horizontal": { "type": "boolean" },
         "flip_vertical": { "type": "boolean" }
       },
+      "allOf": [
+        { "not": { "required": ["calibration", "perspective_rectification"] } }
+      ],
       "additionalProperties": false
     },
     "calibrationAxis": {
@@ -93,6 +116,24 @@
         "ledger_id": { "type": "string", "minLength": 1 },
         "pixel_min": { "type": "integer", "minimum": 0 },
         "pixel_max": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "dimensionAxis": {
+      "type": "object",
+      "required": ["dimension", "ledger_id"],
+      "properties": {
+        "dimension": { "enum": ["width", "depth", "height"] },
+        "ledger_id": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "point": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0 },
+        "y": { "type": "number", "minimum": 0 }
       },
       "additionalProperties": false
     }

@@ -4,8 +4,10 @@ set -euo pipefail
 tool_directory="$(cd "$(dirname "$0")/.." && pwd)"
 output_directory="$tool_directory/examples/crate/output"
 bad_output_directory="$tool_directory/examples/inconsistent/output"
+perspective_output_directory="$tool_directory/examples/perspective/output"
 find "$output_directory" -depth -delete 2>/dev/null || true
 find "$bad_output_directory" -depth -delete 2>/dev/null || true
+find "$perspective_output_directory" -depth -delete 2>/dev/null || true
 
 "$tool_directory/viewforge.sh" "$tool_directory/examples/crate/viewforge.json"
 
@@ -71,3 +73,22 @@ if "$tool_directory/viewforge.sh" "$tool_directory/examples/conflicting-ledger/v
     exit 1
 fi
 echo "ViewForge conflicting-ledger test passed"
+
+"$tool_directory/viewforge.sh" "$tool_directory/examples/perspective/viewforge.json"
+test -s "$perspective_output_directory/projectively-rectified-box.glb"
+test -s "$perspective_output_directory/overlays/front.png"
+
+python3 - "$perspective_output_directory/validation.json" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1], encoding="utf-8") as report_file:
+    report = json.load(report_file)
+
+assert report["quality_gate"]["passed"] is True
+assert all(result["mapping_strategy"] == "projective_rectification" for result in report["inputs"].values())
+assert all(result["perspective_rectification"] for result in report["inputs"].values())
+assert all(axis["mean_source_edge_pixels"] > 0 for result in report["inputs"].values() for axis in result["dimension_axes"].values())
+assert all(result["iou"] == 1.0 for result in report["views"].values())
+print("ViewForge projective-rectification test passed")
+PY

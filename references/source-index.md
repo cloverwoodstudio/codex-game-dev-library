@@ -74,6 +74,7 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - FreeCAD parametric modeling and exchange formats: https://www.freecad.org/features.php and https://www.freecad.org/manual/a-freecad-manual.pdf
 - Blender retopology: https://docs.blender.org/manual/en/latest/modeling/meshes/retopology.html
 - ViewForge executable reference-sheet reconstruction, dimension-led pixel calibration, overlays and quality gates: `tools/viewforge/README.md`
+- OpenCV four-point perspective-transform model: https://docs.opencv.org/doc/doxygen/html/d9/ded/group__geometry__shape.html
 - Visual hull foundation (Laurentini, IEEE PAMI 1994): https://doi.org/10.1109/34.273735
 - Apple USD authoring and validation: https://developer.apple.com/documentation/usd/creating-usd-files-for-apple-devices
 - Khronos real-time product-asset guidelines: https://github.com/KhronosGroup/3DC-Asset-Creation/blob/main/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md

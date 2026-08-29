@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+from math import hypot
 from pathlib import Path
 
 import bpy
@@ -90,6 +91,43 @@ def load_pixels(path: Path) -> tuple[int, int, list[tuple[float, float, float, f
     return width, height, pixels
 
 
+def projective_coordinates(corners: list[tuple[float, float]], u: float, v: float) -> tuple[float, float]:
+    """Map a unit rectangle into an ordered TL/TR/BR/BL quadrilateral."""
+    (x0, y0), (x1, y1), (x2, y2), (x3, y3) = corners
+    dx1, dx2 = x1 - x2, x3 - x2
+    dy1, dy2 = y1 - y2, y3 - y2
+    dx3, dy3 = x0 - x1 + x2 - x3, y0 - y1 + y2 - y3
+    denominator = dx1 * dy2 - dx2 * dy1
+    if abs(dx3) < 1e-9 and abs(dy3) < 1e-9:
+        g = h = 0.0
+    else:
+        if abs(denominator) < 1e-9:
+            fail("perspective quadrilateral is degenerate")
+        g = (dx3 * dy2 - dx2 * dy3) / denominator
+        h = (dx1 * dy3 - dx3 * dy1) / denominator
+    a, b, c = x1 - x0 + g * x1, x3 - x0 + h * x3, x0
+    d, e, f = y1 - y0 + g * y1, y3 - y0 + h * y3, y0
+    divisor = g * u + h * v + 1.0
+    if abs(divisor) < 1e-9:
+        fail("perspective mapping crosses infinity")
+    return (a * u + b * v + c) / divisor, (d * u + e * v + f) / divisor
+
+
+def validate_dimension_axes(config: dict, expected_dimensions: tuple[str, str], label: str, path: Path) -> dict:
+    metadata = {}
+    for axis_name, expected_dimension in zip(("horizontal", "vertical"), expected_dimensions):
+        axis = config.get(axis_name)
+        if not isinstance(axis, dict):
+            fail(f"{label} requires {axis_name} axis: {path}")
+        if axis.get("dimension") != expected_dimension:
+            fail(f"{label} {axis_name} axis for this view must reference {expected_dimension}: {path}")
+        ledger_id = axis.get("ledger_id")
+        if not isinstance(ledger_id, str) or not ledger_id.strip():
+            fail(f"{label} {axis_name}.ledger_id must be non-empty: {path}")
+        metadata[axis_name] = {"dimension": expected_dimension, "ledger_id": ledger_id}
+    return metadata
+
+
 def build_mask(
     path: Path,
     config: dict,
@@ -146,20 +184,19 @@ def build_mask(
     content_height = maximum_y - minimum_y + 1
 
     calibration = config.get("calibration")
+    perspective = config.get("perspective_rectification")
+    if calibration is not None and perspective is not None:
+        fail(f"calibration and perspective_rectification are mutually exclusive: {path}")
     calibration_metadata = None
+    perspective_metadata = None
+    dimension_axes = None
+    perspective_corners = None
     sample_minimum_x, sample_maximum_x = minimum_x, maximum_x
     sample_minimum_y, sample_maximum_y = minimum_y, maximum_y
     if calibration is not None:
-        calibration_metadata = {}
-        for axis_name, expected_dimension in zip(("horizontal", "vertical"), expected_dimensions):
-            axis = calibration.get(axis_name)
-            if not isinstance(axis, dict):
-                fail(f"calibration requires {axis_name} axis: {path}")
-            if axis.get("dimension") != expected_dimension:
-                fail(f"{axis_name} calibration for this view must reference {expected_dimension}: {path}")
-            ledger_id = axis.get("ledger_id")
-            if not isinstance(ledger_id, str) or not ledger_id.strip():
-                fail(f"calibration {axis_name}.ledger_id must be non-empty: {path}")
+        calibration_metadata = validate_dimension_axes(calibration, expected_dimensions, "calibration", path)
+        for axis_name in ("horizontal", "vertical"):
+            axis = calibration[axis_name]
             pixel_minimum = axis.get("pixel_min")
             pixel_maximum = axis.get("pixel_max")
             if not isinstance(pixel_minimum, int) or not isinstance(pixel_maximum, int) or pixel_minimum >= pixel_maximum:
@@ -168,17 +205,52 @@ def build_mask(
             crop_maximum = crop_maximum_x if axis_name == "horizontal" else crop_maximum_y
             if pixel_minimum < crop_minimum or pixel_maximum > crop_maximum:
                 fail(f"calibration {axis_name} anchors are outside the requested crop: {path}")
-            calibration_metadata[axis_name] = {
-                "dimension": expected_dimension,
-                "ledger_id": ledger_id,
-                "pixel_min": pixel_minimum,
-                "pixel_max": pixel_maximum,
-                "pixel_span": pixel_maximum - pixel_minimum + 1,
-            }
+            calibration_metadata[axis_name].update(
+                {"pixel_min": pixel_minimum, "pixel_max": pixel_maximum, "pixel_span": pixel_maximum - pixel_minimum + 1}
+            )
         sample_minimum_x = calibration["horizontal"]["pixel_min"]
         sample_maximum_x = calibration["horizontal"]["pixel_max"]
         sample_minimum_y = calibration["vertical"]["pixel_min"]
         sample_maximum_y = calibration["vertical"]["pixel_max"]
+        dimension_axes = calibration_metadata
+
+    if perspective is not None:
+        dimension_axes = validate_dimension_axes(perspective, expected_dimensions, "perspective_rectification", path)
+        corner_names = ("top_left", "top_right", "bottom_right", "bottom_left")
+        perspective_corners = []
+        for corner_name in corner_names:
+            corner = perspective.get("corners", {}).get(corner_name)
+            if not isinstance(corner, dict) or not all(isinstance(corner.get(axis), (int, float)) for axis in ("x", "y")):
+                fail(f"perspective_rectification requires numeric {corner_name} x/y: {path}")
+            point = (float(corner["x"]), float(corner["y"]))
+            if not crop_x <= point[0] <= crop_maximum_x or not crop_y <= point[1] <= crop_maximum_y:
+                fail(f"perspective corner {corner_name} is outside the requested crop: {path}")
+            perspective_corners.append(point)
+        cross_products = []
+        for index in range(4):
+            previous = perspective_corners[index]
+            current = perspective_corners[(index + 1) % 4]
+            following = perspective_corners[(index + 2) % 4]
+            cross_products.append(
+                (current[0] - previous[0]) * (following[1] - current[1])
+                - (current[1] - previous[1]) * (following[0] - current[0])
+            )
+        if any(abs(value) < 1e-9 for value in cross_products) or not (all(value > 0 for value in cross_products) or all(value < 0 for value in cross_products)):
+            fail(f"perspective corners must form an ordered, convex quadrilateral: {path}")
+        top_left, top_right, bottom_right, bottom_left = perspective_corners
+        dimension_axes["horizontal"]["mean_source_edge_pixels"] = round(
+            (hypot(top_right[0] - top_left[0], top_right[1] - top_left[1]) + hypot(bottom_right[0] - bottom_left[0], bottom_right[1] - bottom_left[1])) / 2,
+            6,
+        )
+        dimension_axes["vertical"]["mean_source_edge_pixels"] = round(
+            (hypot(bottom_left[0] - top_left[0], bottom_left[1] - top_left[1]) + hypot(bottom_right[0] - top_right[0], bottom_right[1] - top_right[1])) / 2,
+            6,
+        )
+        perspective_metadata = {
+            "corners": {name: {"x": point[0], "y": point[1]} for name, point in zip(corner_names, perspective_corners)},
+            "horizontal": dimension_axes["horizontal"],
+            "vertical": dimension_axes["vertical"],
+        }
 
     sample_width = sample_maximum_x - sample_minimum_x + 1
     sample_height = sample_maximum_y - sample_minimum_y + 1
@@ -189,12 +261,16 @@ def build_mask(
         normalized_v = (v + 0.5) / target_height
         if config.get("flip_vertical", False):
             normalized_v = 1.0 - normalized_v
-        source_y = min(sample_maximum_y, sample_maximum_y - int(normalized_v * sample_height))
         for u in range(target_width):
             normalized_u = (u + 0.5) / target_width
             if config.get("flip_horizontal", False):
                 normalized_u = 1.0 - normalized_u
-            source_x = min(sample_maximum_x, sample_minimum_x + int(normalized_u * sample_width))
+            if perspective_corners is not None:
+                source_float_x, source_float_y = projective_coordinates(perspective_corners, normalized_u, 1.0 - normalized_v)
+                source_x, source_y = round(source_float_x), round(source_float_y)
+            else:
+                source_y = min(sample_maximum_y, sample_maximum_y - int(normalized_v * sample_height))
+                source_x = min(sample_maximum_x, sample_minimum_x + int(normalized_u * sample_width))
             preview[(u, v)] = pixels[source_y * width + source_x]
             if (source_x, source_y) in source_mask:
                 result.add((u, v))
@@ -203,8 +279,12 @@ def build_mask(
         "source_size": {"width": width, "height": height},
         "requested_crop": {"x": crop_x, "y": crop_y, "width": crop_width, "height": crop_height},
         "detected_content_bounds": {"x": minimum_x, "y": minimum_y, "width": content_width, "height": content_height},
-        "mapping_strategy": "calibrated_anchors" if calibration is not None else "detected_content_bounds",
+        "mapping_strategy": (
+            "projective_rectification" if perspective is not None else "calibrated_anchors" if calibration is not None else "detected_content_bounds"
+        ),
         "calibration": calibration_metadata,
+        "perspective_rectification": perspective_metadata,
+        "dimension_axes": dimension_axes,
         "mode": mode,
         "threshold": threshold if mode != "background" else None,
         "background_tolerance": background_tolerance if mode == "background" else None,
@@ -432,14 +512,18 @@ def main() -> None:
 
     ledger_ids: dict[str, str] = {}
     for metadata in input_metadata.values():
-        for axis in (metadata.get("calibration") or {}).values():
+        for axis in (metadata.get("dimension_axes") or {}).values():
             dimension = axis["dimension"]
             existing = ledger_ids.setdefault(dimension, axis["ledger_id"])
             if existing != axis["ledger_id"]:
                 fail(f"conflicting calibration ledger IDs for {dimension}: {existing} and {axis['ledger_id']}")
             dimension_value = float(manifest["dimensions"][dimension])
-            axis["pixels_per_source_unit"] = round(axis["pixel_span"] / dimension_value, 6)
-            axis["source_units_per_pixel"] = round(dimension_value / axis["pixel_span"], 6)
+            if "pixel_span" in axis:
+                axis["pixels_per_source_unit"] = round(axis["pixel_span"] / dimension_value, 6)
+                axis["source_units_per_pixel"] = round(dimension_value / axis["pixel_span"], 6)
+            elif "mean_source_edge_pixels" in axis:
+                axis["mean_pixels_per_source_unit"] = round(axis["mean_source_edge_pixels"] / dimension_value, 6)
+                axis["mean_source_units_per_pixel"] = round(dimension_value / axis["mean_source_edge_pixels"], 6)
     occupied = reconstruct(nx, ny, nz, masks)
 
     bpy.ops.object.select_all(action="SELECT")

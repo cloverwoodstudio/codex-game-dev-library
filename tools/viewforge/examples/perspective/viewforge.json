@@ -1,0 +1,16 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "version": 1,
+  "name": "projectively-rectified-box",
+  "units": "m",
+  "dimensions": { "width": 2.0, "depth": 1.0, "height": 1.5 },
+  "resolution": { "x": 12, "y": 12, "z": 12 },
+  "views": {
+    "front": { "path": "trapezoid.pgm", "mode": "dark", "threshold": 0.5, "perspective_rectification": { "corners": { "top_left": { "x": 2, "y": 2 }, "top_right": { "x": 9, "y": 1 }, "bottom_right": { "x": 10, "y": 9 }, "bottom_left": { "x": 1, "y": 10 } }, "horizontal": { "dimension": "width", "ledger_id": "DIM-W" }, "vertical": { "dimension": "height", "ledger_id": "DIM-H" } } },
+    "side": { "path": "trapezoid.pgm", "mode": "dark", "threshold": 0.5, "perspective_rectification": { "corners": { "top_left": { "x": 2, "y": 2 }, "top_right": { "x": 9, "y": 1 }, "bottom_right": { "x": 10, "y": 9 }, "bottom_left": { "x": 1, "y": 10 } }, "horizontal": { "dimension": "depth", "ledger_id": "DIM-D" }, "vertical": { "dimension": "height", "ledger_id": "DIM-H" } } },
+    "top": { "path": "trapezoid.pgm", "mode": "dark", "threshold": 0.5, "perspective_rectification": { "corners": { "top_left": { "x": 2, "y": 2 }, "top_right": { "x": 9, "y": 1 }, "bottom_right": { "x": 10, "y": 9 }, "bottom_left": { "x": 1, "y": 10 } }, "horizontal": { "dimension": "width", "ledger_id": "DIM-W" }, "vertical": { "dimension": "depth", "ledger_id": "DIM-D" } } }
+  },
+  "quality_gate": { "minimum_iou": 0.99 },
+  "render_size": 128,
+  "output_directory": "output"
+}
