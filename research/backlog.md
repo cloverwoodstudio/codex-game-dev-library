@@ -28,6 +28,7 @@ This library should grow through focused, verifiable passes.
 - [x] Asset pipeline foundations for 2D, 3D, animation, shaders, audio and localization
 - [x] Datasheet-to-parametric-CAD-to-game-ready 3D workflow with uncertainty and validation ledger
 - [ ] Tested FreeCAD and OpenSCAD reconstruction sample with automated dimension checks
+- [x] Tested Blender ViewForge visual-hull reconstruction from calibrated front/side/top masks with GLB/USDC exports and reprojection checks
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset
 - [ ] Tested engine-specific asset import presets and sample assets
 - [x] Engine-neutral visual-regression and replay-driven testing foundation

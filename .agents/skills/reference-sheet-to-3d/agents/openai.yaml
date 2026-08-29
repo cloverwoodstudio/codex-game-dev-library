@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Sheet to 3D"
+  short_description: "Build grounded 3D hulls from calibrated views."
+  default_prompt: "Use $reference-sheet-to-3d to reconstruct a measurable 3D starting mesh from my reference views."

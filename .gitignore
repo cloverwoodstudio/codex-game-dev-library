@@ -8,3 +8,4 @@
 **/.build/
 **/.derived/
 **/.derived-*/
+tools/viewforge/**/output/

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cloverwoodstudio/codex-game-dev-library/tools/viewforge/manifest.schema.json",
+  "title": "ViewForge manifest",
+  "type": "object",
+  "required": ["version", "name", "dimensions", "resolution", "views", "output_directory"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "const": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "units": { "enum": ["m", "cm", "mm"] },
+    "dimensions": {
+      "type": "object",
+      "required": ["width", "depth", "height"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "depth": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "resolution": {
+      "type": "object",
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 2, "maximum": 256 },
+        "y": { "type": "integer", "minimum": 2, "maximum": 256 },
+        "z": { "type": "integer", "minimum": 2, "maximum": 256 }
+      },
+      "additionalProperties": false
+    },
+    "views": {
+      "type": "object",
+      "required": ["front", "side", "top"],
+      "properties": {
+        "front": { "$ref": "#/$defs/view" },
+        "side": { "$ref": "#/$defs/view" },
+        "top": { "$ref": "#/$defs/view" }
+      },
+      "additionalProperties": false
+    },
+    "output_directory": { "type": "string", "minLength": 1 },
+    "bevel_width": { "type": "number", "minimum": 0 },
+    "bevel_segments": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "render_size": { "type": "integer", "minimum": 128, "maximum": 4096 }
+  },
+  "$defs": {
+    "view": {
+      "type": "object",
+      "required": ["path", "mode"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "mode": { "enum": ["dark", "light", "alpha"] },
+        "threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+        "flip_horizontal": { "type": "boolean" },
+        "flip_vertical": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

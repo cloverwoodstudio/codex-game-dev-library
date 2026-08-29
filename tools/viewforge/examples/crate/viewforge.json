@@ -1,0 +1,17 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "version": 1,
+  "name": "calibration-crate",
+  "units": "m",
+  "dimensions": { "width": 2.0, "depth": 1.0, "height": 1.5 },
+  "resolution": { "x": 24, "y": 16, "z": 20 },
+  "views": {
+    "front": { "path": "front.pgm", "mode": "dark", "threshold": 0.5 },
+    "side": { "path": "side.pgm", "mode": "dark", "threshold": 0.5 },
+    "top": { "path": "top.pgm", "mode": "dark", "threshold": 0.5 }
+  },
+  "bevel_width": 0.03,
+  "bevel_segments": 2,
+  "render_size": 512,
+  "output_directory": "output"
+}

@@ -89,6 +89,12 @@ Use Blender for organic surfaces, visual-only reconstruction and game mesh finis
 
 Never let a photograph override a dimensioned drawing without recording why. Perspective images are valuable for form and material evidence but unreliable for direct measurement unless camera calibration is defensible.
 
+### Automated silhouette-constrained blockout
+
+When calibrated front, side and top silhouettes exist, use `tools/viewforge/` to construct a deterministic visual hull before free-form modeling. Its volume contains only voxels supported by every supplied projection, and its validation report measures how well the resulting volume reprojects into each mask. This turns multi-view agreement into a testable input contract.
+
+The hull cannot reveal hidden concavities, holes or actual curvature. Preserve it as evidence, refine a duplicate and label unsupported features as estimated. Load `.agents/skills/reference-sheet-to-3d/SKILL.md` for Codex routing and stopping conditions.
+
 ## 6. Validate the technical master
 
 - Recompute the model from a clean state.

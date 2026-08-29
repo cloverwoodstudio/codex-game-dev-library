@@ -219,6 +219,7 @@ Sources: [Game Porting Toolkit](https://developer.apple.com/games/game-porting-t
 | Mixamo | Service/license terms | Auto-rigging/motion source | Check exact asset/use terms |
 | FreeCAD | LGPL/GPL components | Parametric CAD reconstruction | Tessellate/retopo for game use |
 | OpenSCAD | GPL | Scripted parametric CAD | Deterministic dimension-driven models |
+| ViewForge (this repository) | Repository code | Calibrated front/side/top silhouettes to visual hull, GLB and USDC | Run `tools/viewforge/viewforge.sh`; inspect reprojection report |
 | MeshLab | GPL | Mesh inspection/repair/decimation | Preserve normals/UV/material expectations |
 | MaterialX | ASWF OSS | Material interchange | Confirm renderer feature mapping |
 | glTF Validator | Khronos OSS/service | Validate glTF interchange | Run before conversion/import |

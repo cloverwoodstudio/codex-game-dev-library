@@ -26,6 +26,7 @@ A living, source-backed playbook for building games with Codex. This repository 
 - `prompts/` — reusable briefs and prompts for Codex and asset generation
 - `code-patterns/` — engine-neutral reference implementations
 - `samples/` — runnable, versioned reference implementations with expected evidence
+- `tools/` — executable production helpers, beginning with calibrated reference-sheet-to-3D reconstruction
 - `.agents/skills/` — auto-discovered repository-local Codex skills; the Apple skill includes a large tool catalog and read-only host audit
 
 ## Complete development map
@@ -41,6 +42,8 @@ Game development is an empirical loop: **specify → build the smallest playable
 This is a growing foundation, not a claim to contain the whole internet. It now covers the playable-development loop plus art, audio, worlds, systems, accessibility, localization, platforms, provenance, release, modding, backend security, observability, performance and store preparation. Game engines and Codex evolve continuously. Every important claim should link to a primary source, record a review date, and distinguish official guidance from community experience.
 
 The current coverage audit and prioritized implementation sequence live in [`research/library-audit-2026-08-29.md`](research/library-audit-2026-08-29.md). Runnable evidence begins with [`samples/determinism-conformance/`](samples/determinism-conformance/).
+
+For image sheets, blueprints and datasheets, Codex can load [the reference-sheet-to-3D skill](.agents/skills/reference-sheet-to-3d/SKILL.md) and run [ViewForge](tools/viewforge/README.md) to produce a measurable visual hull, GLB/USD exports, orthographic evidence and a reprojection report instead of guessing a mesh.
 
 Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample. Codex can route Apple work through [the auto-discovered Apple platform skill](.agents/skills/apple-platform-development/SKILL.md) and its maintained tool catalog.
 

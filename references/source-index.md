@@ -73,6 +73,9 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Poly Haven CC0 license: https://polyhaven.com/license
 - FreeCAD parametric modeling and exchange formats: https://www.freecad.org/features.php and https://www.freecad.org/manual/a-freecad-manual.pdf
 - Blender retopology: https://docs.blender.org/manual/en/latest/modeling/meshes/retopology.html
+- ViewForge executable reference-sheet reconstruction: `tools/viewforge/README.md`
+- Visual hull foundation (Laurentini, IEEE PAMI 1994): https://doi.org/10.1109/34.273735
+- Apple USD authoring and validation: https://developer.apple.com/documentation/usd/creating-usd-files-for-apple-devices
 - Khronos real-time product-asset guidelines: https://github.com/KhronosGroup/3DC-Asset-Creation/blob/main/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md
 - glTF specification and Asset Auditor: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html and https://www.khronos.org/gltf/gltf-asset-auditor/
 
