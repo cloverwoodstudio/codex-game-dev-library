@@ -60,6 +60,7 @@ Never scale content before proving both the core loop and the content-production
 - Level and encounter production: `design/level-design.md`
 - Onboarding and objective clarity: `design/onboarding-tutorials.md`
 - Character rigging and animation: `art/character-animation.md`
+- Datasheet-to-3D reconstruction: `art/datasheet-to-3d.md`, `../templates/DIMENSION_LEDGER.template.md`, `../templates/DATASHEET_MODEL_VALIDATION.template.md`
 - Lighting and readability: `art/lighting.md`
 - Cinematics and state transitions: `design/cinematics.md`
 - Adaptive audio and music: `systems/adaptive-audio.md`

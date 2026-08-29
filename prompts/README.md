@@ -32,6 +32,12 @@ Create a production-ready character brief: gameplay role, narrative desire/need/
 Write a game-ready 3D asset specification from these references. Include real-world dimensions, silhouette priorities, modularity, topology and triangle targets by LOD, UV/texel-density rules, PBR texture sets and resolutions, pivots, collision, sockets, naming, export format/axes/scale, engine import preset, worst-case scene density, provenance/license record, and visual/performance acceptance checks.
 ```
 
+## Datasheet to validated 3D model
+
+```text
+Use guides/art/datasheet-to-3d.md. Preserve the supplied datasheets, drawings, CAD and images as immutable evidence and identify the exact product variant/revision. Before modeling, create DIMENSION_LEDGER.md from the template. Mark every value stated, derived, estimated, unknown or conflicting; include unit, tolerance, datum and exact page/figure. Stop dependent modeling when critical sources conflict. Choose and justify an accuracy class and a FreeCAD, OpenSCAD or Blender master. Build in datum/evidence order with parameters mapped to ledger IDs. Generate numerical checks and calibrated orthographic overlays. Keep the validated master separate from the tessellated game derivative; then retopologize, UV, bake, create LOD/collision, import into the target engine and complete DATASHEET_MODEL_VALIDATION.md. Never claim manufacturing accuracy or invent hidden dimensions.
+```
+
 ## Bug reproduction
 
 ```text

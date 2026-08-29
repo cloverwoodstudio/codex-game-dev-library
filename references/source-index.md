@@ -58,6 +58,10 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Adobe Substance 3D documentation: https://helpx.adobe.com/substance-3d.html
 - Unreal procedural content generation: https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 - Poly Haven CC0 license: https://polyhaven.com/license
+- FreeCAD parametric modeling and exchange formats: https://www.freecad.org/features.php and https://www.freecad.org/manual/a-freecad-manual.pdf
+- Blender retopology: https://docs.blender.org/manual/en/latest/modeling/meshes/retopology.html
+- Khronos real-time product-asset guidelines: https://github.com/KhronosGroup/3DC-Asset-Creation/blob/main/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md
+- glTF specification and Asset Auditor: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html and https://www.khronos.org/gltf/gltf-asset-auditor/
 
 ## Audio
 

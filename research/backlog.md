@@ -18,6 +18,9 @@ This library should grow through focused, verifiable passes.
 - [x] Engine-neutral telemetry, crash reporting and live-operations foundation
 - [ ] Engine-specific save/replay, telemetry and crash-reporting samples
 - [x] Asset pipeline foundations for 2D, 3D, animation, shaders, audio and localization
+- [x] Datasheet-to-parametric-CAD-to-game-ready 3D workflow with uncertainty and validation ledger
+- [ ] Tested FreeCAD and OpenSCAD reconstruction sample with automated dimension checks
+- [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset
 - [ ] Tested engine-specific asset import presets and sample assets
 - [x] Engine-neutral visual-regression and replay-driven testing foundation
 - [ ] Automated visual regression and input replay samples per engine

@@ -13,6 +13,7 @@ This repository is a shared game-development knowledge base. Preserve it as a so
 5. Run the game after meaningful changes. Test controls and state transitions; capture screenshots or recordings for visual review.
 6. Prefer deterministic logic and headless tests for systems; use real play sessions for feel, rendering, audio, and performance.
 7. Keep generated asset prompts and provenance. Never assume an asset is commercially usable without checking its license.
+   For models reconstructed from datasheets or technical drawings, follow `guides/art/datasheet-to-3d.md`; create a dimension ledger and validation report before claiming dimensional accuracy.
 8. Profile on target hardware before optimizing. Record baseline and after-change evidence.
 9. Keep commits small and do not overwrite unrelated user work.
 
