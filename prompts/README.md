@@ -115,3 +115,21 @@ Design an observable and reversible live-ops change. State the player question o
 ```text
 Build a store asset brief from the current playable build and the platform's current official requirements. Define the player fantasy, three observable differentiators, capture states, gameplay-first trailer beats, screenshot/capsule matrix, localization, provenance, accessibility/maturity checks and exact build evidence for every claim. Flag anything promised but not demonstrable in the release candidate.
 ```
+
+## Procedural generator contract
+
+```text
+Design this procedural generator from invariants and measurable output distributions backward. Define reproduction key, generator/config/content versions, stable named random streams, structural pipeline, bounded validation/repair, safe fallback, performance budget, golden/regression/fuzz seed corpora and player-facing seed compatibility. Produce property tests and a failure artifact that reports the exact seed, first invalid stage and output hash.
+```
+
+## Replay-driven regression
+
+```text
+Turn this gameplay defect into a minimal versioned replay. Record build/content/simulation versions, fixed tick rate, seed and random-stream state, semantic quantized commands, checkpoints and subsystem hashes. Reproduce the first divergent tick before editing, implement the narrowest fix, preserve the replay as a regression test and report any replay compatibility implications.
+```
+
+## CI evidence design
+
+```text
+Design the cheapest CI pipeline that proves a clean machine can validate, test, package and smoke-run this game. Separate pull-request, main, nightly and release gates; define the justified platform matrix, pinned toolchain, cache boundaries, secret permissions, timeouts and local command equivalents. On failure retain uniquely named logs, test reports, screenshots/diffs, seeds/replays and build manifest. Do not deploy a rebuild that differs from the tested artifact.
+```

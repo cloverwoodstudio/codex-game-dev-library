@@ -8,13 +8,14 @@ This library should grow through focused, verifiable passes.
 - [x] Movement and camera feel foundation with time-aware smoothing
 - [x] Multiplayer architecture foundation: authority, rollback, prediction, snapshots, test matrix
 - [ ] Engine-specific working multiplayer samples, matchmaking and deployment
-- [ ] Procedural generation and deterministic seeds
+- [x] Procedural generation, deterministic streams and seed-corpus foundation
 - [x] Save architecture and migrations foundation
 - [x] Engine-neutral telemetry, crash reporting and live-operations foundation
 - [ ] Engine-specific save/replay, telemetry and crash-reporting samples
 - [x] Asset pipeline foundations for 2D, 3D, animation, shaders, audio and localization
 - [ ] Tested engine-specific asset import presets and sample assets
-- [ ] Automated visual regression and input replay per engine
+- [x] Engine-neutral visual-regression and replay-driven testing foundation
+- [ ] Automated visual regression and input replay samples per engine
 - [x] Gameplay AI decision-model foundation
 - [x] VFX/shader production foundation
 - [x] UI/accessibility foundation
@@ -37,6 +38,10 @@ This library should grow through focused, verifiable passes.
 - [ ] Sandboxed mod loader and adversarial manifest-parser sample
 - [ ] Consent-aware telemetry SDK samples and local observability stack
 - [ ] Storefront-specific current checklists beyond Steam/itch.io
+- [x] CI/build-evidence and layered game-testing foundation
+- [ ] Working Godot, Unity and Unreal CI reference projects
+- [ ] Cross-platform deterministic simulation conformance lab
+- [ ] Property-based generator test harness and seed shrinker sample
 - [ ] Benchmark agent workflows on the same small game briefs
 - [ ] Interview postmortems and original GDC talks; label experience-based findings
 

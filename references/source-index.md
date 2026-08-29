@@ -102,3 +102,13 @@ Always verify the license on the exact asset/version; an index link is not legal
 - Unity crash reporting: https://docs.unity.com/en-us/cloud-diagnostics/crash-and-exception-reporting/setting-up-crash-and-exception-reporting
 - Steam store page and trailers: https://partner.steamgames.com/doc/store/page and https://partner.steamgames.com/doc/store/trailer
 - Android game performance: https://developer.android.com/games/optimize
+
+## Procedural generation, replays and automation
+
+- Godot random-number generation: https://docs.godotengine.org/en/stable/tutorials/math/random_number_generation.html
+- Godot command-line and headless operation: https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html
+- Unity Test Framework CLI: https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/reference-command-line.html
+- Unreal Automation System: https://dev.epicgames.com/documentation/en-us/unreal-engine/automation-system-user-guide-in-unreal-engine
+- Unreal replay system: https://dev.epicgames.com/documentation/en-us/unreal-engine/using-the-replay-system-in-unreal-engine
+- Unreal PCG Framework: https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-content-generation-framework-in-unreal-engine
+- GitHub Actions artifacts: https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts

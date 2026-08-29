@@ -50,3 +50,8 @@ Never scale content before proving both the core loop and the content-production
 - Telemetry, crashes and live operations: `workflows/observability-live-ops.md`
 - Performance evidence: `workflows/performance-lab.md`
 - Store page and capture pipeline: `workflows/store-marketing.md`
+- Procedural generation: `design/procedural-generation.md`
+- Automated and playable testing: `workflows/game-testing.md`
+- Replay-driven reproduction: `systems/replays-determinism.md`
+- Visual regression: `workflows/visual-regression.md`
+- CI and build evidence: `workflows/continuous-integration.md`
