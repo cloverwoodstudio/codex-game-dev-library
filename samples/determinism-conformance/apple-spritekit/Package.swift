@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "AppleSpriteKitConformance",
-    platforms: [.macOS(.v15)],
+    platforms: [.macOS(.v15), .iOS(.v17), .tvOS(.v17), .visionOS(.v1)],
     products: [
         .library(name: "ConformanceCore", targets: ["ConformanceCore"]),
         .executable(name: "AppleSpriteKitDemo", targets: ["AppleSpriteKitDemo"])

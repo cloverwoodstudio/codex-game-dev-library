@@ -50,7 +50,25 @@ swift build -c release
 swift run -c release AppleSpriteKitDemo ../fixtures/golden-replay.json /tmp/apple-spritekit-conformance.png
 ```
 
-The Swift package contains a renderer-independent `ConformanceCore` library, Swift Testing coverage and a macOS SpriteKit evidence renderer. Three tests cover golden checkpoints, two frame-chunk schedules and invalid input. The Release executable produced hash `d282e067` and a visually inspected 960×540 PNG with the expected state-derived actor position and no runtime warnings. This proves the deterministic core and SpriteKit presentation boundary on macOS; it does not yet prove an iOS/iPadOS/tvOS app lifecycle, signing or physical-device performance.
+The Swift package contains a renderer-independent `ConformanceCore` library, Swift Testing coverage and a macOS SpriteKit evidence renderer. Three tests cover golden checkpoints, two frame-chunk schedules and invalid input. The Release executable produced hash `d282e067` and a visually inspected 960×540 PNG with the expected state-derived actor position and no runtime warnings. This proves the deterministic core and SpriteKit presentation boundary on macOS.
+
+### iPhone and iPad app target
+
+The shared `ConformanceCore` package is also consumed by a real SwiftUI/SpriteKit Xcode app target supporting iPhone and iPad. It was built, installed, launched and visually inspected on iPhone Air and iPad Pro 11-inch (M5) simulators running iOS/iPadOS 26.5 with Xcode 26.6 on 2026-08-29. Both runs loaded the bundled golden replay, displayed final hash `d282e067` and reported `PASS`.
+
+```sh
+xcodebuild \
+  -project apple-ios/AppleConformanceApp.xcodeproj \
+  -scheme AppleConformanceApp \
+  -sdk iphonesimulator \
+  -destination 'platform=iOS Simulator,name=iPhone Air,OS=26.5' \
+  -derivedDataPath apple-ios/.derived \
+  CODE_SIGNING_ALLOWED=NO \
+  ONLY_ACTIVE_ARCH=YES \
+  build
+```
+
+Choose an installed simulator name and OS when reproducing locally. `ONLY_ACTIVE_ARCH=YES` avoids compiling an unused simulator architecture when the local Swift package was resolved for the active Apple Silicon destination. CI selects the runner architecture explicitly. This evidence proves package integration, application lifecycle and adaptive simulator rendering; it does not prove signing, TestFlight, touch feel, thermal behavior or physical-device performance.
 
 ## Contract
 
@@ -74,4 +92,4 @@ An engine port conforms when it:
 4. rejects input outside the quantized schema;
 5. reports the first divergent tick with state fields and PRNG state.
 
-Keep engine ports in named subdirectories of this sample and add their verified toolchain/command evidence to this README. Current verified ports: JavaScript reference, Godot/GDScript, Phaser 4 and Apple SpriteKit/Swift.
+Keep engine ports in named subdirectories of this sample and add their verified toolchain/command evidence to this README. Current verified ports: JavaScript reference, Godot/GDScript, Phaser 4 and Apple SpriteKit/Swift on macOS, iPhone and iPad Simulator.

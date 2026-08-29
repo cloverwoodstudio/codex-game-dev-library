@@ -69,3 +69,20 @@ jobs:
         run: |
           swift run -c release AppleSpriteKitDemo ../fixtures/golden-replay.json /tmp/apple-spritekit-conformance.png
           test -s /tmp/apple-spritekit-conformance.png
+
+  apple-ios-conformance:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the iPhone and iPad app for Simulator
+        run: |
+          xcodebuild \
+            -project samples/determinism-conformance/apple-ios/AppleConformanceApp.xcodeproj \
+            -scheme AppleConformanceApp \
+            -sdk iphonesimulator \
+            -derivedDataPath /tmp/apple-ios-conformance-derived \
+            CODE_SIGNING_ALLOWED=NO \
+            ONLY_ACTIVE_ARCH=YES \
+            ARCHS="$(uname -m)" \
+            build
+          test -d /tmp/apple-ios-conformance-derived/Build/Products/Debug-iphonesimulator/AppleConformanceApp.app

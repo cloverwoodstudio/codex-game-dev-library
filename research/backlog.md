@@ -7,6 +7,7 @@ This library should grow through focused, verifiable passes.
 - [x] Godot/GDScript determinism conformance port with headless and visual runtime evidence
 - [x] Phaser 4 determinism conformance port with production build and browser evidence
 - [x] macOS SpriteKit/Swift conformance port with Swift Testing, Release build and rendered evidence
+- [x] Universal iPhone/iPad SpriteKit app target with simulator build, launch and visual runtime evidence
 - [ ] Port determinism conformance fixture to Unity and Unreal
 
 - [x] Deep production playbooks: Godot, Unity, Unreal and browser/Phaser

@@ -10,13 +10,14 @@ Make Apple platforms the library's deepest end-to-end route: native creation, cr
 
 - Apple-native, platform and build/release playbooks exist.
 - SceneKit is treated as deprecated; new 3D work routes to RealityKit or Metal.
-- The first executable native sample now proves a Swift deterministic core, Swift Testing, Release build and SpriteKit render on macOS.
+- The first executable native sample now proves a shared Swift deterministic core, Swift Testing, a Release build and SpriteKit rendering on macOS.
+- A real universal iPhone/iPad SwiftUI + SpriteKit target consumes that package and has matching runtime evidence on iPhone Air and iPad Pro simulators; signing and physical-device evidence remain open.
 - Apple Game Porting Toolkit and its official agent skills are indexed.
 - StoreKit, GameKit, Game Controller, Core Haptics, privacy, TestFlight and notarization foundations are documented but not yet implemented as tested samples.
 
 ## P0 — playable native slice
 
-1. Convert the Swift package core into a shared package consumed by real macOS and iOS/iPadOS Xcode app targets.
+1. Done: the Swift package core is consumed by a real iOS/iPadOS Xcode app target; a dedicated macOS app lifecycle target remains optional because the package already has a tested macOS SpriteKit executable.
 2. Implement one SpriteKit playable loop with touch, keyboard and controller actions, pause/restart and accessibility-labelled surrounding UI.
 3. Add Xcode test plans, simulator UI smoke tests and physical iPhone/iPad evidence.
 4. Archive an unsigned CI artifact and document the signing/TestFlight handoff without storing secrets.
