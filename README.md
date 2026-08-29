@@ -45,6 +45,8 @@ The current coverage audit and prioritized implementation sequence live in [`res
 
 For image sheets, blueprints and datasheets, Codex can load [the reference-sheet-to-3D skill](.agents/skills/reference-sheet-to-3d/SKILL.md) and run [ViewForge](tools/viewforge/README.md) to produce a measurable visual hull, GLB/USD exports, orthographic evidence and a reprojection report instead of guessing a mesh.
 
+The current reconstruction capability and missing stages are tracked in the [ViewForge audit](research/viewforge-audit-2026-08-29.md).
+
 Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample. Codex can route Apple work through [the auto-discovered Apple platform skill](.agents/skills/apple-platform-development/SKILL.md) and its maintained tool catalog.
 
 ## Contributing

@@ -90,41 +90,85 @@ def load_pixels(path: Path) -> tuple[int, int, list[tuple[float, float, float, f
     return width, height, pixels
 
 
-def build_mask(path: Path, config: dict, target_width: int, target_height: int) -> set[tuple[int, int]]:
+def build_mask(path: Path, config: dict, target_width: int, target_height: int) -> tuple[set[tuple[int, int]], dict]:
     width, height, pixels = load_pixels(path)
     mode = config.get("mode")
-    if mode not in ("dark", "light", "alpha"):
-        fail(f"view mode must be dark, light or alpha: {path}")
+    if mode not in ("dark", "light", "alpha", "background"):
+        fail(f"view mode must be dark, light, alpha or background: {path}")
     threshold = float(config.get("threshold", 0.5))
+    crop = config.get("crop", {"x": 0, "y": 0, "width": width, "height": height})
+    crop_x, crop_y = int(crop["x"]), int(crop["y"])
+    crop_width, crop_height = int(crop["width"]), int(crop["height"])
+    if crop_width <= 0 or crop_height <= 0 or crop_x < 0 or crop_y < 0 or crop_x + crop_width > width or crop_y + crop_height > height:
+        fail(f"crop is outside source image bounds: {path}")
+    crop_maximum_x = crop_x + crop_width - 1
+    crop_maximum_y = crop_y + crop_height - 1
+    corner_pixels = [
+        pixels[crop_y * width + crop_x],
+        pixels[crop_y * width + crop_maximum_x],
+        pixels[crop_maximum_y * width + crop_x],
+        pixels[crop_maximum_y * width + crop_maximum_x],
+    ]
+    background_rgb = tuple(sum(pixel[channel] for pixel in corner_pixels) / 4 for channel in range(3))
+    background_tolerance = float(config.get("background_tolerance", 0.12))
+
     def is_inside(pixel: tuple[float, float, float, float]) -> bool:
         red, green, blue, alpha = pixel
         luminance = 0.2126 * red + 0.7152 * green + 0.0722 * blue
-        return alpha >= threshold if mode == "alpha" else luminance <= threshold if mode == "dark" else luminance >= threshold
+        if mode == "alpha":
+            return alpha >= threshold
+        if mode == "dark":
+            return luminance <= threshold
+        if mode == "light":
+            return luminance >= threshold
+        color_distance = ((red - background_rgb[0]) ** 2 + (green - background_rgb[1]) ** 2 + (blue - background_rgb[2]) ** 2) ** 0.5 / 3**0.5
+        return color_distance >= background_tolerance
 
-    source_mask = {(x, y) for y in range(height) for x in range(width) if is_inside(pixels[y * width + x])}
+    source_mask = {
+        (x, y)
+        for y in range(crop_y, crop_y + crop_height)
+        for x in range(crop_x, crop_x + crop_width)
+        if is_inside(pixels[y * width + x])
+    }
     if not source_mask:
         fail(f"view produced an empty mask: {path}")
     minimum_x = min(x for x, _ in source_mask)
     maximum_x = max(x for x, _ in source_mask)
     minimum_y = min(y for _, y in source_mask)
     maximum_y = max(y for _, y in source_mask)
-    crop_width = maximum_x - minimum_x + 1
-    crop_height = maximum_y - minimum_y + 1
+    content_width = maximum_x - minimum_x + 1
+    content_height = maximum_y - minimum_y + 1
 
     result = set()
     for v in range(target_height):
         normalized_v = (v + 0.5) / target_height
         if config.get("flip_vertical", False):
             normalized_v = 1.0 - normalized_v
-        source_y = min(maximum_y, maximum_y - int(normalized_v * crop_height))
+        source_y = min(maximum_y, maximum_y - int(normalized_v * content_height))
         for u in range(target_width):
             normalized_u = (u + 0.5) / target_width
             if config.get("flip_horizontal", False):
                 normalized_u = 1.0 - normalized_u
-            source_x = min(maximum_x, minimum_x + int(normalized_u * crop_width))
+            source_x = min(maximum_x, minimum_x + int(normalized_u * content_width))
             if (source_x, source_y) in source_mask:
                 result.add((u, v))
-    return result
+    metadata = {
+        "path": str(path),
+        "source_size": {"width": width, "height": height},
+        "requested_crop": {"x": crop_x, "y": crop_y, "width": crop_width, "height": crop_height},
+        "detected_content_bounds": {"x": minimum_x, "y": minimum_y, "width": content_width, "height": content_height},
+        "mode": mode,
+        "threshold": threshold if mode != "background" else None,
+        "background_tolerance": background_tolerance if mode == "background" else None,
+    }
+    return result, metadata
+
+
+def write_mask_pgm(path: Path, mask: set[tuple[int, int]], width: int, height: int) -> None:
+    lines = ["P2", f"{width} {height}", "255"]
+    for image_y in range(height - 1, -1, -1):
+        lines.append(" ".join("0" if (x, image_y) in mask else "255" for x in range(width)))
+    path.write_text("\n".join(lines) + "\n", encoding="ascii")
 
 
 def resolve_view_path(manifest_directory: Path, config: dict) -> Path:
@@ -284,11 +328,14 @@ def main() -> None:
     dimensions = tuple(float(manifest["dimensions"][key]) * unit_scale for key in ("width", "depth", "height"))
     nx, ny, nz = (manifest["resolution"][key] for key in ("x", "y", "z"))
 
-    masks = {
-        "front": build_mask(resolve_view_path(manifest_directory, manifest["views"]["front"]), manifest["views"]["front"], nx, nz),
-        "side": build_mask(resolve_view_path(manifest_directory, manifest["views"]["side"]), manifest["views"]["side"], ny, nz),
-        "top": build_mask(resolve_view_path(manifest_directory, manifest["views"]["top"]), manifest["views"]["top"], nx, ny),
-    }
+    masks = {}
+    input_metadata = {}
+    target_sizes = {"front": (nx, nz), "side": (ny, nz), "top": (nx, ny)}
+    for view_name, (target_width, target_height) in target_sizes.items():
+        view_config = manifest["views"][view_name]
+        masks[view_name], input_metadata[view_name] = build_mask(
+            resolve_view_path(manifest_directory, view_config), view_config, target_width, target_height
+        )
     occupied = reconstruct(nx, ny, nz, masks)
 
     bpy.ops.object.select_all(action="SELECT")
@@ -299,6 +346,10 @@ def main() -> None:
 
     output_directory = (manifest_directory / manifest["output_directory"]).resolve()
     output_directory.mkdir(parents=True, exist_ok=True)
+    masks_directory = output_directory / "masks"
+    masks_directory.mkdir(parents=True, exist_ok=True)
+    for view_name, (target_width, target_height) in target_sizes.items():
+        write_mask_pgm(masks_directory / f"{view_name}.pgm", masks[view_name], target_width, target_height)
     configure_scene(int(manifest.get("render_size", 512)))
     render_views(output_directory, dimensions)
     export_outputs(output_directory, manifest["name"], model)
@@ -319,6 +370,7 @@ def main() -> None:
         "occupied_voxels": len(occupied),
         "mesh_vertices_before_bevel": vertex_count,
         "boundary_faces": boundary_faces,
+        "inputs": input_metadata,
         "views": {name: comparison(masks[name], projections[name]) for name in masks},
         "claim": "Visual hull constrained by supplied silhouettes; hidden concavities and surface curvature remain unknown.",
     }

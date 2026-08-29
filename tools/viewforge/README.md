@@ -2,9 +2,9 @@
 
 Reviewed: 2026-08-29
 
-ViewForge turns calibrated front/side/top silhouette masks into a deterministic 3D visual hull in Blender. It is designed for Codex workflows where a reference sheet exists but free-form mesh generation would otherwise become guesswork.
+ViewForge turns calibrated front/side/top views into a deterministic 3D visual hull in Blender. The views can be separate masks or pixel crops from one shared reference sheet. It is designed for Codex workflows where a reference sheet exists but free-form mesh generation would otherwise become guesswork.
 
-It does **not** infer hidden concavities, materials, mechanisms or anatomy. Instead it creates the largest volume consistent with every supplied silhouette, reports reprojection agreement and exports an editable `.blend`, runtime `.glb`, Apple-oriented `.usdc`, validation JSON and orthographic renders. The result is a grounded blockout for deliberate refinement, not a finished production asset.
+It does **not** infer hidden concavities, materials, mechanisms or anatomy. Instead it creates the largest volume consistent with every supplied silhouette, reports reprojection agreement and input provenance, and exports an editable `.blend`, runtime `.glb`, Apple-oriented `.usdc`, normalized masks, validation JSON and orthographic renders. The result is a grounded blockout for deliberate refinement, not a finished production asset.
 
 ## Quick start
 
@@ -25,12 +25,16 @@ tools/viewforge/tests/smoke.sh
 - Use orthographic or perspective-corrected front, side and top masks.
 - Every view must describe the same variant, pose and articulation state.
 - Calibrate all views against the same real dimensions; never stretch each view independently by eye.
-- Use alpha masks, or dark/light silhouettes with an explicit threshold.
+- Use alpha masks, dark/light silhouettes with an explicit threshold, or `background` mode for a uniformly colored sheet.
+- A shared sheet can be referenced by all three views with top-left pixel `crop` rectangles. The example exercises this route.
 - Remove unrelated text, dimensions and view labels. ViewForge automatically crops each mask to its non-background bounds, then maps that silhouette to the declared object dimensions.
+- `background` mode estimates the background from the four crop corners and uses `background_tolerance` as normalized RGB distance. It is intentionally simple and auditable: do not use it when the object touches a corner, the backdrop is nonuniform, shadows merge with the object or foreground/background colors overlap. Supply reviewed masks instead.
 - The model coordinate contract is `+X = right`, `+Y = back`, `+Z = up`; the origin is centered on the ground plane.
 - Front image maps horizontal to X and vertical to Z. Side maps horizontal to Y and vertical to Z. Top maps horizontal to X and vertical to Y.
 
 See `manifest.schema.json` and the example manifest. Resolution controls the reconstruction grid, not the output image size. Start around 32–64 cells on the longest axis; high resolutions grow memory and face counts cubically.
+
+ViewForge writes the exact normalized masks used for reconstruction under `output/masks/`. Inspect these before trusting a good numerical score; a consistently wrong mask can still reproject perfectly.
 
 ## What the report means
 

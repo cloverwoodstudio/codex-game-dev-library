@@ -29,6 +29,9 @@ This library should grow through focused, verifiable passes.
 - [x] Datasheet-to-parametric-CAD-to-game-ready 3D workflow with uncertainty and validation ledger
 - [ ] Tested FreeCAD and OpenSCAD reconstruction sample with automated dimension checks
 - [x] Tested Blender ViewForge visual-hull reconstruction from calibrated front/side/top masks with GLB/USDC exports and reprojection checks
+- [x] ViewForge shared-sheet crop ingestion, auditable background segmentation, normalized mask evidence and input provenance
+- [ ] ViewForge calibration landmarks, perspective correction and source/mask/projection overlays
+- [ ] ViewForge dimension-led holes/cutters, cross-sections, LODs, collision and engine import evidence
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset
 - [ ] Tested engine-specific asset import presets and sample assets
 - [x] Engine-neutral visual-regression and replay-driven testing foundation

@@ -17,10 +17,10 @@ Use the repository's `tools/viewforge/` pipeline to create an evidence-constrain
 
 ## Run the grounded blockout
 
-1. Preserve source images unchanged. Derive aligned silhouette masks separately.
-2. Copy `tools/viewforge/examples/crate/viewforge.json` into the asset working directory and update paths, dimensions, units, resolution, flips and threshold.
+1. Preserve source images unchanged. Identify top-left pixel crop rectangles for front, side and top. Use reviewed masks for difficult backgrounds; use `background` mode only for uniform backgrounds with clear corner samples.
+2. Copy `tools/viewforge/examples/crate/viewforge.json` into the asset working directory and update paths, crops, dimensions, units, resolution, flips and segmentation settings.
 3. Run `tools/viewforge/viewforge.sh <manifest>`.
-4. Read `validation.json` and inspect front/side/top renders. Do not continue if the hull is empty or important views have poor IoU; fix calibration, orientation or masks first.
+4. Read `validation.json`; inspect `output/masks/` and front/side/top renders. Do not continue if the hull is empty, masks are wrong or important views have poor IoU; fix crops, calibration, orientation or segmentation first.
 5. Keep the generated hull as evidence. Refine a duplicate with dimension-led parametric cutters, supported curvature, retopology, UVs, materials, collision and LODs.
 6. Run the final asset in its target engine or RealityKit renderer. For Apple targets, export/validate USD and load the `apple-platform-development` skill.
 
