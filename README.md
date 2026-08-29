@@ -26,6 +26,7 @@ A living, source-backed playbook for building games with Codex. This repository 
 - `prompts/` — reusable briefs and prompts for Codex and asset generation
 - `code-patterns/` — engine-neutral reference implementations
 - `samples/` — runnable, versioned reference implementations with expected evidence
+- `.agents/skills/` — auto-discovered repository-local Codex skills; the Apple skill includes a large tool catalog and read-only host audit
 
 ## Complete development map
 
@@ -41,7 +42,7 @@ This is a growing foundation, not a claim to contain the whole internet. It now 
 
 The current coverage audit and prioritized implementation sequence live in [`research/library-audit-2026-08-29.md`](research/library-audit-2026-08-29.md). Runnable evidence begins with [`samples/determinism-conformance/`](samples/determinism-conformance/).
 
-Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample.
+Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample. Codex can route Apple work through [the auto-discovered Apple platform skill](.agents/skills/apple-platform-development/SKILL.md) and its maintained tool catalog.
 
 ## Contributing
 

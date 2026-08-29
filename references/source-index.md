@@ -26,6 +26,18 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Metal and feature tables: https://developer.apple.com/documentation/metal and https://developer.apple.com/metal/capabilities/
 - SceneKit deprecation/migration: https://developer.apple.com/documentation/RealityKit/bringing-your-scenekit-projects-to-realitykit
 
+### Apple toolchain and Codex-loadable catalog
+
+- Repository-local Apple platform skill and tool catalog: `.agents/skills/apple-platform-development/SKILL.md` and `.agents/skills/apple-platform-development/references/tool-catalog.md`
+- Apple games and current game resources: https://developer.apple.com/games/ and https://developer.apple.com/games/resources/
+- Xcode and its command-line tool reference: https://developer.apple.com/xcode/ and https://developer.apple.com/documentation/xcode/xcode-command-line-tool-reference
+- Game Porting Toolkit 4 and Apple's agent-skill repository: https://developer.apple.com/games/game-porting-toolkit/ and https://github.com/apple/game-porting-toolkit
+- RealityKit/AR authoring and Object Capture: https://developer.apple.com/augmented-reality/tools/ and https://developer.apple.com/augmented-reality/object-capture/
+- Apple design resources, SF Symbols and accessibility: https://developer.apple.com/design/resources/ and https://developer.apple.com/sf-symbols/ and https://developer.apple.com/accessibility/
+- Tuist and XcodeGen: https://github.com/tuist/tuist and https://github.com/yonaskolb/XcodeGen
+- SwiftLint, SwiftFormat, SwiftGen, Sourcery and Periphery: https://github.com/realm/SwiftLint and https://github.com/nicklockwood/SwiftFormat and https://github.com/SwiftGen/SwiftGen and https://github.com/krzysztofzablocki/Sourcery and https://github.com/peripheryapp/periphery
+- xcbeautify, fastlane and Sparkle: https://github.com/cpisciotta/xcbeautify and https://github.com/fastlane/fastlane and https://github.com/sparkle-project/Sparkle
+
 ### Code-first engine production
 
 - Three.js installation, cleanup and WebGPU renderer: https://threejs.org/manual/en/installation.html and https://threejs.org/manual/en/cleanup.html and https://threejs.org/manual/en/webgpurenderer

@@ -44,6 +44,7 @@ This library should grow through focused, verifiable passes.
 - [x] Apple-native stack: SpriteKit, RealityKit, Metal, GameplayKit, Game Controller and GameKit
 - [x] Apple build, profiling, TestFlight, App Store and macOS notarization foundation
 - [x] Apple Game Porting Toolkit and official Codex agent-skill route
+- [x] Repository-local Apple platform skill with broad tool catalog, safety routing and read-only host audit
 - [ ] Tested SpriteKit, RealityKit and Metal starter projects with physical-device evidence
 - [ ] Automated Xcode archive/TestFlight reference pipeline and direct-macOS notarization sample
 - [x] Asset provenance, marketplace licensing and generative-AI disclosure foundation

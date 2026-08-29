@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Platform Development"
+  short_description: "Route Apple game and app work to the right tools."
+  default_prompt: "Use $apple-platform-development to select and verify the right Apple tools for this task."

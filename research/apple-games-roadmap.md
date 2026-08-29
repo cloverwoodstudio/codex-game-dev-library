@@ -9,6 +9,7 @@ Make Apple platforms the library's deepest end-to-end route: native creation, cr
 ## Current proof
 
 - Apple-native, platform and build/release playbooks exist.
+- A repository-local Apple platform skill now routes Codex through a broad, source-backed catalog of native SDKs, Xcode CLI tools, porting tools, engines, content pipelines, testing, CI and release tooling; its host audit is read-only.
 - SceneKit is treated as deprecated; new 3D work routes to RealityKit or Metal.
 - The first executable native sample now proves a shared Swift deterministic core, Swift Testing, a Release build and SpriteKit rendering on macOS.
 - A real universal iPhone/iPad SwiftUI + SpriteKit target consumes that package and has matching runtime evidence on iPhone Air and iPad Pro simulators; signing and physical-device evidence remain open.

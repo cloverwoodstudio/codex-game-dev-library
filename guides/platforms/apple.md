@@ -6,6 +6,8 @@ Apple is not one target. Define an explicit matrix across macOS, iOS, iPadOS, tv
 
 ## Toolchain inventory
 
+For the expanded, Codex-loadable catalog covering Apple SDKs and CLI tools, engines, 2D/3D/USD, audio/video, project generation, CI, release and observability, load `.agents/skills/apple-platform-development/SKILL.md` and only its task-relevant references. The skill also provides a read-only installed-tool audit.
+
 - **Xcode and command-line tools:** SDKs, compilation, signing, simulators, device deployment, tests, archives and debugging.
 - **Swift / Objective-C / C++:** application and engine integration; use Swift Package Manager or an explicitly locked dependency system.
 - **SpriteKit:** high-level native 2D.
