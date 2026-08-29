@@ -1,0 +1,34 @@
+# Codex Game Development Library
+
+A living, source-backed playbook for building games with Codex. This repository is designed to be cloned into, linked from, or consulted by every Codex agent working on a game.
+
+## Start here
+
+1. Read [`AGENTS.md`](AGENTS.md).
+2. Pick an engine with [`guides/engine-selection.md`](guides/engine-selection.md).
+3. Copy [`templates/PLAN.template.md`](templates/PLAN.template.md) into the game repository as `PLAN.md`.
+4. Follow [`guides/workflows/codex-loop.md`](guides/workflows/codex-loop.md).
+5. Use [`references/source-index.md`](references/source-index.md) for current documentation and proven examples.
+
+## Library map
+
+- `guides/` — distilled, actionable guidance
+- `guides/engines/` — engine-specific playbooks
+- `guides/workflows/` — repeatable Codex workflows
+- `templates/` — files to copy into new game repositories
+- `references/` — curated primary sources and example repositories
+- `research/` — research notes, findings, and backlog
+
+## Core principle
+
+Game development is an empirical loop: **specify → build the smallest playable slice → run → observe → measure → adjust → preserve the evidence**. A build passing is necessary, but the game must also be played and visually inspected.
+
+## Scope and status
+
+This is the initial foundation, not a claim to contain the whole internet. Game engines and Codex evolve continuously. Every important claim should link to a primary source, record a review date, and distinguish official guidance from community experience.
+
+## Contributing
+
+Add distilled knowledge, not copied articles. Prefer official manuals, original talks/papers, maintained example repositories, and reproducible experiments. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+License: [CC BY 4.0](LICENSE) for the written knowledge in this repository. Linked code and assets retain their original licenses.

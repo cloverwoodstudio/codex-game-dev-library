@@ -1,0 +1,14 @@
+name: Check links
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 1 * *'
+  pull_request:
+    paths: ['**/*.md', 'scripts/check-links.sh']
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ripgrep
+      - run: bash scripts/check-links.sh
