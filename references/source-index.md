@@ -21,6 +21,16 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - raylib cheatsheet/examples: https://www.raylib.com/cheatsheet/cheatsheet.html and https://github.com/raysan5/raylib/tree/master/examples
 - MonoGame docs/samples: https://docs.monogame.net/ and https://github.com/MonoGame/MonoGame.Samples
 
+### Production commands and runtime validation
+
+- Godot command line: https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html
+- Godot exporting and profiler: https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html and https://docs.godotengine.org/en/stable/tutorials/scripting/debug/the_profiler.html
+- Unity command-line builds: https://docs.unity3d.com/6000.0/Documentation/Manual/build-command-line.html
+- Unity Test Framework CLI and Profiler: https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/reference-command-line.html and https://docs.unity3d.com/Manual/Profiler.html
+- Unreal BuildCookRun: https://dev.epicgames.com/documentation/unreal-engine/build-operations-cooking-packaging-deploying-and-running-projects-in-unreal-engine
+- Unreal command-line automation and Insights: https://dev.epicgames.com/documentation/en-us/unreal-engine/run-automation-tests-in-unreal-engine and https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-insights-in-unreal-engine
+- Phaser Scenes and Input: https://docs.phaser.io/phaser/concepts/scenes and https://docs.phaser.io/phaser/concepts/input
+
 ## Architecture and mathematics
 
 - Game Programming Patterns (free web edition): https://gameprogrammingpatterns.com/

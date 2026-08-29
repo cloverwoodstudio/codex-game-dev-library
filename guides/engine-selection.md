@@ -13,3 +13,5 @@ Choose from constraints, not popularity. Prototype the riskiest requirement in t
 | Data-oriented custom engine | Bevy, raylib, MonoGame, custom C++ | Maximum control; greater engineering burden |
 
 Evaluate target platforms, team language, source-control friendliness, headless/CLI builds, automated testing, licensing/royalties, asset ecosystem, accessibility, localization, networking, build size, performance targets, and console access. Re-check current commercial terms at decision time.
+
+After choosing, read the matching guide in `guides/engines/` and complete `templates/ENGINE_BOOTSTRAP.template.md` beside the game's `PLAN.md`. Treat every command in the engine guide as a pattern until it has been verified against the project's exact version and installation.
