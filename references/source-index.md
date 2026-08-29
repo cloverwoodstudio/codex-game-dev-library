@@ -21,6 +21,14 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - raylib cheatsheet/examples: https://www.raylib.com/cheatsheet/cheatsheet.html and https://github.com/raysan5/raylib/tree/master/examples
 - MonoGame docs/samples: https://docs.monogame.net/ and https://github.com/MonoGame/MonoGame.Samples
 
+### Code-first engine production
+
+- Three.js installation, cleanup and WebGPU renderer: https://threejs.org/manual/en/installation.html and https://threejs.org/manual/en/cleanup.html and https://threejs.org/manual/en/webgpurenderer
+- Babylon.js documentation, repository and specifications: https://doc.babylonjs.com/ and https://github.com/BabylonJS/Babylon.js and https://www.babylonjs.com/specifications/
+- Bevy Quick Start, examples and migration guides: https://bevyengine.org/learn/quick-start/getting-started/ and https://bevyengine.org/examples/ and https://bevyengine.org/learn/migration-guides/
+- raylib repository, CMake options and game template: https://github.com/raysan5/raylib and https://github.com/raysan5/raylib/blob/master/CMakeOptions.txt and https://github.com/raysan5/raylib-game-template
+- MonoGame getting started and Content Pipeline: https://docs.monogame.net/articles/getting_started/index.html and https://docs.monogame.net/articles/getting_started/content_pipeline/why_content_pipeline.html
+
 ### Production commands and runtime validation
 
 - Godot command line: https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html

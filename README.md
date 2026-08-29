@@ -6,9 +6,10 @@ A living, source-backed playbook for building games with Codex. This repository 
 
 1. Read [`AGENTS.md`](AGENTS.md).
 2. Pick an engine with [`guides/engine-selection.md`](guides/engine-selection.md).
-3. Copy [`templates/PLAN.template.md`](templates/PLAN.template.md) into the game repository as `PLAN.md`.
-4. Follow [`guides/workflows/codex-loop.md`](guides/workflows/codex-loop.md).
-5. Use [`references/source-index.md`](references/source-index.md) for current documentation and proven examples.
+3. Copy [`templates/PLAN.template.md`](templates/PLAN.template.md) as `PLAN.md` and [`templates/ENGINE_BOOTSTRAP.template.md`](templates/ENGINE_BOOTSTRAP.template.md) as `ENGINE_BOOTSTRAP.md`.
+4. Read the matching playbook in [`guides/engines/`](guides/engines/) and verify its command patterns for the pinned version.
+5. Follow [`guides/workflows/codex-loop.md`](guides/workflows/codex-loop.md).
+6. Use [`references/source-index.md`](references/source-index.md) for current documentation and proven examples.
 
 ## Library map
 

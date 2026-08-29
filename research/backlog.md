@@ -3,7 +3,8 @@
 This library should grow through focused, verifiable passes.
 
 - [x] Deep production playbooks: Godot, Unity, Unreal and browser/Phaser
-- [ ] Deep engine playbooks: Three.js, Babylon.js, Bevy, raylib and MonoGame
+- [x] Deep engine playbooks: Three.js, Babylon.js, Bevy, raylib and MonoGame
+- [ ] Deep engine playbooks: PixiJS, Defold, GameMaker and custom C++ engine foundations
 - [ ] Tested starter repositories for Godot, Unity, Unreal and Phaser following these playbooks
 - [x] Genre playbooks: platformer, tactics, roguelike, puzzle, racing, survival/crafting
 - [x] Genre playbooks: idle, FPS, immersive sim, strategy/management, rhythm, party/social, horror

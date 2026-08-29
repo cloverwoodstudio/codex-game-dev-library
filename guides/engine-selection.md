@@ -5,12 +5,16 @@ Choose from constraints, not popularity. Prototype the riskiest requirement in t
 | Need | Strong starting point | Why |
 |---|---|---|
 | 2D browser game | Phaser + TypeScript | Browser-native, fast feedback, extensive examples |
-| Custom 2D/3D browser rendering | PixiJS or Three.js | Lower-level control; more systems must be built |
+| Custom browser 3D rendering | Three.js | Maximum rendering control; game systems must be built |
+| Integrated browser 3D/XR | Babylon.js | More built-in engine subsystems and tooling |
 | Small/medium open-source 2D or 3D game | Godot | Text-friendly scenes/resources, small editor, strong 2D |
 | Cross-platform commercial mobile/indie | Unity | Broad platform/tool ecosystem, C#, mature profiling |
 | High-end 3D, console/PC, large worlds | Unreal Engine | Advanced rendering, gameplay framework, C++/Blueprints |
 | Native Apple-focused game | SpriteKit/SceneKit/Metal | Direct platform integration; narrower portability |
-| Data-oriented custom engine | Bevy, raylib, MonoGame, custom C++ | Maximum control; greater engineering burden |
+| Rust ECS game | Bevy | Data-oriented schedules and plugins; fast-moving API |
+| Minimal native C game | raylib | Small transparent API; architecture and tools are yours |
+| Code-first C# game | MonoGame | XNA-style loop and content pipeline; no prescribed scene editor |
+| Fully custom engine | custom C/C++/Rust | Maximum control; greatest engineering burden |
 
 Evaluate target platforms, team language, source-control friendliness, headless/CLI builds, automated testing, licensing/royalties, asset ecosystem, accessibility, localization, networking, build size, performance targets, and console access. Re-check current commercial terms at decision time.
 
