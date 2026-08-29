@@ -43,3 +43,21 @@ Reproduce the reported gameplay bug before editing. Record build/version, platfo
 ```text
 Profile the representative worst-case scene on target-like hardware. Record frame-time breakdown, memory, loading and build configuration. Rank bottlenecks by measured impact. Change only the top justified bottleneck, compare before/after captures, inspect visual regressions, and stop when the agreed budget is met.
 ```
+
+## Multiplayer architecture
+
+```text
+Design the smallest multiplayer architecture for this game. State topology, authority per system, tick and replication rates, synchronization method, prediction/reconciliation needs, transport assumptions, bandwidth budget, late join/reconnect/version mismatch behavior, persistence and threat model. Define a deterministic multi-process test harness with latency, jitter, loss, reordering and malicious-input cases before implementation.
+```
+
+## Gameplay AI
+
+```text
+Design this NPC from player-facing behaviors backward. Specify allowed perception, memory and forgetting, decision model, actions, navigation, fairness limitations, telegraphs, difficulty parameters, debug visualization and deterministic scenario tests. Choose the simplest of scripted logic, FSM, behavior tree, utility system or planning and justify the complexity.
+```
+
+## Save system
+
+```text
+Design versioned save data around stable domain state. Define the envelope, schema, bounds, atomic write and backup recovery, cloud conflict policy, sequential migrations, fixtures from every shipped version, corruption behavior and untrusted-input validation. Do not serialize arbitrary runtime objects.
+```

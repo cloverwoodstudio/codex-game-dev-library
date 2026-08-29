@@ -51,6 +51,16 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Steamworks documentation: https://partner.steamgames.com/doc/home
 - itch.io creator docs: https://itch.io/docs/creators/getting-started
 
+## AI, networking, persistence and security
+
+- Game AI Pro online index: https://www.gameaipro.com/
+- Unreal EQS: https://dev.epicgames.com/documentation/en-us/unreal-engine/environment-query-system-in-unreal-engine
+- Unity multiplayer: https://docs.unity.com/multiplayer/netcode/netcode
+- Godot multiplayer: https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html
+- Gaffer on Games networking: https://gafferongames.com/
+- OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
+- Unreal saving: https://dev.epicgames.com/documentation/en-us/unreal-engine/saving-and-loading-your-game-in-unreal-engine
+
 ## Assets and licensing
 
 - Creative Commons licenses: https://creativecommons.org/share-your-work/cclicenses/
