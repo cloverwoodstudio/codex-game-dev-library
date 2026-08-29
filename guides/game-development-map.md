@@ -41,3 +41,12 @@ Version control, task slicing, asset provenance, licensing, ratings, privacy, st
 Concept → risk prototype → playable loop → vertical slice → production pipeline → systems alpha → content beta → polish/optimization → release candidate → launch/live operations.
 
 Never scale content before proving both the core loop and the content-production pipeline.
+
+## Production routes
+
+- Repository and binary assets: `workflows/version-control-assets.md`
+- Mods and community content: `systems/modding-ugc.md`
+- Backend trust boundaries: `systems/backend-security.md`
+- Telemetry, crashes and live operations: `workflows/observability-live-ops.md`
+- Performance evidence: `workflows/performance-lab.md`
+- Store page and capture pipeline: `workflows/store-marketing.md`

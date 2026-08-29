@@ -97,3 +97,21 @@ Inventory all code, art, audio, fonts, models, plugins and generated assets. For
 ```text
 Build a target-device matrix and audit input, safe areas/DPI, lifecycle/resume, storage, networking, audio focus, memory, sustained thermal performance, shader/API support, packaging/signing and storefront installation. Define per-tier budgets and graceful quality scaling. Verify on representative physical devices rather than editor emulation alone.
 ```
+
+## Modding and UGC threat model
+
+```text
+Design the smallest safe mod/UGC surface that enables the requested creator behavior. Define package manifest, stable API/versioning, dependencies/load order, allowed capabilities, parser and sandbox boundaries, size/rate limits, signing/hash policy, save and multiplayer compatibility, moderation/takedown workflow and recovery from corrupt or removed content. Treat every downloaded field and file as untrusted; produce adversarial tests before implementing loaders.
+```
+
+## Live-ops readiness
+
+```text
+Design an observable and reversible live-ops change. State the player question or reliability goal, versioned telemetry events and privacy class, dashboards/alerts, typed remote-config schema, safe defaults, approval/audit path, staged rollout cohorts, kill switch, rollback trigger and post-deploy verification. Never allow remote config to bypass server authority.
+```
+
+## Store-page evidence pack
+
+```text
+Build a store asset brief from the current playable build and the platform's current official requirements. Define the player fantasy, three observable differentiators, capture states, gameplay-first trailer beats, screenshot/capsule matrix, localization, provenance, accessibility/maturity checks and exact build evidence for every claim. Flag anything promised but not demonstrable in the release candidate.
+```

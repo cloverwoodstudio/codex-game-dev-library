@@ -90,3 +90,15 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Freesound licensing: https://freesound.org/help/faq/#licenses
 
 Always verify the license on the exact asset/version; an index link is not legal clearance.
+
+## Production, UGC, observability and marketing
+
+- Git LFS locking: https://github.com/git-lfs/git-lfs/blob/main/docs/api/locking.md
+- Unity Smart Merge: https://docs.unity.cn/Manual/SmartMerge.html
+- Unreal One File Per Actor: https://dev.epicgames.com/documentation/en-us/unreal-engine/one-file-per-actor-in-unreal-engine
+- Steam Workshop: https://partner.steamgames.com/doc/features/workshop/implementation
+- OpenTelemetry signals: https://opentelemetry.io/docs/concepts/signals/
+- Unreal crash reporting: https://dev.epicgames.com/documentation/en-us/unreal-engine/crash-reporting-in-unreal-engine
+- Unity crash reporting: https://docs.unity.com/en-us/cloud-diagnostics/crash-and-exception-reporting/setting-up-crash-and-exception-reporting
+- Steam store page and trailers: https://partner.steamgames.com/doc/store/page and https://partner.steamgames.com/doc/store/trailer
+- Android game performance: https://developer.android.com/games/optimize
