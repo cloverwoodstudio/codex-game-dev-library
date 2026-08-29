@@ -19,3 +19,22 @@ jobs:
         with:
           node-version: 24
       - run: npm test
+
+  godot-conformance:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: samples/determinism-conformance
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned official Godot release
+        run: curl -fsSLo godot.zip https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+      - name: Verify Godot artifact
+        run: echo '9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65  godot.zip' | sha512sum --check
+      - name: Import and run Godot conformance
+        run: |
+          unzip -q godot.zip
+          mv Godot_v4.7.2-stable_linux.x86_64 godot-bin
+          chmod +x godot-bin
+          ./godot-bin --headless --path godot --editor --quit
+          ./godot-bin --headless --path godot --script tests/conformance_runner.gd
