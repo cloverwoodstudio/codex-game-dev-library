@@ -51,6 +51,15 @@ This library should grow through focused, verifiable passes.
 - [ ] Engine-specific level metrics gyms and encounter sample maps
 - [ ] Tested animation export/import/retarget presets for Blender and each engine
 - [ ] Adaptive music sample with accessibility captions and profiler evidence
+- [x] Player-data inventory and storefront privacy foundation
+- [x] Ratings/content-compliance evidence foundation
+- [x] Achievement/cloud/platform-service adapter foundation
+- [x] Community moderation and escalation foundation
+- [x] Patch staging, compatibility and rollback foundation
+- [x] Preservation and service-sunset foundation
+- [ ] Territory-specific legal/compliance review checklists maintained by qualified experts
+- [ ] Tested Steam/EOS platform-service adapters with offline fault injection
+- [ ] End-to-end beta-branch patch and rollback reference project
 - [ ] Benchmark agent workflows on the same small game briefs
 - [ ] Interview postmortems and original GDC talks; label experience-based findings
 

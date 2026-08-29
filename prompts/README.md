@@ -151,3 +151,21 @@ Create a runtime animation contract covering skeleton/bind pose/axes, root motio
 ```text
 Design this cinematic as a safe state transition. Specify trigger/preconditions, actor bindings, camera/input/HUD/audio ownership, subtitles/localization, save/checkpoint behavior, idempotent gameplay events, skip-to-end state, pause/disconnect/unload recovery and exact post-sequence acceptance tests. Exercise first play, replay and skips at multiple timestamps.
 ```
+
+## Player-data audit
+
+```text
+Inventory every player-data flow in the game, backend, platform service and third-party SDK. For each field record source, purpose, destination, identity link, consent/basis, retention, deletion/export, security class, child-audience impact and storefront disclosure. Compare runtime network behavior with the privacy policy and store labels; flag unnecessary collection and mismatches. This is an engineering audit, not legal advice.
+```
+
+## Safe patch rollout
+
+```text
+Plan this update as promotion of one immutable tested artifact. Define build/content/schema identity, upgrade paths, save/network/backend compatibility, storefront beta/canary/default stages, health metrics and thresholds, expand/contract migrations, retained rollback artifacts, exact rollback limitations, patch notes and post-release verification. Rehearse clean install, storefront-client upgrade and rollback before default rollout.
+```
+
+## Community launch readiness
+
+```text
+Design the community operating model before opening channels. Define rules with examples, moderator roles/least privilege/training/confidentiality, report-block-appeal flows, high-severity escalation, evidence privacy/retention, automation boundaries, support/bug/announcement routing, response targets and moderator wellbeing. Produce tabletop scenarios for spam, harassment, doxxing, child safety, account compromise and false reports.
+```

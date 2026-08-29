@@ -124,3 +124,15 @@ Always verify the license on the exact asset/version; an index link is not legal
 - Unreal Sequencer: https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-sequencer-movie-tool-overview
 - Unity Timeline: https://docs.unity3d.com/Manual/com.unity.timeline.html
 - Godot audio: https://docs.godotengine.org/en/stable/tutorials/audio/index.html
+
+## Privacy, ratings, community and lifecycle
+
+- Google Play Data safety: https://support.google.com/googleplay/android-developer/answer/10787469
+- Apple App Privacy details: https://developer.apple.com/app-store/app-privacy-details/
+- Google Play content ratings: https://support.google.com/googleplay/android-developer/answer/9859655
+- Steam achievements: https://partner.steamgames.com/doc/features/achievements
+- Steam community moderation: https://partner.steamgames.com/doc/marketing/community_moderation
+- Discord moderation approach: https://discord.com/safety/our-approach-to-content-moderation
+- Steam build branches: https://partner.steamgames.com/doc/store/application/builds
+- itch.io butler patching: https://itch.io/docs/butler/pushing.html
+- Library of Congress preservation formats: https://www.loc.gov/preservation/resources/rfs/

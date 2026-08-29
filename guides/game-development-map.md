@@ -61,3 +61,9 @@ Never scale content before proving both the core loop and the content-production
 - Lighting and readability: `art/lighting.md`
 - Cinematics and state transitions: `design/cinematics.md`
 - Adaptive audio and music: `systems/adaptive-audio.md`
+- Privacy and data governance: `workflows/privacy-data-governance.md`
+- Ratings and content compliance: `workflows/ratings-content-compliance.md`
+- Platform achievements/cloud: `systems/platform-services.md`
+- Community and moderation: `workflows/community-moderation.md`
+- Patch rollout and rollback: `workflows/patching-rollbacks.md`
+- Preservation and sunset: `workflows/preservation-sunset.md`
