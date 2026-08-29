@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "algorithmVersion": "integer-motion-xorshift32-fnv1a/v1",
+  "seed": 305419896,
+  "tickRate": 60,
+  "checkpointEvery": 4,
+  "frames": [
+    { "command": { "moveX": 1000, "moveY": 0, "collect": false } },
+    { "command": { "moveX": 1000, "moveY": 500, "collect": true } },
+    { "command": { "moveX": 0, "moveY": 500, "collect": true } },
+    { "command": { "moveX": -500, "moveY": 0, "collect": false } },
+    { "command": { "moveX": -1000, "moveY": -1000, "collect": true } },
+    { "command": { "moveX": 0, "moveY": -1000, "collect": true } },
+    { "command": { "moveX": 250, "moveY": 250, "collect": false } },
+    { "command": { "moveX": 250, "moveY": 250, "collect": true } },
+    { "command": { "moveX": 0, "moveY": 0, "collect": true } },
+    { "command": { "moveX": 1000, "moveY": -500, "collect": false } },
+    { "command": { "moveX": -1000, "moveY": 500, "collect": true } },
+    { "command": { "moveX": 0, "moveY": 0, "collect": true } }
+  ]
+}

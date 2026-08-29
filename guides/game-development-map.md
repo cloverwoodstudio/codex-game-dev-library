@@ -55,6 +55,7 @@ Never scale content before proving both the core loop and the content-production
 - Procedural generation: `design/procedural-generation.md`
 - Automated and playable testing: `workflows/game-testing.md`
 - Replay-driven reproduction: `systems/replays-determinism.md`
+- Cross-engine determinism fixture: `../samples/determinism-conformance/`
 - Visual regression: `workflows/visual-regression.md`
 - CI and build evidence: `workflows/continuous-integration.md`
 - Level and encounter production: `design/level-design.md`

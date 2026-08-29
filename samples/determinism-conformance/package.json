@@ -1,0 +1,13 @@
+{
+  "name": "codex-determinism-conformance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "run:golden": "node src/cli.js fixtures/golden-replay.json"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,21 @@
+name: Runnable samples
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  determinism-conformance:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: samples/determinism-conformance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm test

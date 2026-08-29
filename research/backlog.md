@@ -2,6 +2,10 @@
 
 This library should grow through focused, verifiable passes.
 
+- [x] Whole-library coverage and execution-depth audit with prioritized roadmap
+- [x] Engine-neutral executable determinism fixture with golden replay and CI
+- [ ] Port determinism conformance fixture to Godot, Unity, Unreal and Phaser
+
 - [x] Deep production playbooks: Godot, Unity, Unreal and browser/Phaser
 - [x] Deep engine playbooks: Three.js, Babylon.js, Bevy, raylib and MonoGame
 - [ ] Deep engine playbooks: PixiJS, Defold, GameMaker and custom C++ engine foundations
