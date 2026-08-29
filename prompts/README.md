@@ -79,3 +79,21 @@ Design a data-driven quest/dialogue graph with stable IDs, typed conditions/even
 ```text
 Map every currency/resource source, sink, conversion, cap and cadence. Build a seeded simulation for several player strategies, measure time-to-goal and accumulation distributions, detect infinite/dominant loops, and run sensitivity analysis. Keep tuning data versioned and define ethical/technical guardrails before proposing monetization.
 ```
+
+## Localization readiness audit
+
+```text
+Audit the repository for player-facing strings, concatenation, unstable keys, placeholder typing, plurals, locale-sensitive formatting, font coverage, RTL assumptions, fixed-size UI, embedded text in art, subtitles, input glyphs and voice-line IDs. Add pseudo-localization and completeness checks without translating content. Report every remaining manual linguistic QA case.
+```
+
+## Asset provenance audit
+
+```text
+Inventory all code, art, audio, fonts, models, plugins and generated assets. For each, record hash, creator/source, acquisition evidence, exact license/version, attribution, engine/seat/redistribution restrictions, modifications and AI provenance. Quarantine unknown or incompatible items; do not infer commercial permission from “free”. Generate release notices and storefront disclosure inputs.
+```
+
+## Platform readiness
+
+```text
+Build a target-device matrix and audit input, safe areas/DPI, lifecycle/resume, storage, networking, audio focus, memory, sustained thermal performance, shader/API support, packaging/signing and storefront installation. Define per-tier budgets and graceful quality scaling. Verify on representative physical devices rather than editor emulation alone.
+```

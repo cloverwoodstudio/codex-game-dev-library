@@ -70,6 +70,17 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Steam Playtest: https://partner.steamgames.com/doc/features/playtest
 - itch.io butler: https://itch.io/docs/butler/
 
+## Localization, platforms, input and provenance
+
+- Godot internationalization: https://docs.godotengine.org/en/stable/tutorials/i18n/index.html
+- Unreal localization: https://dev.epicgames.com/documentation/en-us/unreal-engine/localization-tools-in-unreal-engine
+- W3C internationalization tests: https://www.w3.org/International/i18n-tests/
+- Android games/ADPF: https://developer.android.com/games/optimize/adpf
+- Apple Core Haptics: https://developer.apple.com/documentation/corehaptics
+- Steam content survey: https://partner.steamgames.com/doc/gettingstarted/contentsurvey
+- Epic Content License: https://www.unrealengine.com/eula/content
+- Box2D: https://box2d.org/documentation/
+
 ## Assets and licensing
 
 - Creative Commons licenses: https://creativecommons.org/share-your-work/cclicenses/

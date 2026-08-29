@@ -11,16 +11,21 @@ This library should grow through focused, verifiable passes.
 - [ ] Procedural generation and deterministic seeds
 - [x] Save architecture and migrations foundation
 - [ ] Engine-specific save samples, replay systems, telemetry, crash reporting
-- [ ] Asset pipelines for 2D, 3D, animation, shaders, audio, localization
+- [x] Asset pipeline foundations for 2D, 3D, animation, shaders, audio and localization
+- [ ] Tested engine-specific asset import presets and sample assets
 - [ ] Automated visual regression and input replay per engine
 - [x] Gameplay AI decision-model foundation
 - [x] VFX/shader production foundation
 - [x] UI/accessibility foundation
-- [ ] Accessibility and localization checklists
+- [x] Localization, pseudo-localization and voice pipeline foundation
 - [x] Interactive narrative, dialogue and quest-system foundation
 - [x] Economy, balancing, playtesting and analytics foundation
 - [x] Reproducible release-pipeline foundation
-- [ ] Mobile, Web, desktop, console release playbooks
+- [x] Web, mobile and desktop platform-engineering foundation
+- [ ] Platform-specific tested sample projects and console release details where publicly documentable
+- [x] Asset provenance, marketplace licensing and generative-AI disclosure foundation
+- [x] Input, rebinding, haptics and physics foundation
+- [x] Inventory/crafting transactional foundation and first genre risk map
 - [ ] Licensing and AI-generated asset provenance
 - [ ] Benchmark agent workflows on the same small game briefs
 - [ ] Interview postmortems and original GDC talks; label experience-based findings
