@@ -61,3 +61,21 @@ Design this NPC from player-facing behaviors backward. Specify allowed perceptio
 ```text
 Design versioned save data around stable domain state. Define the envelope, schema, bounds, atomic write and backup recovery, cloud conflict policy, sequential migrations, fixtures from every shipped version, corruption behavior and untrusted-input validation. Do not serialize arbitrary runtime objects.
 ```
+
+## Movement and camera tuning
+
+```text
+Create a measurable movement and camera specification before changing code. Record acceleration, stopping, turn, air control, jump apex/time, coyote/input-buffer windows, collision metrics, camera framing/dead zones/damping/look-ahead/FOV/collision and motion-reduction settings. Build a minimal test room, expose live debug graphs, test multiple frame rates and inputs, and change one parameter family per comparison.
+```
+
+## Quest and dialogue system
+
+```text
+Design a data-driven quest/dialogue graph with stable IDs, typed conditions/events, explicit terminal states, save migrations, localization/voice hooks and allowlisted game commands. Produce automated graph validation for unreachable nodes, missing localization, dead ends, cycles without exit, duplicate rewards and representative full traversals.
+```
+
+## Economy simulation
+
+```text
+Map every currency/resource source, sink, conversion, cap and cadence. Build a seeded simulation for several player strategies, measure time-to-goal and accumulation distributions, detect infinite/dominant loops, and run sensitivity analysis. Keep tuning data versioned and define ethical/technical guardrails before proposing monetization.
+```

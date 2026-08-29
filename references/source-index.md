@@ -61,6 +61,15 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
 - Unreal saving: https://dev.epicgames.com/documentation/en-us/unreal-engine/saving-and-loading-your-game-in-unreal-engine
 
+## Feel, narrative, economy and release
+
+- Unity Cinemachine: https://docs.unity3d.com/Packages/com.unity.cinemachine@6.6/manual/index.html
+- ink: https://www.inklestudios.com/ink/
+- Yarn Spinner: https://www.yarnspinner.dev/docs/
+- PlayFab Economy: https://learn.microsoft.com/en-us/gaming/playfab/economy-monetization/economy-what-is
+- Steam Playtest: https://partner.steamgames.com/doc/features/playtest
+- itch.io butler: https://itch.io/docs/butler/
+
 ## Assets and licensing
 
 - Creative Commons licenses: https://creativecommons.org/share-your-work/cclicenses/
