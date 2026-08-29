@@ -73,3 +73,4 @@ Never scale content before proving both the core loop and the content-production
 - XR/VR comfort and testing: `platforms/xr.md`
 - Purchases, DLC and entitlements: `systems/commerce-entitlements.md`
 - Genre slices: `genres/platformer.md`, `genres/roguelike.md`, `genres/tactics.md`, `genres/puzzle.md`, `genres/racing.md`, `genres/survival-crafting.md`
+- More genre slices: `genres/fps.md`, `genres/idle-incremental.md`, `genres/strategy-management.md`, `genres/rhythm.md`, `genres/horror.md`, `genres/party-social.md`, `genres/immersive-sim.md`

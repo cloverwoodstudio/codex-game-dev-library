@@ -155,3 +155,8 @@ Always verify the license on the exact asset/version; an index link is not legal
 - Unreal Vehicle template: https://dev.epicgames.com/documentation/en-us/unreal-engine/vehicle-template-in-unreal-engine
 
 Study architecture and behavior; do not copy code or assets without verifying the exact repository license and compatibility.
+
+- Unreal Lyra sample: https://dev.epicgames.com/documentation/en-us/unreal-engine/lyra-sample-game-in-unreal-engine
+- Unreal First Person template variants: https://dev.epicgames.com/documentation/en-us/unreal-engine/first-person-template-in-unreal-engine
+- Nakama multiplayer concepts: https://heroiclabs.com/docs/nakama/concepts/multiplayer/
+- Godot audio synchronization: https://docs.godotengine.org/en/stable/tutorials/audio/sync_with_audio.html
