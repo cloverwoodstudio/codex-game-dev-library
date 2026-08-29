@@ -169,3 +169,21 @@ Plan this update as promotion of one immutable tested artifact. Define build/con
 ```text
 Design the community operating model before opening channels. Define rules with examples, moderator roles/least privilege/training/confidentiality, report-block-appeal flows, high-severity escalation, evidence privacy/retention, automation boundaries, support/bug/announcement routing, response targets and moderator wellbeing. Produce tabletop scenarios for spam, harassment, doxxing, child safety, account compromise and false reports.
 ```
+
+## Data-driven content compiler
+
+```text
+Design a versioned content pipeline with stable IDs, schema/defaults/bounds, localization and reference rules, source-to-runtime compilation, dependency manifest, actionable structural/semantic validators, preview, migrations and compatibility with saves/replays/mods. Separate author source from generated runtime output and provide a dry-run report for batch changes.
+```
+
+## Large-world streaming audit
+
+```text
+Design the world as a cancellation-safe cell lifecycle. Define coordinates, cell hierarchy, streaming sources/radii/hysteresis, dependencies, stable entity identity, persistent-versus-transient state, cross-cell handles, activation gates, teleport prefetch, memory/I/O budgets and failure fallback. Produce automated boundary, oscillation, save-during-load, far-apart multiplayer and corrupt-I/O scenarios with cell timeline evidence.
+```
+
+## Purchase and entitlement threat model
+
+```text
+Model the complete purchase lifecycle across storefront, client and backend. Define catalog IDs/types, platform-owned price display, pending/completed/cancelled states, server verification, unique transaction token, idempotent atomic grant, acknowledgement/consumption, restore, refund/revocation, subscription expiry, reconciliation and support evidence. Test duplicate/out-of-order notifications and never grant from an unverified client callback.
+```

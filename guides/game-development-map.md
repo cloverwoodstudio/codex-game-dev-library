@@ -67,3 +67,8 @@ Never scale content before proving both the core loop and the content-production
 - Community and moderation: `workflows/community-moderation.md`
 - Patch rollout and rollback: `workflows/patching-rollbacks.md`
 - Preservation and sunset: `workflows/preservation-sunset.md`
+- Data schemas and internal tools: `systems/data-driven-content.md`
+- Large-world streaming: `systems/world-streaming.md`
+- Quality tiers and fairness: `workflows/quality-scalability.md`
+- XR/VR comfort and testing: `platforms/xr.md`
+- Purchases, DLC and entitlements: `systems/commerce-entitlements.md`

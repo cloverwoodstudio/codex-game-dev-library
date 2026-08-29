@@ -60,6 +60,15 @@ This library should grow through focused, verifiable passes.
 - [ ] Territory-specific legal/compliance review checklists maintained by qualified experts
 - [ ] Tested Steam/EOS platform-service adapters with offline fault injection
 - [ ] End-to-end beta-branch patch and rollback reference project
+- [x] Data-driven schema, compiler and internal-tool foundation
+- [x] Large-world streaming and spatial persistence foundation
+- [x] Quality-tier fairness and scalability foundation
+- [x] XR/OpenXR comfort, interaction and device-test foundation
+- [x] Purchase/DLC entitlement and reconciliation foundation
+- [ ] Tested content compiler/editor plugin sample per engine
+- [ ] Large-world streaming reference scene with fault injection
+- [ ] OpenXR vertical slice and cross-device comfort captures
+- [ ] StoreKit/Play Billing sandbox reference backend and reconciliation tests
 - [ ] Benchmark agent workflows on the same small game briefs
 - [ ] Interview postmortems and original GDC talks; label experience-based findings
 
