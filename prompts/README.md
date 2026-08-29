@@ -193,3 +193,9 @@ Model the complete purchase lifecycle across storefront, client and backend. Def
 ```text
 Use the matching guides/genres playbook and turn this concept into the smallest complete genre-valid vertical slice. State the genre promise, core decisions, final-feel systems required now, content boundaries, deterministic test room/board/track, telemetry and acceptance threshold. Prove one complete session with win/fail/restart before adding progression or content volume.
 ```
+
+## Apple game bootstrap
+
+```text
+Bootstrap this Apple game using guides/engines/apple-native.md, guides/platforms/apple.md and guides/workflows/apple-build-release.md. First choose and justify SpriteKit, RealityKit, Metal or an existing engine exporter. Pin Xcode, SDK, Swift/package versions, minimum OS and device matrix. Create PLAN.md, ENGINE_BOOTSTRAP.md and APPLE_TEST_MATRIX.md. Separate deterministic rules from Apple framework objects; define semantic actions for touch, keyboard/mouse and controllers. Discover real schemes and destinations before writing xcodebuild commands. Prove a tiny playable scene with unit tests, a physical-device run, visual evidence, Instruments/Metal baseline and an archive-validation path. Never commit signing secrets.
+```

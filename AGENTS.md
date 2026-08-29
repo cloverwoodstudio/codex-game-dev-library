@@ -6,6 +6,7 @@ This repository is a shared game-development knowledge base. Preserve it as a so
 
 1. Read `guides/engine-selection.md`, the matching `guides/engines/*.md`, and `guides/workflows/codex-loop.md`.
    Route broader work through `guides/game-development-map.md`; consult only the relevant design, art, systems, prompt, and code-pattern files.
+   For any Apple target, also read `guides/platforms/apple.md` and `guides/workflows/apple-build-release.md`, then create `APPLE_TEST_MATRIX.md` from its template.
 2. Create a concrete `PLAN.md` from `templates/PLAN.template.md` before scaffolding.
 3. Define player goal, core loop, controls, win/fail states, target hardware, performance budgets, art direction, acceptance criteria, and milestone order.
 4. Build a tiny playable vertical slice before content expansion.

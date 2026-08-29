@@ -20,6 +20,10 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Bevy examples: https://bevyengine.org/examples/
 - raylib cheatsheet/examples: https://www.raylib.com/cheatsheet/cheatsheet.html and https://github.com/raysan5/raylib/tree/master/examples
 - MonoGame docs/samples: https://docs.monogame.net/ and https://github.com/MonoGame/MonoGame.Samples
+- Apple game technologies: https://developer.apple.com/documentation/technologyoverviews/games-technologies
+- SpriteKit and RealityKit: https://developer.apple.com/documentation/spritekit and https://developer.apple.com/documentation/RealityKit
+- Metal and feature tables: https://developer.apple.com/documentation/metal and https://developer.apple.com/metal/capabilities/
+- SceneKit deprecation/migration: https://developer.apple.com/documentation/RealityKit/bringing-your-scenekit-projects-to-realitykit
 
 ### Code-first engine production
 
@@ -68,6 +72,8 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Xbox Accessibility Guidelines: https://learn.microsoft.com/en-us/xbox/accessibility/guidelines
 - Steamworks documentation: https://partner.steamgames.com/doc/home
 - itch.io creator docs: https://itch.io/docs/creators/getting-started
+- Apple Xcode testing and Game Performance: https://developer.apple.com/documentation/xcode/testing and https://developer.apple.com/documentation/xcode/analyzing-the-performance-of-your-metal-app/
+- Apple distribution, TestFlight and macOS notarization: https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases and https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview and https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution
 
 ## AI, networking, persistence and security
 
@@ -98,6 +104,8 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Steam content survey: https://partner.steamgames.com/doc/gettingstarted/contentsurvey
 - Epic Content License: https://www.unrealengine.com/eula/content
 - Box2D: https://box2d.org/documentation/
+- Apple Game Controller and GameKit: https://developer.apple.com/documentation/gamecontroller and https://developer.apple.com/documentation/gamekit
+- Apple Game Porting Toolkit and official agent skills: https://developer.apple.com/games/game-porting-toolkit/ and https://github.com/apple/game-porting-toolkit
 
 ## Assets and licensing
 

@@ -15,6 +15,7 @@ A living, source-backed playbook for building games with Codex. This repository 
 
 - `guides/` — distilled, actionable guidance
 - `guides/engines/` — engine-specific playbooks
+- `guides/platforms/` — platform engineering, including Apple and XR
 - `guides/design/` — player experience, worlds, characters and game rules
 - `guides/systems/` — architecture, gameplay systems, networking and security
 - `guides/art/` — visual, 3D and VFX production pipelines

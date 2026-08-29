@@ -30,6 +30,11 @@ This library should grow through focused, verifiable passes.
 - [x] Reproducible release-pipeline foundation
 - [x] Web, mobile and desktop platform-engineering foundation
 - [ ] Platform-specific tested sample projects and console release details where publicly documentable
+- [x] Apple-native stack: SpriteKit, RealityKit, Metal, GameplayKit, Game Controller and GameKit
+- [x] Apple build, profiling, TestFlight, App Store and macOS notarization foundation
+- [x] Apple Game Porting Toolkit and official Codex agent-skill route
+- [ ] Tested SpriteKit, RealityKit and Metal starter projects with physical-device evidence
+- [ ] Automated Xcode archive/TestFlight reference pipeline and direct-macOS notarization sample
 - [x] Asset provenance, marketplace licensing and generative-AI disclosure foundation
 - [x] Input, rebinding, haptics and physics foundation
 - [x] Inventory/crafting transactional foundation and first genre risk map

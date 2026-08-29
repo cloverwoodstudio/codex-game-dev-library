@@ -45,6 +45,7 @@ Never scale content before proving both the core loop and the content-production
 ## Production routes
 
 - Engine selection and bootstrap: `engine-selection.md`, `engines/`, `../templates/ENGINE_BOOTSTRAP.template.md`
+- Apple-native games: `engines/apple-native.md`, `platforms/apple.md`, `workflows/apple-build-release.md`, `../templates/APPLE_TEST_MATRIX.template.md`
 - Repository and binary assets: `workflows/version-control-assets.md`
 - Mods and community content: `systems/modding-ugc.md`
 - Backend trust boundaries: `systems/backend-security.md`

@@ -10,7 +10,9 @@ Choose from constraints, not popularity. Prototype the riskiest requirement in t
 | Small/medium open-source 2D or 3D game | Godot | Text-friendly scenes/resources, small editor, strong 2D |
 | Cross-platform commercial mobile/indie | Unity | Broad platform/tool ecosystem, C#, mature profiling |
 | High-end 3D, console/PC, large worlds | Unreal Engine | Advanced rendering, gameplay framework, C++/Blueprints |
-| Native Apple-focused game | SpriteKit/SceneKit/Metal | Direct platform integration; narrower portability |
+| Native Apple 2D game | SpriteKit | Direct platform integration; narrower portability |
+| Native Apple 3D/spatial game | RealityKit | Modern Apple ECS/USD path; Apple-focused |
+| Custom Apple renderer or advanced port | Metal | Maximum graphics control; highest engineering cost |
 | Rust ECS game | Bevy | Data-oriented schedules and plugins; fast-moving API |
 | Minimal native C game | raylib | Small transparent API; architecture and tools are yours |
 | Code-first C# game | MonoGame | XNA-style loop and content pipeline; no prescribed scene editor |
