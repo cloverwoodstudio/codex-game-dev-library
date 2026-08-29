@@ -41,6 +41,8 @@ This is a growing foundation, not a claim to contain the whole internet. It now 
 
 The current coverage audit and prioritized implementation sequence live in [`research/library-audit-2026-08-29.md`](research/library-audit-2026-08-29.md). Runnable evidence begins with [`samples/determinism-conformance/`](samples/determinism-conformance/).
 
+Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample.
+
 ## Contributing
 
 Add distilled knowledge, not copied articles. Prefer official manuals, original talks/papers, maintained example repositories, and reproducible experiments. See [`CONTRIBUTING.md`](CONTRIBUTING.md).

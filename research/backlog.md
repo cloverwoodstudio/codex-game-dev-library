@@ -6,6 +6,7 @@ This library should grow through focused, verifiable passes.
 - [x] Engine-neutral executable determinism fixture with golden replay and CI
 - [x] Godot/GDScript determinism conformance port with headless and visual runtime evidence
 - [x] Phaser 4 determinism conformance port with production build and browser evidence
+- [x] macOS SpriteKit/Swift conformance port with Swift Testing, Release build and rendered evidence
 - [ ] Port determinism conformance fixture to Unity and Unreal
 
 - [x] Deep production playbooks: Godot, Unity, Unreal and browser/Phaser

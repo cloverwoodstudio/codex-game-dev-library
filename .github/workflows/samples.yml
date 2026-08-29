@@ -54,3 +54,18 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+
+  apple-spritekit-conformance:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: samples/determinism-conformance/apple-spritekit
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: swift test
+      - run: swift build -c release
+      - name: Render SpriteKit evidence
+        run: |
+          swift run -c release AppleSpriteKitDemo ../fixtures/golden-replay.json /tmp/apple-spritekit-conformance.png
+          test -s /tmp/apple-spritekit-conformance.png

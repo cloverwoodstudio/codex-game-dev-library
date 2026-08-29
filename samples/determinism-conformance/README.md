@@ -39,6 +39,19 @@ npm run preview
 
 The port matches all checkpoint/final hashes, tests render-frame chunk independence and rejects non-quantized input. The production browser build was opened in a real browser: one 960×540 canvas reported `pass`, displayed hash `d282e067`, and produced no console warnings or errors. Baseline production output was 1,378.04 kB minified / 359.11 kB gzip JavaScript; future bundle reduction must be measured against required Phaser subsystems rather than hiding the warning.
 
+### Apple SpriteKit / Swift port
+
+Verified with Xcode `26.6`, Apple Swift `6.3.3` and SpriteKit on Apple M4 on 2026-08-29:
+
+```sh
+cd apple-spritekit
+swift test
+swift build -c release
+swift run -c release AppleSpriteKitDemo ../fixtures/golden-replay.json /tmp/apple-spritekit-conformance.png
+```
+
+The Swift package contains a renderer-independent `ConformanceCore` library, Swift Testing coverage and a macOS SpriteKit evidence renderer. Three tests cover golden checkpoints, two frame-chunk schedules and invalid input. The Release executable produced hash `d282e067` and a visually inspected 960×540 PNG with the expected state-derived actor position and no runtime warnings. This proves the deterministic core and SpriteKit presentation boundary on macOS; it does not yet prove an iOS/iPadOS/tvOS app lifecycle, signing or physical-device performance.
+
 ## Contract
 
 - signed integer input axes quantized to `[-1000, 1000]`;
@@ -61,4 +74,4 @@ An engine port conforms when it:
 4. rejects input outside the quantized schema;
 5. reports the first divergent tick with state fields and PRNG state.
 
-Keep engine ports in named subdirectories of this sample and add their verified toolchain/command evidence to this README. Current verified ports: JavaScript reference, Godot/GDScript and Phaser 4.
+Keep engine ports in named subdirectories of this sample and add their verified toolchain/command evidence to this README. Current verified ports: JavaScript reference, Godot/GDScript, Phaser 4 and Apple SpriteKit/Swift.
