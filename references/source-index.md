@@ -14,6 +14,7 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Unity manual, testing, profiling: https://docs.unity3d.com/Manual/index.html
 - Unreal docs, samples, testing, profiling: https://dev.epicgames.com/documentation/unreal-engine
 - Phaser docs and examples: https://docs.phaser.io/ and https://github.com/phaserjs/examples
+- Phaser 4 source, examples and agent skills: https://github.com/phaserjs/phaser and https://github.com/phaserjs/examples and https://github.com/phaserjs/phaser/tree/master/skills
 - PixiJS: https://pixijs.com/guides
 - Three.js docs/examples: https://threejs.org/docs/ and https://threejs.org/examples/
 - Babylon.js docs: https://doc.babylonjs.com/

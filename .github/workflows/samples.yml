@@ -38,3 +38,19 @@ jobs:
           chmod +x godot-bin
           ./godot-bin --headless --path godot --editor --quit
           ./godot-bin --headless --path godot --script tests/conformance_runner.gd
+
+  phaser-conformance:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: samples/determinism-conformance/phaser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: samples/determinism-conformance/phaser/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
