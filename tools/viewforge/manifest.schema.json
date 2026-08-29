@@ -49,6 +49,17 @@
         "minimum_iou": { "type": "number", "minimum": 0, "maximum": 1 }
       },
       "additionalProperties": false
+    },
+    "surface_finish": {
+      "type": "object",
+      "properties": {
+        "voxel_size": { "type": "number", "minimum": 0 },
+        "smooth_iterations": { "type": "integer", "minimum": 0, "maximum": 50 },
+        "smooth_factor": { "type": "number", "minimum": 0, "maximum": 1 },
+        "decimate_ratio": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "shade_smooth": { "type": "boolean" }
+      },
+      "additionalProperties": false
     }
   },
   "$defs": {
@@ -60,6 +71,9 @@
         "mode": { "enum": ["dark", "light", "alpha", "background"] },
         "threshold": { "type": "number", "minimum": 0, "maximum": 1 },
         "background_tolerance": { "type": "number", "minimum": 0, "maximum": 1 },
+        "closing_radius": { "type": "integer", "minimum": 0, "maximum": 8 },
+        "largest_component": { "type": "boolean" },
+        "fill_holes": { "type": "boolean" },
         "calibration": {
           "type": "object",
           "required": ["horizontal", "vertical"],

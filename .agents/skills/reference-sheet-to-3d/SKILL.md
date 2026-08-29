@@ -17,11 +17,11 @@ Use the repository's `tools/viewforge/` pipeline to create an evidence-constrain
 
 ## Run the grounded blockout
 
-1. Preserve source images unchanged. Identify top-left pixel crop rectangles for front, side and top. Use reviewed masks for difficult backgrounds; use `background` mode only for uniform backgrounds with clear corner samples. For a planar sheet photographed obliquely, use `perspective_rectification` with an ordered TL/TR/BR/BL physical rectangle; this does not correct lens distortion, page curvature or 3D parallax.
+1. Preserve source images unchanged. Identify top-left pixel crop rectangles for front, side and top. Use reviewed masks for difficult backgrounds; use `background` mode only for uniform backgrounds with clear corner samples. If necessary, enable mask closing, largest-component selection and enclosed-hole filling one at a time and review their recorded pixel changes. For a planar sheet photographed obliquely, use `perspective_rectification` with an ordered TL/TR/BR/BL physical rectangle; this does not correct lens distortion, page curvature or 3D parallax.
 2. Copy `tools/viewforge/examples/crate/viewforge.json` into the asset working directory and update paths, crops, dimensions, units, resolution, flips and segmentation settings. For class A/B claims, tie each view to stable dimension-ledger IDs through orthographic `calibration` anchors or a dimensioned `perspective_rectification` quadrilateral; do not use detected silhouette bounds as measurement evidence.
 3. Run `tools/viewforge/viewforge.sh <manifest>`.
 4. Require `validation.json` to report `quality_gate.passed: true`; confirm `mapping_strategy` is `calibrated_anchors` or `projective_rectification` and verify expected `dimension_ledger_ids` for class A/B work. Inspect `output/overlays/`, `output/masks/` and front/side/top renders. Green overlay pixels agree, red mask pixels are missing from the hull, and magenta pixels are extra projection. Do not continue if the hull is empty, masks are wrong or important views have poor IoU; fix crops, calibration, orientation or segmentation first.
-5. Keep the generated hull as evidence. Refine a duplicate with dimension-led parametric cutters, supported curvature, retopology, UVs, materials, collision and LODs.
+5. Keep the generated hull as evidence. Optional `surface_finish` is only a disclosed static prototype derivative; inspect its reported dimensions and topology. Refine a duplicate with dimension-led parametric cutters, supported curvature, manual deformation topology, UVs, materials, collision and LODs.
 6. Run the final asset in its target engine or RealityKit renderer. For Apple targets, export/validate USD and load the `apple-platform-development` skill.
 
 ## Claims and stopping conditions

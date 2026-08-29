@@ -89,6 +89,10 @@ assert report["quality_gate"]["passed"] is True
 assert all(result["mapping_strategy"] == "projective_rectification" for result in report["inputs"].values())
 assert all(result["perspective_rectification"] for result in report["inputs"].values())
 assert all(axis["mean_source_edge_pixels"] > 0 for result in report["inputs"].values() for axis in result["dimension_axes"].values())
+assert all(result["mask_cleanup"]["closing_radius"] == 1 for result in report["inputs"].values())
+assert all(result["mask_cleanup"]["final_pixels"] >= result["mask_cleanup"]["original_pixels"] for result in report["inputs"].values())
+assert report["surface_finish"]["applied"] is True
+assert report["surface_finish"]["polygons"] > 0
 assert all(result["iou"] == 1.0 for result in report["views"].values())
 print("ViewForge projective-rectification test passed")
 PY

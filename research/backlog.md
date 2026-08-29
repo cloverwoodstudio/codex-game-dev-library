@@ -32,6 +32,7 @@ This library should grow through focused, verifiable passes.
 - [x] ViewForge shared-sheet crop ingestion, auditable background segmentation, normalized mask evidence and input provenance
 - [x] ViewForge dimension-led pixel anchors, cross-view ledger-ID validation and calibrated mapping evidence
 - [x] ViewForge four-point planar perspective/keystone rectification with ledger binding and trapezoid fixture
+- [x] ViewForge auditable mask closing/component/hole cleanup and disclosed static surface-finish derivative
 - [x] ViewForge source/mask/projection overlays, machine-readable IoU quality gate and inconsistent-view failure fixture
 - [ ] ViewForge dimension-led holes/cutters, cross-sections, LODs, collision and engine import evidence
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset

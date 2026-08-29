@@ -24,13 +24,15 @@ The correct strategy is staged reconstruction, not one-shot image-to-mesh genera
 | Automated rejection | Configurable minimum per-view IoU, launcher-enforced nonzero exit and retained diagnostics | Tested with intentionally inconsistent fixture; launcher compensates for Blender 5.2 returning zero after a Python exception |
 | Dimension-led calibration | Per-axis inclusive pixel anchors, physical dimension names, shared ledger IDs and scale ratios | Tested; conflicting cross-view ledger IDs are rejected |
 | Planar perspective correction | Four-corner projective homography with dimension/ledger binding and normalized inverse sampling | Tested on a non-axis-aligned trapezoid at IoU 1.0; not lens/parallax correction |
+| Reviewable mask cleanup | Closing, largest-component selection and enclosed-hole fill with before/after counts | Tested on a synthetic hole and a pale user-supplied organic sheet |
+| Static organic derivative | Voxel remesh, volume-preserving smoothing, smooth shading and decimation with separate report | Tested; explicitly not animation topology |
 | Codex discovery | Repo-local `reference-sheet-to-3d` skill | Validated |
 
 ## Remaining gaps
 
 ### P0 — trustworthy input calibration
 
-1. Connected-component filtering and explicit foreground/background seed points for noisy sheets; automatic segmentation must remain reviewable.
+1. Explicit foreground/background seed points for noisy sheets and disconnected-part allowlists; automatic segmentation must remain reviewable.
 2. Additional negative tests for bad crops, object-at-corner backgrounds, degenerate perspective quads and empty intersections. Inconsistent views and conflicting ledger IDs already have failure fixtures.
 
 ### P1 — evidence-driven shape refinement

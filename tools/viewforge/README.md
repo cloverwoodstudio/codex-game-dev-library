@@ -48,6 +48,14 @@ The `examples/perspective/` fixture proves that a skewed trapezoid becomes a rec
 
 This corrects planar keystone only. It cannot remove lens distortion, rolling shutter, folds, page curvature, perspective/parallax within a photographed 3D object, or an incorrect/non-rectangular datum. Correct lens distortion upstream and use orthographic drawings or multi-photo reconstruction when depth varies. A visually straight result is not proof that the selected corners represent stated dimensions.
 
+### Auditable mask cleanup
+
+Pale or noisy references can opt into three deterministic cleanup stages: `closing_radius` closes small mask gaps, `largest_component` retains the largest 8-connected foreground region, and `fill_holes` fills only background regions that cannot reach the crop boundary. The validation report records original/final pixel counts, components and filled-hole pixels. These operations can erase legitimate openings or disconnected parts, so compare overlays with the source and keep them disabled for reviewed masks unless needed.
+
+### Derived surface finish
+
+`surface_finish` optionally applies Blender voxel remesh, volume-preserving Laplacian smoothing, smooth shading and decimation after the evidence hull is created. The report preserves pre-finish hull counts and separately records final dimensions, vertices, polygons and settings. This produces a more useful static organic prototype, but curvature and topology are explicitly estimated. It is not deformation-ready retopology and must not replace manual topology, UV, material, rig, animation or engine profiling work.
+
 See `manifest.schema.json` and the example manifest. Resolution controls the reconstruction grid, not the output image size. Start around 32–64 cells on the longest axis; high resolutions grow memory and face counts cubically.
 
 ViewForge writes the exact normalized masks used for reconstruction under `output/masks/`. It also writes enlarged review images under `output/overlays/`: the resampled source is dimmed, green means source mask and hull projection agree, red means requested silhouette is missing from the hull, and magenta means the hull projects outside the mask. Inspect these before trusting a good numerical score; a consistently wrong mask can still reproject perfectly.

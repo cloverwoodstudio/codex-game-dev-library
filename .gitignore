@@ -9,3 +9,4 @@
 **/.derived/
 **/.derived-*/
 tools/viewforge/**/output/
+tools/viewforge/workspaces/

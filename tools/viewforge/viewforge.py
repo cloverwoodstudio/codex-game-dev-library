@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+from collections import deque
 from math import hypot
 from pathlib import Path
 
@@ -128,6 +129,91 @@ def validate_dimension_axes(config: dict, expected_dimensions: tuple[str, str], 
     return metadata
 
 
+def clean_source_mask(
+    mask: set[tuple[int, int]], crop_bounds: tuple[int, int, int, int], config: dict
+) -> tuple[set[tuple[int, int]], dict]:
+    crop_x, crop_y, crop_width, crop_height = crop_bounds
+    crop_points = {
+        (x, y)
+        for y in range(crop_y, crop_y + crop_height)
+        for x in range(crop_x, crop_x + crop_width)
+    }
+    original_pixels = len(mask)
+    closing_radius = config.get("closing_radius", 0)
+    if not isinstance(closing_radius, int) or not 0 <= closing_radius <= 8:
+        fail("closing_radius must be an integer from 0 through 8")
+    if closing_radius:
+        offsets = range(-closing_radius, closing_radius + 1)
+        dilated = {
+            (x + dx, y + dy)
+            for x, y in mask
+            for dx in offsets
+            for dy in offsets
+            if (x + dx, y + dy) in crop_points
+        }
+        mask = {
+            point
+            for point in crop_points
+            if all((point[0] + dx, point[1] + dy) in dilated for dx in offsets for dy in offsets)
+        }
+
+    components_found = 0
+    if config.get("largest_component", False) and mask:
+        unseen = set(mask)
+        components = []
+        while unseen:
+            seed = unseen.pop()
+            component = {seed}
+            queue = [seed]
+            while queue:
+                x, y = queue.pop()
+                for dx in (-1, 0, 1):
+                    for dy in (-1, 0, 1):
+                        neighbor = (x + dx, y + dy)
+                        if neighbor in unseen:
+                            unseen.remove(neighbor)
+                            component.add(neighbor)
+                            queue.append(neighbor)
+            components.append(component)
+        components_found = len(components)
+        mask = max(components, key=len)
+
+    holes_filled = 0
+    if config.get("fill_holes", False):
+        exterior = set()
+        queue = deque()
+        maximum_x = crop_x + crop_width - 1
+        maximum_y = crop_y + crop_height - 1
+        boundary = (
+            {(x, crop_y) for x in range(crop_x, maximum_x + 1)}
+            | {(x, maximum_y) for x in range(crop_x, maximum_x + 1)}
+            | {(crop_x, y) for y in range(crop_y, maximum_y + 1)}
+            | {(maximum_x, y) for y in range(crop_y, maximum_y + 1)}
+        )
+        for point in boundary - mask:
+            exterior.add(point)
+            queue.append(point)
+        while queue:
+            x, y = queue.popleft()
+            for neighbor in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if neighbor in crop_points and neighbor not in mask and neighbor not in exterior:
+                    exterior.add(neighbor)
+                    queue.append(neighbor)
+        holes = crop_points - mask - exterior
+        holes_filled = len(holes)
+        mask |= holes
+
+    return mask, {
+        "original_pixels": original_pixels,
+        "final_pixels": len(mask),
+        "closing_radius": closing_radius,
+        "largest_component": bool(config.get("largest_component", False)),
+        "components_found": components_found,
+        "fill_holes": bool(config.get("fill_holes", False)),
+        "holes_filled_pixels": holes_filled,
+    }
+
+
 def build_mask(
     path: Path,
     config: dict,
@@ -174,6 +260,7 @@ def build_mask(
         for x in range(crop_x, crop_x + crop_width)
         if is_inside(pixels[y * width + x])
     }
+    source_mask, cleanup_metadata = clean_source_mask(source_mask, (crop_x, crop_y, crop_width, crop_height), config)
     if not source_mask:
         fail(f"view produced an empty mask: {path}")
     minimum_x = min(x for x, _ in source_mask)
@@ -285,6 +372,7 @@ def build_mask(
         "calibration": calibration_metadata,
         "perspective_rectification": perspective_metadata,
         "dimension_axes": dimension_axes,
+        "mask_cleanup": cleanup_metadata,
         "mode": mode,
         "threshold": threshold if mode != "background" else None,
         "background_tolerance": background_tolerance if mode == "background" else None,
@@ -414,6 +502,60 @@ def apply_bevel(model, width: float, segments: int) -> None:
     bpy.ops.object.modifier_apply(modifier=modifier.name)
 
 
+def apply_surface_finish(model, config: dict | None, unit_scale: float) -> dict:
+    if not config:
+        return {"applied": False}
+    for item in bpy.context.selected_objects:
+        item.select_set(False)
+    model.select_set(True)
+    bpy.context.view_layer.objects.active = model
+
+    voxel_size_source = float(config.get("voxel_size", 0))
+    if voxel_size_source < 0:
+        fail("surface_finish.voxel_size must not be negative")
+    voxel_size = voxel_size_source * unit_scale
+    if voxel_size > 0:
+        model.data.remesh_voxel_size = voxel_size
+        bpy.ops.object.voxel_remesh()
+
+    smooth_iterations = config.get("smooth_iterations", 0)
+    if not isinstance(smooth_iterations, int) or not 0 <= smooth_iterations <= 50:
+        fail("surface_finish.smooth_iterations must be an integer from 0 through 50")
+    smooth_factor = float(config.get("smooth_factor", 0.18))
+    if not 0 <= smooth_factor <= 1:
+        fail("surface_finish.smooth_factor must be from 0 through 1")
+    if smooth_iterations > 0:
+        modifier = model.modifiers.new(name="Evidence-derived Laplacian smooth", type="LAPLACIANSMOOTH")
+        modifier.iterations = smooth_iterations
+        modifier.lambda_factor = smooth_factor
+        modifier.use_volume_preserve = True
+        bpy.ops.object.modifier_apply(modifier=modifier.name)
+
+    decimate_ratio = float(config.get("decimate_ratio", 1.0))
+    if not 0 < decimate_ratio <= 1:
+        fail("surface_finish.decimate_ratio must be greater than 0 and at most 1")
+    if decimate_ratio < 1.0:
+        modifier = model.modifiers.new(name="Runtime decimation", type="DECIMATE")
+        modifier.ratio = decimate_ratio
+        bpy.ops.object.modifier_apply(modifier=modifier.name)
+
+    if config.get("shade_smooth", True):
+        for polygon in model.data.polygons:
+            polygon.use_smooth = True
+    model.data.update()
+    return {
+        "applied": True,
+        "voxel_size_m": voxel_size,
+        "smooth_iterations": smooth_iterations,
+        "smooth_factor": smooth_factor,
+        "decimate_ratio": decimate_ratio,
+        "vertices": len(model.data.vertices),
+        "polygons": len(model.data.polygons),
+        "dimensions_m": [round(value, 6) for value in model.dimensions],
+        "claim": "Derived surface treatment; silhouette-supported but curvature and topology are estimated.",
+    }
+
+
 def comparison(mask: set[tuple[int, int]], projection: set[tuple[int, int]]) -> dict:
     intersection = len(mask & projection)
     union = len(mask | projection)
@@ -531,6 +673,7 @@ def main() -> None:
     model, vertex_count, boundary_faces = create_mesh(manifest["name"], occupied, dimensions, (nx, ny, nz))
     add_material(model)
     apply_bevel(model, float(manifest.get("bevel_width", 0)) * unit_scale, int(manifest.get("bevel_segments", 2)))
+    surface_finish = apply_surface_finish(model, manifest.get("surface_finish"), unit_scale)
 
     output_directory = (manifest_directory / manifest["output_directory"]).resolve()
     output_directory.mkdir(parents=True, exist_ok=True)
@@ -575,6 +718,7 @@ def main() -> None:
         "occupied_voxels": len(occupied),
         "mesh_vertices_before_bevel": vertex_count,
         "boundary_faces": boundary_faces,
+        "surface_finish": surface_finish,
         "inputs": input_metadata,
         "dimension_ledger_ids": ledger_ids,
         "views": view_results,
