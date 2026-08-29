@@ -1,0 +1,16 @@
+{
+  "$schema": "../../manifest.schema.json",
+  "version": 1,
+  "name": "conflicting-ledger-fixture",
+  "units": "m",
+  "dimensions": { "width": 2.0, "depth": 1.0, "height": 1.5 },
+  "resolution": { "x": 24, "y": 16, "z": 20 },
+  "views": {
+    "front": { "path": "../crate/sheet.pgm", "crop": { "x": 0, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "width", "ledger_id": "DIM-W", "pixel_min": 2, "pixel_max": 9 }, "vertical": { "dimension": "height", "ledger_id": "DIM-H", "pixel_min": 1, "pixel_max": 9 } } },
+    "side": { "path": "../crate/sheet.pgm", "crop": { "x": 12, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "depth", "ledger_id": "DIM-D", "pixel_min": 15, "pixel_max": 20 }, "vertical": { "dimension": "height", "ledger_id": "DIM-H", "pixel_min": 1, "pixel_max": 9 } } },
+    "top": { "path": "../crate/sheet.pgm", "crop": { "x": 24, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "width", "ledger_id": "WRONG-WIDTH", "pixel_min": 26, "pixel_max": 33 }, "vertical": { "dimension": "depth", "ledger_id": "DIM-D", "pixel_min": 3, "pixel_max": 8 } } }
+  },
+  "quality_gate": { "minimum_iou": 0.99 },
+  "render_size": 128,
+  "output_directory": "output"
+}

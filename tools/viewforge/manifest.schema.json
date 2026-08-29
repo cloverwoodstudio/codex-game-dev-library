@@ -60,6 +60,15 @@
         "mode": { "enum": ["dark", "light", "alpha", "background"] },
         "threshold": { "type": "number", "minimum": 0, "maximum": 1 },
         "background_tolerance": { "type": "number", "minimum": 0, "maximum": 1 },
+        "calibration": {
+          "type": "object",
+          "required": ["horizontal", "vertical"],
+          "properties": {
+            "horizontal": { "$ref": "#/$defs/calibrationAxis" },
+            "vertical": { "$ref": "#/$defs/calibrationAxis" }
+          },
+          "additionalProperties": false
+        },
         "crop": {
           "type": "object",
           "required": ["x", "y", "width", "height"],
@@ -73,6 +82,17 @@
         },
         "flip_horizontal": { "type": "boolean" },
         "flip_vertical": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "calibrationAxis": {
+      "type": "object",
+      "required": ["dimension", "ledger_id", "pixel_min", "pixel_max"],
+      "properties": {
+        "dimension": { "enum": ["width", "depth", "height"] },
+        "ledger_id": { "type": "string", "minLength": 1 },
+        "pixel_min": { "type": "integer", "minimum": 0 },
+        "pixel_max": { "type": "integer", "minimum": 1 }
       },
       "additionalProperties": false
     }

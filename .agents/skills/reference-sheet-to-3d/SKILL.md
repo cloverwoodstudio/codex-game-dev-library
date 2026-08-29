@@ -18,9 +18,9 @@ Use the repository's `tools/viewforge/` pipeline to create an evidence-constrain
 ## Run the grounded blockout
 
 1. Preserve source images unchanged. Identify top-left pixel crop rectangles for front, side and top. Use reviewed masks for difficult backgrounds; use `background` mode only for uniform backgrounds with clear corner samples.
-2. Copy `tools/viewforge/examples/crate/viewforge.json` into the asset working directory and update paths, crops, dimensions, units, resolution, flips and segmentation settings.
+2. Copy `tools/viewforge/examples/crate/viewforge.json` into the asset working directory and update paths, crops, dimensions, units, resolution, flips and segmentation settings. For class A/B claims, tie each view axis to inclusive source-pixel anchors and stable dimension-ledger IDs through `calibration`; do not use detected silhouette bounds as measurement evidence.
 3. Run `tools/viewforge/viewforge.sh <manifest>`.
-4. Require `validation.json` to report `quality_gate.passed: true`; inspect `output/overlays/`, `output/masks/` and front/side/top renders. Green overlay pixels agree, red mask pixels are missing from the hull, and magenta pixels are extra projection. Do not continue if the hull is empty, masks are wrong or important views have poor IoU; fix crops, calibration, orientation or segmentation first.
+4. Require `validation.json` to report `quality_gate.passed: true`; confirm `mapping_strategy: calibrated_anchors` and expected `dimension_ledger_ids` for class A/B work. Inspect `output/overlays/`, `output/masks/` and front/side/top renders. Green overlay pixels agree, red mask pixels are missing from the hull, and magenta pixels are extra projection. Do not continue if the hull is empty, masks are wrong or important views have poor IoU; fix crops, calibration, orientation or segmentation first.
 5. Keep the generated hull as evidence. Refine a duplicate with dimension-led parametric cutters, supported curvature, retopology, UVs, materials, collision and LODs.
 6. Run the final asset in its target engine or RealityKit renderer. For Apple targets, export/validate USD and load the `apple-platform-development` skill.
 

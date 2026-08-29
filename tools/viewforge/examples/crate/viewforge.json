@@ -6,9 +6,9 @@
   "dimensions": { "width": 2.0, "depth": 1.0, "height": 1.5 },
   "resolution": { "x": 24, "y": 16, "z": 20 },
   "views": {
-    "front": { "path": "sheet.pgm", "crop": { "x": 0, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1 },
-    "side": { "path": "sheet.pgm", "crop": { "x": 12, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1 },
-    "top": { "path": "sheet.pgm", "crop": { "x": 24, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1 }
+    "front": { "path": "sheet.pgm", "crop": { "x": 0, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "width", "ledger_id": "DIM-W", "pixel_min": 2, "pixel_max": 9 }, "vertical": { "dimension": "height", "ledger_id": "DIM-H", "pixel_min": 1, "pixel_max": 9 } } },
+    "side": { "path": "sheet.pgm", "crop": { "x": 12, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "depth", "ledger_id": "DIM-D", "pixel_min": 15, "pixel_max": 20 }, "vertical": { "dimension": "height", "ledger_id": "DIM-H", "pixel_min": 1, "pixel_max": 9 } } },
+    "top": { "path": "sheet.pgm", "crop": { "x": 24, "y": 0, "width": 12, "height": 12 }, "mode": "background", "background_tolerance": 0.1, "calibration": { "horizontal": { "dimension": "width", "ledger_id": "DIM-W", "pixel_min": 26, "pixel_max": 33 }, "vertical": { "dimension": "depth", "ledger_id": "DIM-D", "pixel_min": 3, "pixel_max": 8 } } }
   },
   "bevel_width": 0.03,
   "bevel_segments": 2,

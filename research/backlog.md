@@ -30,7 +30,8 @@ This library should grow through focused, verifiable passes.
 - [ ] Tested FreeCAD and OpenSCAD reconstruction sample with automated dimension checks
 - [x] Tested Blender ViewForge visual-hull reconstruction from calibrated front/side/top masks with GLB/USDC exports and reprojection checks
 - [x] ViewForge shared-sheet crop ingestion, auditable background segmentation, normalized mask evidence and input provenance
-- [ ] ViewForge calibration landmarks and perspective correction
+- [x] ViewForge dimension-led pixel anchors, cross-view ledger-ID validation and calibrated mapping evidence
+- [ ] ViewForge perspective/keystone correction
 - [x] ViewForge source/mask/projection overlays, machine-readable IoU quality gate and inconsistent-view failure fixture
 - [ ] ViewForge dimension-led holes/cutters, cross-sections, LODs, collision and engine import evidence
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset

@@ -91,7 +91,11 @@ def load_pixels(path: Path) -> tuple[int, int, list[tuple[float, float, float, f
 
 
 def build_mask(
-    path: Path, config: dict, target_width: int, target_height: int
+    path: Path,
+    config: dict,
+    target_width: int,
+    target_height: int,
+    expected_dimensions: tuple[str, str],
 ) -> tuple[set[tuple[int, int]], dict, dict[tuple[int, int], tuple[float, float, float, float]]]:
     width, height, pixels = load_pixels(path)
     mode = config.get("mode")
@@ -141,18 +145,56 @@ def build_mask(
     content_width = maximum_x - minimum_x + 1
     content_height = maximum_y - minimum_y + 1
 
+    calibration = config.get("calibration")
+    calibration_metadata = None
+    sample_minimum_x, sample_maximum_x = minimum_x, maximum_x
+    sample_minimum_y, sample_maximum_y = minimum_y, maximum_y
+    if calibration is not None:
+        calibration_metadata = {}
+        for axis_name, expected_dimension in zip(("horizontal", "vertical"), expected_dimensions):
+            axis = calibration.get(axis_name)
+            if not isinstance(axis, dict):
+                fail(f"calibration requires {axis_name} axis: {path}")
+            if axis.get("dimension") != expected_dimension:
+                fail(f"{axis_name} calibration for this view must reference {expected_dimension}: {path}")
+            ledger_id = axis.get("ledger_id")
+            if not isinstance(ledger_id, str) or not ledger_id.strip():
+                fail(f"calibration {axis_name}.ledger_id must be non-empty: {path}")
+            pixel_minimum = axis.get("pixel_min")
+            pixel_maximum = axis.get("pixel_max")
+            if not isinstance(pixel_minimum, int) or not isinstance(pixel_maximum, int) or pixel_minimum >= pixel_maximum:
+                fail(f"calibration {axis_name} pixel_min/pixel_max must be increasing integers: {path}")
+            crop_minimum = crop_x if axis_name == "horizontal" else crop_y
+            crop_maximum = crop_maximum_x if axis_name == "horizontal" else crop_maximum_y
+            if pixel_minimum < crop_minimum or pixel_maximum > crop_maximum:
+                fail(f"calibration {axis_name} anchors are outside the requested crop: {path}")
+            calibration_metadata[axis_name] = {
+                "dimension": expected_dimension,
+                "ledger_id": ledger_id,
+                "pixel_min": pixel_minimum,
+                "pixel_max": pixel_maximum,
+                "pixel_span": pixel_maximum - pixel_minimum + 1,
+            }
+        sample_minimum_x = calibration["horizontal"]["pixel_min"]
+        sample_maximum_x = calibration["horizontal"]["pixel_max"]
+        sample_minimum_y = calibration["vertical"]["pixel_min"]
+        sample_maximum_y = calibration["vertical"]["pixel_max"]
+
+    sample_width = sample_maximum_x - sample_minimum_x + 1
+    sample_height = sample_maximum_y - sample_minimum_y + 1
+
     result = set()
     preview = {}
     for v in range(target_height):
         normalized_v = (v + 0.5) / target_height
         if config.get("flip_vertical", False):
             normalized_v = 1.0 - normalized_v
-        source_y = min(maximum_y, maximum_y - int(normalized_v * content_height))
+        source_y = min(sample_maximum_y, sample_maximum_y - int(normalized_v * sample_height))
         for u in range(target_width):
             normalized_u = (u + 0.5) / target_width
             if config.get("flip_horizontal", False):
                 normalized_u = 1.0 - normalized_u
-            source_x = min(maximum_x, minimum_x + int(normalized_u * content_width))
+            source_x = min(sample_maximum_x, sample_minimum_x + int(normalized_u * sample_width))
             preview[(u, v)] = pixels[source_y * width + source_x]
             if (source_x, source_y) in source_mask:
                 result.add((u, v))
@@ -161,6 +203,8 @@ def build_mask(
         "source_size": {"width": width, "height": height},
         "requested_crop": {"x": crop_x, "y": crop_y, "width": crop_width, "height": crop_height},
         "detected_content_bounds": {"x": minimum_x, "y": minimum_y, "width": content_width, "height": content_height},
+        "mapping_strategy": "calibrated_anchors" if calibration is not None else "detected_content_bounds",
+        "calibration": calibration_metadata,
         "mode": mode,
         "threshold": threshold if mode != "background" else None,
         "background_tolerance": background_tolerance if mode == "background" else None,
@@ -371,11 +415,31 @@ def main() -> None:
     previews = {}
     input_metadata = {}
     target_sizes = {"front": (nx, nz), "side": (ny, nz), "top": (nx, ny)}
+    view_dimensions = {
+        "front": ("width", "height"),
+        "side": ("depth", "height"),
+        "top": ("width", "depth"),
+    }
     for view_name, (target_width, target_height) in target_sizes.items():
         view_config = manifest["views"][view_name]
         masks[view_name], input_metadata[view_name], previews[view_name] = build_mask(
-            resolve_view_path(manifest_directory, view_config), view_config, target_width, target_height
+            resolve_view_path(manifest_directory, view_config),
+            view_config,
+            target_width,
+            target_height,
+            view_dimensions[view_name],
         )
+
+    ledger_ids: dict[str, str] = {}
+    for metadata in input_metadata.values():
+        for axis in (metadata.get("calibration") or {}).values():
+            dimension = axis["dimension"]
+            existing = ledger_ids.setdefault(dimension, axis["ledger_id"])
+            if existing != axis["ledger_id"]:
+                fail(f"conflicting calibration ledger IDs for {dimension}: {existing} and {axis['ledger_id']}")
+            dimension_value = float(manifest["dimensions"][dimension])
+            axis["pixels_per_source_unit"] = round(axis["pixel_span"] / dimension_value, 6)
+            axis["source_units_per_pixel"] = round(dimension_value / axis["pixel_span"], 6)
     occupied = reconstruct(nx, ny, nz, masks)
 
     bpy.ops.object.select_all(action="SELECT")
@@ -428,6 +492,7 @@ def main() -> None:
         "mesh_vertices_before_bevel": vertex_count,
         "boundary_faces": boundary_faces,
         "inputs": input_metadata,
+        "dimension_ledger_ids": ledger_ids,
         "views": view_results,
         "quality_gate": {
             "minimum_iou": minimum_iou,

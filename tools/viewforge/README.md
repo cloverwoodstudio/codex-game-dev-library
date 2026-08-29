@@ -32,6 +32,14 @@ tools/viewforge/tests/smoke.sh
 - The model coordinate contract is `+X = right`, `+Y = back`, `+Z = up`; the origin is centered on the ground plane.
 - Front image maps horizontal to X and vertical to Z. Side maps horizontal to Y and vertical to Z. Top maps horizontal to X and vertical to Y.
 
+### Dimension-led calibration
+
+For grounded work, add `calibration.horizontal` and `calibration.vertical` to every view. Each axis declares two inclusive absolute source-pixel coordinates, the physical `dimension` they span and its stable `ledger_id`. Pixel coordinates use the source image's top-left origin and must remain inside the view crop.
+
+The required mapping is front = width/height, side = depth/height and top = width/depth. ViewForge rejects a wrong axis or conflicting ledger IDs across views. It records pixel span, pixels per source unit and source units per pixel in `validation.json`. This makes the scale traceable to dimension-ledger entries instead of silently stretching each detected silhouette independently. The crate example uses `DIM-W`, `DIM-D` and `DIM-H` anchors.
+
+If `calibration` is omitted, ViewForge retains the convenient `detected_content_bounds` mapping for exploratory class-C blockouts and reports that strategy explicitly. Do not treat that fallback as dimension evidence.
+
 See `manifest.schema.json` and the example manifest. Resolution controls the reconstruction grid, not the output image size. Start around 32–64 cells on the longest axis; high resolutions grow memory and face counts cubically.
 
 ViewForge writes the exact normalized masks used for reconstruction under `output/masks/`. It also writes enlarged review images under `output/overlays/`: the resampled source is dimmed, green means source mask and hull projection agree, red means requested silhouette is missing from the hull, and magenta means the hull projects outside the mask. Inspect these before trusting a good numerical score; a consistently wrong mask can still reproject perfectly.

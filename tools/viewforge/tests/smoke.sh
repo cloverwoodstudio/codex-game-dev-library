@@ -35,6 +35,9 @@ with open(sys.argv[1], encoding="utf-8") as report_file:
 assert report["occupied_voxels"] > 0
 assert report["boundary_faces"] > 0
 assert report["quality_gate"]["passed"] is True
+assert report["dimension_ledger_ids"] == {"width": "DIM-W", "height": "DIM-H", "depth": "DIM-D"}
+assert all(result["mapping_strategy"] == "calibrated_anchors" for result in report["inputs"].values())
+assert all(result["calibration"] for result in report["inputs"].values())
 assert all(result["mode"] == "background" for result in report["inputs"].values())
 assert len({result["path"] for result in report["inputs"].values()}) == 1
 for view_name, result in report["views"].items():
@@ -62,3 +65,9 @@ assert report["quality_gate"]["failed_views"]
 assert any(result["missing_pixels"] > 0 for result in report["views"].values())
 print("ViewForge negative quality-gate test passed")
 PY
+
+if "$tool_directory/viewforge.sh" "$tool_directory/examples/conflicting-ledger/viewforge.json"; then
+    echo "Expected conflicting ledger IDs to fail calibration" >&2
+    exit 1
+fi
+echo "ViewForge conflicting-ledger test passed"
