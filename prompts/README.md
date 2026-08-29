@@ -187,3 +187,9 @@ Design the world as a cancellation-safe cell lifecycle. Define coordinates, cell
 ```text
 Model the complete purchase lifecycle across storefront, client and backend. Define catalog IDs/types, platform-owned price display, pending/completed/cancelled states, server verification, unique transaction token, idempotent atomic grant, acknowledgement/consumption, restore, refund/revocation, subscription expiry, reconciliation and support evidence. Test duplicate/out-of-order notifications and never grant from an unverified client callback.
 ```
+
+## Genre vertical slice
+
+```text
+Use the matching guides/genres playbook and turn this concept into the smallest complete genre-valid vertical slice. State the genre promise, core decisions, final-feel systems required now, content boundaries, deterministic test room/board/track, telemetry and acceptance threshold. Prove one complete session with win/fail/restart before adding progression or content volume.
+```

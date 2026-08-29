@@ -72,3 +72,4 @@ Never scale content before proving both the core loop and the content-production
 - Quality tiers and fairness: `workflows/quality-scalability.md`
 - XR/VR comfort and testing: `platforms/xr.md`
 - Purchases, DLC and entitlements: `systems/commerce-entitlements.md`
+- Genre slices: `genres/platformer.md`, `genres/roguelike.md`, `genres/tactics.md`, `genres/puzzle.md`, `genres/racing.md`, `genres/survival-crafting.md`

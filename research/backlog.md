@@ -3,7 +3,9 @@
 This library should grow through focused, verifiable passes.
 
 - [ ] Deep engine playbooks: Godot, Unity, Unreal, Phaser, Three.js, Bevy, raylib, MonoGame
-- [ ] Genre recipes: platformer, tactics, roguelike, puzzle, idle, racing, FPS, simulation
+- [x] Genre playbooks: platformer, tactics, roguelike, puzzle, racing, survival/crafting
+- [ ] Genre playbooks: idle, FPS, immersive sim, strategy/management, rhythm, party/social, horror
+- [ ] Tested playable vertical slices for every genre playbook
 - [ ] Engine-specific movement, camera and combat tuning recipes with playable samples
 - [x] Movement and camera feel foundation with time-aware smoothing
 - [x] Multiplayer architecture foundation: authority, rollback, prediction, snapshots, test matrix

@@ -146,3 +146,12 @@ Always verify the license on the exact asset/version; an index link is not legal
 - Meta XR locomotion guidance: https://developers.meta.com/horizon/design/locomotion-best-practices/
 - Google Play Billing security: https://developer.android.com/google/play/billing/security
 - Apple StoreKit In-App Purchase: https://developer.apple.com/documentation/storekit/in-app-purchase
+
+## Genre study projects
+
+- Godot official demos: https://github.com/godotengine/godot-demo-projects
+- Brogue Community Edition: https://github.com/tmewett/BrogueCE
+- OpenTTD source documentation: https://docs.openttd.org/
+- Unreal Vehicle template: https://dev.epicgames.com/documentation/en-us/unreal-engine/vehicle-template-in-unreal-engine
+
+Study architecture and behavior; do not copy code or assets without verifying the exact repository license and compatibility.
