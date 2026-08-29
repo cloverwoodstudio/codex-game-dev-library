@@ -28,6 +28,20 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Gaffer on Games (physics/networking): https://gafferongames.com/
 - Valve developer community: https://developer.valvesoftware.com/wiki/Main_Page
 
+## Worlds, characters, art and 3D
+
+- Blender manual: https://docs.blender.org/manual/en/latest/
+- Khronos real-time asset guidelines: https://github.com/KhronosGroup/3DC-Asset-Creation/blob/main/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md
+- glTF specification/ecosystem: https://www.khronos.org/gltf/
+- Adobe Substance 3D documentation: https://helpx.adobe.com/substance-3d.html
+- Unreal procedural content generation: https://dev.epicgames.com/documentation/unreal-engine/procedural-content-generation-framework-in-unreal-engine
+- Poly Haven CC0 license: https://polyhaven.com/license
+
+## Audio
+
+- FMOD learning and docs: https://www.fmod.com/learn and https://www.fmod.com/docs/2.03/api/welcome.html
+- Wwise documentation: https://www.audiokinetic.com/en/public-library/
+
 ## Testing, performance, accessibility, release
 
 - Playwright docs: https://playwright.dev/docs/intro

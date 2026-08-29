@@ -18,6 +18,12 @@ A living, source-backed playbook for building games with Codex. This repository 
 - `templates/` — files to copy into new game repositories
 - `references/` — curated primary sources and example repositories
 - `research/` — research notes, findings, and backlog
+- `prompts/` — reusable briefs and prompts for Codex and asset generation
+- `code-patterns/` — engine-neutral reference implementations
+
+## Complete development map
+
+See [`guides/game-development-map.md`](guides/game-development-map.md) for the full path from idea and worldbuilding through code, art, audio, testing, release, and live operations.
 
 ## Core principle
 

@@ -5,6 +5,7 @@ This repository is a shared game-development knowledge base. Preserve it as a so
 ## When using this library to build a game
 
 1. Read `guides/engine-selection.md`, the matching `guides/engines/*.md`, and `guides/workflows/codex-loop.md`.
+   Route broader work through `guides/game-development-map.md`; consult only the relevant design, art, systems, prompt, and code-pattern files.
 2. Create a concrete `PLAN.md` from `templates/PLAN.template.md` before scaffolding.
 3. Define player goal, core loop, controls, win/fail states, target hardware, performance budgets, art direction, acceptance criteria, and milestone order.
 4. Build a tiny playable vertical slice before content expansion.
@@ -22,6 +23,7 @@ This repository is a shared game-development knowledge base. Preserve it as a so
 - Label community advice as community advice.
 - Verify links and avoid unlicensed code/assets.
 - Update `references/source-index.md` and `research/backlog.md`.
+- Put reusable prompts in `prompts/`, engine-neutral examples in `code-patterns/`, and tested engine-specific examples in a clearly named future sample project.
 
 ## Definition of done for a game task
 
