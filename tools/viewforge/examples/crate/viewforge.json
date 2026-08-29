@@ -13,5 +13,6 @@
   "bevel_width": 0.03,
   "bevel_segments": 2,
   "render_size": 512,
+  "quality_gate": { "minimum_iou": 0.99 },
   "output_directory": "output"
 }

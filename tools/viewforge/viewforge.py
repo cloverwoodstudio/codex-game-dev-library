@@ -90,7 +90,9 @@ def load_pixels(path: Path) -> tuple[int, int, list[tuple[float, float, float, f
     return width, height, pixels
 
 
-def build_mask(path: Path, config: dict, target_width: int, target_height: int) -> tuple[set[tuple[int, int]], dict]:
+def build_mask(
+    path: Path, config: dict, target_width: int, target_height: int
+) -> tuple[set[tuple[int, int]], dict, dict[tuple[int, int], tuple[float, float, float, float]]]:
     width, height, pixels = load_pixels(path)
     mode = config.get("mode")
     if mode not in ("dark", "light", "alpha", "background"):
@@ -140,6 +142,7 @@ def build_mask(path: Path, config: dict, target_width: int, target_height: int) 
     content_height = maximum_y - minimum_y + 1
 
     result = set()
+    preview = {}
     for v in range(target_height):
         normalized_v = (v + 0.5) / target_height
         if config.get("flip_vertical", False):
@@ -150,6 +153,7 @@ def build_mask(path: Path, config: dict, target_width: int, target_height: int) 
             if config.get("flip_horizontal", False):
                 normalized_u = 1.0 - normalized_u
             source_x = min(maximum_x, minimum_x + int(normalized_u * content_width))
+            preview[(u, v)] = pixels[source_y * width + source_x]
             if (source_x, source_y) in source_mask:
                 result.add((u, v))
     metadata = {
@@ -161,7 +165,7 @@ def build_mask(path: Path, config: dict, target_width: int, target_height: int) 
         "threshold": threshold if mode != "background" else None,
         "background_tolerance": background_tolerance if mode == "background" else None,
     }
-    return result, metadata
+    return result, metadata, preview
 
 
 def write_mask_pgm(path: Path, mask: set[tuple[int, int]], width: int, height: int) -> None:
@@ -169,6 +173,41 @@ def write_mask_pgm(path: Path, mask: set[tuple[int, int]], width: int, height: i
     for image_y in range(height - 1, -1, -1):
         lines.append(" ".join("0" if (x, image_y) in mask else "255" for x in range(width)))
     path.write_text("\n".join(lines) + "\n", encoding="ascii")
+
+
+def write_overlay_png(
+    path: Path,
+    preview: dict[tuple[int, int], tuple[float, float, float, float]],
+    mask: set[tuple[int, int]],
+    projection: set[tuple[int, int]],
+    width: int,
+    height: int,
+    scale: int = 8,
+) -> None:
+    """Write a nearest-neighbor evidence overlay large enough for visual review."""
+    pixels = []
+    for output_y in range(height * scale):
+        v = output_y // scale
+        for output_x in range(width * scale):
+            u = output_x // scale
+            red, green, blue, _ = preview[(u, v)]
+            in_mask = (u, v) in mask
+            in_projection = (u, v) in projection
+            if in_mask and in_projection:
+                color = (0.08 + 0.18 * red, 0.72 + 0.22 * green, 0.10 + 0.18 * blue, 1.0)
+            elif in_mask:
+                color = (1.0, 0.08, 0.04, 1.0)
+            elif in_projection:
+                color = (0.78, 0.06, 1.0, 1.0)
+            else:
+                color = (0.20 * red, 0.20 * green, 0.20 * blue, 1.0)
+            pixels.extend(color)
+    image = bpy.data.images.new(f"ViewForge overlay {path.stem}", width=width * scale, height=height * scale, alpha=True)
+    image.pixels.foreach_set(pixels)
+    image.filepath_raw = str(path)
+    image.file_format = "PNG"
+    image.save()
+    bpy.data.images.remove(image)
 
 
 def resolve_view_path(manifest_directory: Path, config: dict) -> Path:
@@ -329,11 +368,12 @@ def main() -> None:
     nx, ny, nz = (manifest["resolution"][key] for key in ("x", "y", "z"))
 
     masks = {}
+    previews = {}
     input_metadata = {}
     target_sizes = {"front": (nx, nz), "side": (ny, nz), "top": (nx, ny)}
     for view_name, (target_width, target_height) in target_sizes.items():
         view_config = manifest["views"][view_name]
-        masks[view_name], input_metadata[view_name] = build_mask(
+        masks[view_name], input_metadata[view_name], previews[view_name] = build_mask(
             resolve_view_path(manifest_directory, view_config), view_config, target_width, target_height
         )
     occupied = reconstruct(nx, ny, nz, masks)
@@ -359,6 +399,23 @@ def main() -> None:
         "side": {(y, z) for _, y, z in occupied},
         "top": {(x, y) for x, y, _ in occupied},
     }
+    overlays_directory = output_directory / "overlays"
+    overlays_directory.mkdir(parents=True, exist_ok=True)
+    for view_name, (target_width, target_height) in target_sizes.items():
+        write_overlay_png(
+            overlays_directory / f"{view_name}.png",
+            previews[view_name],
+            masks[view_name],
+            projections[view_name],
+            target_width,
+            target_height,
+        )
+
+    view_results = {name: comparison(masks[name], projections[name]) for name in masks}
+    minimum_iou = float(manifest.get("quality_gate", {}).get("minimum_iou", 0.95))
+    if not 0 <= minimum_iou <= 1:
+        fail("quality_gate.minimum_iou must be from 0 through 1")
+    failed_views = [name for name, result in view_results.items() if result["iou"] < minimum_iou]
     report = {
         "viewforge_version": 1,
         "source_manifest": str(manifest_path),
@@ -371,13 +428,25 @@ def main() -> None:
         "mesh_vertices_before_bevel": vertex_count,
         "boundary_faces": boundary_faces,
         "inputs": input_metadata,
-        "views": {name: comparison(masks[name], projections[name]) for name in masks},
+        "views": view_results,
+        "quality_gate": {
+            "minimum_iou": minimum_iou,
+            "passed": not failed_views,
+            "failed_views": failed_views,
+        },
+        "evidence": {
+            "normalized_masks": "masks/",
+            "source_mask_projection_overlays": "overlays/",
+            "orthographic_renders": ["front.png", "side.png", "top.png"],
+        },
         "claim": "Visual hull constrained by supplied silhouettes; hidden concavities and surface curvature remain unknown.",
     }
     with (output_directory / "validation.json").open("w", encoding="utf-8") as report_file:
         json.dump(report, report_file, indent=2)
         report_file.write("\n")
     print(json.dumps(report, indent=2))
+    if failed_views:
+        fail(f"quality gate failed for views: {', '.join(failed_views)}; inspect validation.json and overlays/")
 
 
 if __name__ == "__main__":

@@ -20,6 +20,8 @@ The correct strategy is staged reconstruction, not one-shot image-to-mesh genera
 | Editable/runtime/Apple output | `.blend`, `.glb`, `.usdc` | Tested with Blender 5.2.1 LTS |
 | Scale preservation | Exported GLB reimported as 2.0 × 1.0 × 1.5 m | Tested |
 | Visual evidence | Orthographic front/side/top renders | Inspected |
+| Source/mask/projection evidence | Enlarged per-view overlays with agreement, missing and extra classifications | Tested and inspected |
+| Automated rejection | Configurable minimum per-view IoU, launcher-enforced nonzero exit and retained diagnostics | Tested with intentionally inconsistent fixture; launcher compensates for Blender 5.2 returning zero after a Python exception |
 | Codex discovery | Repo-local `reference-sheet-to-3d` skill | Validated |
 
 ## Remaining gaps
@@ -28,9 +30,8 @@ The correct strategy is staged reconstruction, not one-shot image-to-mesh genera
 
 1. Calibration points and dimension callouts tied to ledger IDs, rather than assuming each content crop spans the declared dimension.
 2. Perspective/keystone correction for photographed drawings and non-orthographic sheets.
-3. Overlay images that compare normalized masks, hull projections and source crops in one review artifact.
-4. Connected-component filtering and explicit foreground/background seed points for noisy sheets; automatic segmentation must remain reviewable.
-5. Negative tests for inconsistent views, bad crops, object-at-corner backgrounds and empty intersections.
+3. Connected-component filtering and explicit foreground/background seed points for noisy sheets; automatic segmentation must remain reviewable.
+4. Additional negative tests for bad crops, object-at-corner backgrounds and empty intersections. Inconsistent views already have a failing quality-gate fixture.
 
 ### P1 — evidence-driven shape refinement
 
@@ -56,8 +57,8 @@ The correct strategy is staged reconstruction, not one-shot image-to-mesh genera
 
 ## Next implementation order
 
-1. Calibration landmarks plus source/mask/projection overlays.
-2. Failure fixtures and a machine-readable quality gate.
+1. Calibration landmarks and dimension anchors.
+2. Perspective correction and segmentation failure fixtures.
 3. Dimension-led negative volumes and cross-sections.
 4. One real permissively licensed product reconstruction through CAD, ViewForge, Blender and engine import.
 5. Game-ready LOD/collision/material derivative and Apple RealityKit validation.

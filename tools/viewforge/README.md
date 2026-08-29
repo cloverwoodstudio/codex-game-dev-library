@@ -4,7 +4,7 @@ Reviewed: 2026-08-29
 
 ViewForge turns calibrated front/side/top views into a deterministic 3D visual hull in Blender. The views can be separate masks or pixel crops from one shared reference sheet. It is designed for Codex workflows where a reference sheet exists but free-form mesh generation would otherwise become guesswork.
 
-It does **not** infer hidden concavities, materials, mechanisms or anatomy. Instead it creates the largest volume consistent with every supplied silhouette, reports reprojection agreement and input provenance, and exports an editable `.blend`, runtime `.glb`, Apple-oriented `.usdc`, normalized masks, validation JSON and orthographic renders. The result is a grounded blockout for deliberate refinement, not a finished production asset.
+It does **not** infer hidden concavities, materials, mechanisms or anatomy. Instead it creates the largest volume consistent with every supplied silhouette, reports reprojection agreement and input provenance, and exports an editable `.blend`, runtime `.glb`, Apple-oriented `.usdc`, normalized masks, source/mask/projection overlays, validation JSON and orthographic renders. The result is a grounded blockout for deliberate refinement, not a finished production asset.
 
 ## Quick start
 
@@ -34,7 +34,7 @@ tools/viewforge/tests/smoke.sh
 
 See `manifest.schema.json` and the example manifest. Resolution controls the reconstruction grid, not the output image size. Start around 32–64 cells on the longest axis; high resolutions grow memory and face counts cubically.
 
-ViewForge writes the exact normalized masks used for reconstruction under `output/masks/`. Inspect these before trusting a good numerical score; a consistently wrong mask can still reproject perfectly.
+ViewForge writes the exact normalized masks used for reconstruction under `output/masks/`. It also writes enlarged review images under `output/overlays/`: the resampled source is dimmed, green means source mask and hull projection agree, red means requested silhouette is missing from the hull, and magenta means the hull projects outside the mask. Inspect these before trusting a good numerical score; a consistently wrong mask can still reproject perfectly.
 
 ## What the report means
 
@@ -46,9 +46,11 @@ For each view, ViewForge projects occupied voxels back to 2D and compares the pr
 
 A high IoU proves silhouette consistency at the chosen grid resolution. It does not prove surface curvature or hidden geometry. Record such choices as estimated in the dimension ledger.
 
+`quality_gate.minimum_iou` sets the required per-view IoU from 0 through 1 and defaults to `0.95`. ViewForge writes all diagnostic outputs and `validation.json`, then exits unsuccessfully when any view falls below the threshold. This makes bad input stop an automated Codex workflow while preserving the evidence needed to repair it. The `examples/inconsistent/` fixture deliberately exercises this failure path.
+
 ## Production continuation
 
-1. Review the three renders and validation report.
+1. Require `quality_gate.passed`, then review the three overlays, renders and validation report.
 2. Correct crop, orientation, thresholds and real dimensions before sculpting.
 3. Add known holes/concavities with parametric cutters driven by the dimension ledger.
 4. Use Blender shrinkwrap/sculpt tools for supported curvature; keep the hull as evidence.
