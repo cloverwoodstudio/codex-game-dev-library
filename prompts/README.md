@@ -133,3 +133,21 @@ Turn this gameplay defect into a minimal versioned replay. Record build/content/
 ```text
 Design the cheapest CI pipeline that proves a clean machine can validate, test, package and smoke-run this game. Separate pull-request, main, nightly and release gates; define the justified platform matrix, pinned toolchain, cache boundaries, secret permissions, timeouts and local command equivalents. On failure retain uniquely named logs, test reports, screenshots/diffs, seeds/replays and build manifest. Do not deploy a rebuild that differs from the tested artifact.
 ```
+
+## Level blockout and encounter brief
+
+```text
+Design a greybox level from gameplay metrics and player decisions backward. Define entry/exit state, verbs and knowledge tested, critical/optional routes, spatial grammar, landmarks, encounters, recovery, checkpoints, accessibility, performance worst case and acceptance checks. Use the real controller, camera, collision and deterministic encounter seeds; do not begin art polish until traversal and objective clarity survive uncoached playtests.
+```
+
+## Animation production contract
+
+```text
+Create a runtime animation contract covering skeleton/bind pose/axes, root motion, control-versus-deformation bones, IK and attachment markers, skinning limits, clip inventory, contacts/events, interrupt rules, retarget families, compression/LOD budgets and an animation test gym. Separate authoritative gameplay from presentation and define visual checks for every body family and transition.
+```
+
+## Skippable cinematic
+
+```text
+Design this cinematic as a safe state transition. Specify trigger/preconditions, actor bindings, camera/input/HUD/audio ownership, subtitles/localization, save/checkpoint behavior, idempotent gameplay events, skip-to-end state, pause/disconnect/unload recovery and exact post-sequence acceptance tests. Exercise first play, replay and skips at multiple timestamps.
+```

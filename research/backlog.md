@@ -42,6 +42,15 @@ This library should grow through focused, verifiable passes.
 - [ ] Working Godot, Unity and Unreal CI reference projects
 - [ ] Cross-platform deterministic simulation conformance lab
 - [ ] Property-based generator test harness and seed shrinker sample
+- [x] Level-design, encounter and metrics-kit foundation
+- [x] Interactive onboarding and objective-clarity foundation
+- [x] Character rigging, animation and retargeting foundation
+- [x] Real-time lighting/readability foundation
+- [x] Cinematic state-transition and skip-safety foundation
+- [x] Adaptive audio/music foundation
+- [ ] Engine-specific level metrics gyms and encounter sample maps
+- [ ] Tested animation export/import/retarget presets for Blender and each engine
+- [ ] Adaptive music sample with accessibility captions and profiler evidence
 - [ ] Benchmark agent workflows on the same small game briefs
 - [ ] Interview postmortems and original GDC talks; label experience-based findings
 

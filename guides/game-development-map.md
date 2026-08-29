@@ -55,3 +55,9 @@ Never scale content before proving both the core loop and the content-production
 - Replay-driven reproduction: `systems/replays-determinism.md`
 - Visual regression: `workflows/visual-regression.md`
 - CI and build evidence: `workflows/continuous-integration.md`
+- Level and encounter production: `design/level-design.md`
+- Onboarding and objective clarity: `design/onboarding-tutorials.md`
+- Character rigging and animation: `art/character-animation.md`
+- Lighting and readability: `art/lighting.md`
+- Cinematics and state transitions: `design/cinematics.md`
+- Adaptive audio and music: `systems/adaptive-audio.md`

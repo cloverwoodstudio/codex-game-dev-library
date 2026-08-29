@@ -112,3 +112,15 @@ Always verify the license on the exact asset/version; an index link is not legal
 - Unreal replay system: https://dev.epicgames.com/documentation/en-us/unreal-engine/using-the-replay-system-in-unreal-engine
 - Unreal PCG Framework: https://dev.epicgames.com/documentation/en-us/unreal-engine/procedural-content-generation-framework-in-unreal-engine
 - GitHub Actions artifacts: https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts
+
+## Levels, animation, lighting and sequences
+
+- Unreal Level Editor: https://dev.epicgames.com/documentation/en-us/unreal-engine/level-editor-in-unreal-engine
+- Godot navigation: https://docs.godotengine.org/en/stable/tutorials/navigation/index.html
+- Xbox objective clarity/tutorials: https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/109
+- Blender armatures: https://docs.blender.org/manual/en/latest/animation/armatures/index.html
+- Unreal animation retargeting: https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-retargeting-in-unreal-engine
+- Unreal lighting: https://dev.epicgames.com/documentation/en-us/unreal-engine/lighting-the-environment-in-unreal-engine
+- Unreal Sequencer: https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-sequencer-movie-tool-overview
+- Unity Timeline: https://docs.unity3d.com/Manual/com.unity.timeline.html
+- Godot audio: https://docs.godotengine.org/en/stable/tutorials/audio/index.html
