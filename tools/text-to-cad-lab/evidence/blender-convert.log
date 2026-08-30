@@ -1,0 +1,7 @@
+19:24:50 | INFO: Data are loaded, start creating Blender stuff
+19:24:50 | INFO: Blender create Mesh node lighthouse_junction_tile
+19:24:50 | INFO: glTF import finished in 0.01s
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+USD export of '/Users/milan/Documents/Codex/2026-08-29/bro-zaklad-m-nov-chat-programovanie/tools/text-to-cad-lab/output/lighthouse_junction.usdc' took 15.32 ms
+
+Blender quit

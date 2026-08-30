@@ -1,0 +1,31 @@
+{
+  "assetId": "text-to-cad-lighthouse-junction-v1",
+  "assetPath": "lighthouse_junction.usdz",
+  "gates": [
+    {
+      "detail": "Validation Result with no explicit variants set\nSuccess!",
+      "gate": "usdchecker",
+      "result": "pass"
+    },
+    {
+      "detail": "allowed",
+      "gate": "redistribution-known",
+      "result": "pass"
+    }
+  ],
+  "humanReviewRequired": [
+    "visual quality",
+    "silhouette/style match",
+    "rights authenticity",
+    "runtime rendering and performance"
+  ],
+  "inspection": {
+    "format": "USDZ",
+    "usdcheckerMode": "RealityKit/ARKit strict",
+    "usdcheckerOutput": "Validation Result with no explicit variants set\nSuccess!",
+    "usdcheckerPassed": true,
+    "warnings": []
+  },
+  "machineAcceptance": "pass",
+  "sha256": "f8464fae826949dcffd2af3f0d51f870d13f470aa76d447fc550bd4baa9ee899"
+}

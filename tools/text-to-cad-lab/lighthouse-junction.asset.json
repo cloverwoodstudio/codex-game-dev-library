@@ -1,0 +1,29 @@
+{
+  "assetId": "text-to-cad-lighthouse-junction-v1",
+  "displayName": "Text-to-CAD Lighthouse Junction",
+  "source": {
+    "creator": "Cloverwood Studio test fixture generated with earthtojake/text-to-cad",
+    "url": "https://github.com/earthtojake/text-to-cad/commit/0e94cd1d2b5fa2013d89aa9504ecadcf16ce39f6",
+    "acquiredUtc": "2026-08-30T17:24:00Z"
+  },
+  "license": {
+    "name": "Repository code and generated fixture license",
+    "evidence": "https://github.com/earthtojake/text-to-cad/blob/0e94cd1d2b5fa2013d89aa9504ecadcf16ce39f6/LICENSE",
+    "redistribution": "allowed",
+    "attribution": "Generated fixture source is repository code; text-to-cad is MIT licensed."
+  },
+  "primaryFile": "output/lighthouse_junction.glb",
+  "intendedUse": "Hard-surface game-asset pipeline evaluation for an Apple RealityKit game",
+  "status": "candidate",
+  "styleTags": ["hard-surface", "puzzle", "junction", "parametric"],
+  "budgets": {
+    "maxTriangles": 5000,
+    "maxMaterials": 2,
+    "maxTextures": 0
+  },
+  "coordinateContract": {
+    "metersPerUnit": 1.0,
+    "upAxis": "Y",
+    "forwardAxis": "-Z"
+  }
+}

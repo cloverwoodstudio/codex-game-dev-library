@@ -1,0 +1,4 @@
+RealityKit load: pass
+asset: lighthouse_junction.usdz
+bounds center: SIMD3<Float>(0.0, 0.0049999994, 0.0)
+bounds extents: SIMD3<Float>(0.092, 0.010000004, 0.09199999)

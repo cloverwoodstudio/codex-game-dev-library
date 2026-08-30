@@ -1,0 +1,62 @@
+{
+  "assetId": "text-to-cad-lighthouse-junction-v1",
+  "assetPath": "lighthouse_junction.glb",
+  "gates": [
+    {
+      "detail": "940 <= 5000",
+      "gate": "maxTriangles",
+      "result": "pass"
+    },
+    {
+      "detail": "1 <= 2",
+      "gate": "maxMaterials",
+      "result": "pass"
+    },
+    {
+      "detail": "0 <= 0",
+      "gate": "maxTextures",
+      "result": "pass"
+    },
+    {
+      "detail": "allowed",
+      "gate": "redistribution-known",
+      "result": "pass"
+    }
+  ],
+  "humanReviewRequired": [
+    "visual quality",
+    "silhouette/style match",
+    "rights authenticity",
+    "runtime rendering and performance"
+  ],
+  "inspection": {
+    "animations": 0,
+    "container": "GLB",
+    "format": "glTF 2.0",
+    "images": 0,
+    "materials": 1,
+    "meshes": 1,
+    "nodes": 1,
+    "positionBounds": [
+      {
+        "max": [
+          0.04600000008940697,
+          0.009999999776482582,
+          0.04600000008940697
+        ],
+        "min": [
+          -0.04600000008940697,
+          0.0,
+          -0.04600000008940697
+        ]
+      }
+    ],
+    "primitives": 1,
+    "skins": 0,
+    "textures": 0,
+    "triangles": 940,
+    "warnings": []
+  },
+  "machineAcceptance": "pass",
+  "sha256": "b9993d7c8a3b10bac00977566350a6f0994e10fbfd7056cac7b0c966334f6ad4"
+}
