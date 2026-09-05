@@ -77,6 +77,8 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - OpenCV four-point perspective-transform model: https://docs.opencv.org/doc/doxygen/html/d9/ded/group__geometry__shape.html
 - Visual hull foundation (Laurentini, IEEE PAMI 1994): https://doi.org/10.1109/34.273735
 - Apple USD authoring and validation: https://developer.apple.com/documentation/usd/creating-usd-files-for-apple-devices
+- Apple RealityKit entity loading and hierarchy preservation: https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file
+- Three.js OrbitControls and GLTFExporter: https://threejs.org/docs/pages/OrbitControls.html and https://threejs.org/docs/pages/GLTFExporter.html
 - Khronos real-time product-asset guidelines: https://github.com/KhronosGroup/3DC-Asset-Creation/blob/main/asset-creation-guidelines/RealtimeAssetCreationGuidelines.md
 - glTF specification and Asset Auditor: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html and https://www.khronos.org/gltf/gltf-asset-auditor/
 

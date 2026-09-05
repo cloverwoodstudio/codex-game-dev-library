@@ -14,6 +14,11 @@ Brief → thumbnails → composition/value pass → palette → production art �
 
 Brief/reference → blockout → modeling/sculpt → retopology → UVs → baking → PBR texturing → rig/animation when needed → export → import preset → collision/LODs → runtime review → profiling.
 
+Two reusable variations are documented separately:
+
+- [Premium Blender → USDZ → RealityKit](premium-blender-usdz-realitykit.md) for final Apple-native mechanical assets with stable runtime state nodes.
+- [Three.js procedural prototype → GLB](threejs-procedural-asset-prototyping.md) for fast silhouette, connector, pivot and motion experiments before production authoring.
+
 For metallic/roughness PBR, treat base color, metalness, roughness, normal, occlusion and emissive as data with correct color-space settings. Validate normals, tangents, scale, transforms and texture channels after import.
 
 ## Runtime budgets

@@ -36,6 +36,8 @@ tests/
 
 Never invent npm script names. Common roles are dependency install, type check, lint, unit tests, build and Playwright end-to-end tests; record their exact commands in `ENGINE_BOOTSTRAP.md`.
 
+For a small code-generated 3D object study rather than a full browser game, follow the [Three.js procedural asset prototyping workflow](../art/threejs-procedural-asset-prototyping.md). It defines a narrow orbit/motion/GLB loop and the gate between a useful prototype and shipping art.
+
 ## Validation ladder
 
 1. Fixed-step simulation tests with seeded randomness.

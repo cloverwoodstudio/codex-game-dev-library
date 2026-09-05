@@ -20,6 +20,8 @@ Define units, forward/up axes, naming, collections, origins and export rules bef
 
 Prefer glTF/GLB when the target supports it well; use the target engine's documented FBX settings where that pipeline is more mature. Never assume Blender viewport appearance will match runtime materials.
 
+For premium Apple-native assets with named runtime state nodes, reproducible Python generation, USDZ packaging and physical-device approval, use the dedicated [Blender → USDZ → RealityKit workflow](premium-blender-usdz-realitykit.md).
+
 Sources:
 
 - Blender manual: https://docs.blender.org/manual/en/latest/
