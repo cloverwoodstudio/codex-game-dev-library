@@ -48,3 +48,8 @@ This repository is a shared game-development knowledge base. Preserve it as a so
 - Never delete whole simulators, runner installations, repositories, keychains, credentials or broad user/global caches merely to free space.
 - After an interrupted/crashed run, the next agent must sweep stale repo-scoped disposable run directories before starting new work.
 - Record free-space-before, free-space-after, cleanup status and any intentionally retained evidence path in the run receipt.
+
+## Mandatory local-run wrapper — OWNER LOCKED 2026-09-09
+- Every local Mac build, test or CI command MUST run through `bash scripts/cloverwood-local-run.sh -- <command> [args...]` so disposable storage, disk gating, signal-safe cleanup and the cleanup receipt are enforced.
+- For Xcode, 3D or other heavy Mac workloads set `CLOVERWOOD_EXCLUSIVE_MAC=1` so two heavy jobs cannot compete for CoreSimulator/build storage on the same Mac.
+- Do not bypass the wrapper to obtain PASS/READY. If a tool technically cannot be nested under the wrapper, reproduce the same disposable run-root + trap/finally + deletion verification contract and emit an equivalent cleanup receipt.

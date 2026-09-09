@@ -58,8 +58,7 @@ For a small code-generated 3D object study rather than a full browser game, foll
 
 ## Primary sources
 
-- [Installation](https://threejs.org/manual/en/installation.html)
-- [Responsive design](https://threejs.org/manual/en/responsive.html)
-- [Cleanup](https://threejs.org/manual/en/cleanup.html)
-- [How to dispose of objects](https://threejs.org/manual/en/how-to-dispose-of-objects.html)
-- [WebGPU renderer](https://threejs.org/manual/en/webgpurenderer)
+- [Installation](https://threejs.org/manual/#en/installation)
+- [Responsive design](https://threejs.org/manual/#en/responsive)
+- [How to dispose of objects](https://threejs.org/manual/#en/how-to-dispose-of-objects)
+- [WebGPU renderer](https://threejs.org/manual/#en/webgpurenderer)
