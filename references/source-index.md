@@ -40,7 +40,7 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 
 ### Code-first engine production
 
-- Three.js installation, resource disposal and WebGPU renderer: https://threejs.org/manual/en/installation.html and https://threejs.org/manual/en/how-to-dispose-of-objects.html and https://threejs.org/manual/en/webgpurenderer
+- Three.js installation, resource disposal and WebGPU renderer: https://threejs.org/manual/#en/installation and https://threejs.org/manual/#en/how-to-dispose-of-objects and https://threejs.org/manual/#en/webgpurenderer
 - Babylon.js documentation, repository and specifications: https://doc.babylonjs.com/ and https://github.com/BabylonJS/Babylon.js and https://www.babylonjs.com/specifications/
 - Bevy Quick Start, examples and migration guides: https://bevyengine.org/learn/quick-start/getting-started/ and https://bevyengine.org/examples/ and https://bevyengine.org/learn/migration-guides/
 - raylib repository, CMake options and game template: https://github.com/raysan5/raylib and https://github.com/raysan5/raylib/blob/master/CMakeOptions.txt and https://github.com/raysan5/raylib-game-template

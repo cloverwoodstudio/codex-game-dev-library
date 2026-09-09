@@ -105,7 +105,7 @@ Rebuild or refine the asset through the premium Blender/USDZ pipeline, then appl
 
 ## Primary sources
 
-- [Three.js installation and addon versioning](https://threejs.org/manual/en/installation.html)
+- [Three.js installation and addon versioning](https://threejs.org/manual/#en/installation)
 - [Three.js OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)
 - [Three.js GLTFExporter](https://threejs.org/docs/pages/GLTFExporter.html)
 - [glTF 2.0 specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
