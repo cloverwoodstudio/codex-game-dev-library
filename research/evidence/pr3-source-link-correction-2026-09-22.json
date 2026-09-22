@@ -1,0 +1,14 @@
+{
+  "kind": "official-source-link-correction",
+  "date": "2026-09-22",
+  "observedHead": "c2a66f96598547ee7f6c3eadd43b6f99ae729c3e",
+  "ciRun": 35735163646,
+  "failure": "curl certificate verification exit 60 on both attempts",
+  "old": "https://www.softwareheritage.org/mission/",
+  "replacement": "https://docs.softwareheritage.org/",
+  "replacementScope": "Same organization official documentation: mission, archival, reference identifiers and preservation workflows. Source content reviewed.",
+  "macObservation": "Both www mission site and docs responded 200 with default TLS; apex domain TLS handshake failed. No permanent outage claimed.",
+  "tlsValidationDisabled": false,
+  "perURLBypassAdded": false,
+  "codeChanged": false
+}
