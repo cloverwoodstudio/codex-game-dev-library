@@ -41,6 +41,6 @@ Use least-privilege service identities, environment separation, dependency pinni
 
 ## Sources
 
-- OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
+- OWASP Game Security Framework: https://owasp.org/projects/gamesec-framework
 - PlayFab server-side CloudScript API: https://learn.microsoft.com/en-us/rest/api/playfab/cloudscript/server-side-cloud-script
 - OpenTelemetry observability primer: https://opentelemetry.io/docs/concepts/observability-primer/

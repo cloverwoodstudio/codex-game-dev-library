@@ -1,0 +1,19 @@
+name: Library registry
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  offline-registry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate capability sources and boundaries
+        run: python3 -B scripts/capabilities.py --check
+      - name: Test registry validation and discovery
+        run: python3 -B -m unittest discover -s tests -v

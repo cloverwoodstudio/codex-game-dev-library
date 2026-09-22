@@ -1,0 +1,72 @@
+{
+  "kind": "shared-entry-validation-receipt",
+  "version": 1,
+  "date": "2026-09-22",
+  "baseCommit": "45d91d6c191b7e42a462e70962161fc439d39a95",
+  "scope": "Shared bootstrap and non-executing registry only. No game/Viewer/tool runtime migration.",
+  "firstLocalRun": {
+    "runId": "shared-entry-check-01-20260922",
+    "registry": "PASS",
+    "capabilities": 12,
+    "pinnedLocalFiles": 30,
+    "externalReferences": 1,
+    "registryTests": {
+      "passed": 39,
+      "failed": 0
+    },
+    "unchangedJavaScriptSampleTests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "diffWhitespace": "PASS",
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 31423332,
+    "freeAfterKiB": 31423300
+  },
+  "externalLinkCheck": {
+    "state": "BLOCKED_MISSING_RG_ON_MAC",
+    "runId": "shared-entry-links-01-20260922",
+    "commandExit": 127,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 31423204,
+    "freeAfterKiB": 31423204,
+    "dependencyInstalled": false,
+    "historicalGitHubRun": 34368730716,
+    "historicalGitHubState": "FAILURE_BEFORE_THIS_CHANGE"
+  },
+  "finalChecks": "Final local run passed on these file bytes; exact-head validation and GitHub CI are recorded in the PR. Overall CI is not inferred from this receipt.",
+  "boundaries": {
+    "mergePerformed": false,
+    "testflightUpload": false,
+    "gameChanges": false,
+    "viewerChanges": false,
+    "installsOnMac": false,
+    "heavyWorkloads": false
+  },
+  "qualification": "Registry PASS verifies local catalog structure/pins only, not overall CI, external-source security, live Viewer, owner PASS, or production readiness.",
+  "finalLocalRun": {
+    "runId": "shared-entry-check-02-20260922",
+    "registry": "PASS",
+    "registryTests": {
+      "passed": 39,
+      "failed": 0
+    },
+    "unchangedJavaScriptSampleTests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "listCommand": "PASS",
+    "diffWhitespace": "PASS",
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 31424936,
+    "freeAfterKiB": 31424912
+  },
+  "testedFilesSha256": {
+    "scripts/capabilities.py": "d38e3f96ca5da3800575f09525e294926bccbbd538d8183054073e03143ab99f",
+    "tests/test_capabilities.py": "bccb0581479610ddb6b8e47c96df0ef0195bdee7cf741e220ecb9eb140945d2c",
+    "capabilities/registry.json": "884ace82fde5f87c78c518230909445b83a55244b75b57aeaf9b48b5eecf68f8",
+    "START_HERE.md": "8730f56333180f4920f2b2cfb016020920f5d94940946c110d4114fcdcdcc551"
+  }
+}

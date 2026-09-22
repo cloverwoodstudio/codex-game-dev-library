@@ -1,0 +1,78 @@
+{
+  "kind": "pr3-review-and-link-repair",
+  "version": 1,
+  "reviewedOn": "2026-09-22",
+  "baseCommit": "45d91d6c191b7e42a462e70962161fc439d39a95",
+  "reviewedInitialHead": "934d3ead77a885db65e8f747f3d84a1b5f54b091",
+  "scope": "Agent review of original PR3 plus owner-authorized link-check repair. Not an independent human review or whole-library security certification.",
+  "sourceSha256": {
+    "scripts/check-links.sh": "88d91df3eefc37194a7b8762b433c3e6fab0dd4ae31fb2e7ac32b9c860fb59cd",
+    "scripts/check_links.py": "19b1f46a94f482db134aacd9595bbe7c83885d075e0fbd2e8ca2d7d942046dc4",
+    "tests/test_check_links.py": "2ad3f75baea09d439a5aacb4451c72157eba99a8da91f68bd2c07ce391776bb6",
+    ".github/workflows/links.yml": "5afca220b0d04b60d854bf0268d89d1171e1e5efaafb5c569e4d1bce780c675d",
+    "scripts/capabilities.py": "d38e3f96ca5da3800575f09525e294926bccbbd538d8183054073e03143ab99f",
+    "tests/test_capabilities.py": "bccb0581479610ddb6b8e47c96df0ef0195bdee7cf741e220ecb9eb140945d2c",
+    "capabilities/registry.json": "884ace82fde5f87c78c518230909445b83a55244b75b57aeaf9b48b5eecf68f8"
+  },
+  "reproduction": {
+    "environment": "Linux sandbox; installed ripgrep 14.1.1; not the Mac",
+    "fixture": "One README.md containing an example.com HTTP link",
+    "emptyPipeNoExplicitPath": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "emptyPipeExplicitPath": {
+      "exit": 0,
+      "foundFile": true
+    },
+    "devnullNoExplicitPath": {
+      "exit": 0,
+      "foundFile": true
+    },
+    "qualification": "Reproduces the silent failure mechanism; historical CI stdin was not logged."
+  },
+  "localTests": {
+    "runId": "pr3-review-final-tests-20260922",
+    "registryAndLinkTestsPassed": 68,
+    "failed": 0,
+    "unchangedJavaScriptSamplePassed": 3,
+    "registryIntegrity": "PASS",
+    "diffWhitespace": "PASS",
+    "cleanup": "PASS",
+    "freeBeforeKiB": 31176280,
+    "freeAfterKiB": 31176032
+  },
+  "localHTTP": {
+    "runId": "pr3-links-corrected-20260922",
+    "markdownFiles": 130,
+    "pageURLs": 316,
+    "httpSuccess": 312,
+    "restrictedNotVerified": 4,
+    "failed": 0,
+    "unverifiedTransport": 0,
+    "exit": 0,
+    "result": "POLICY_PASS",
+    "cleanup": "PASS",
+    "freeBeforeKiB": 31177160,
+    "freeAfterKiB": 31176560,
+    "evidence": "research/evidence/pr3-link-check-corrected-2026-09-22.jsonl"
+  },
+  "restrictionPolicy": "Existing non-blocking HTTP 401/403/429 policy retained, explicitly RESTRICTED/not verified. No bypass list or ignore-all-errors option.",
+  "correctedReference": {
+    "old": "https://owasp.org/www-project-gamesec-framework/OGSF",
+    "new": "https://owasp.org/projects/gamesec-framework",
+    "occurrences": 4,
+    "reason": "Stale subpath; official project page independently read and HTTP checked."
+  },
+  "historicalObservationsPreserved": true,
+  "gameAndViewerChanges": false,
+  "installsOnMac": false,
+  "mergePerformed": false,
+  "testflightOrAppStore": false,
+  "remainingSeparateWork": [
+    "Replay schema/version/range hardening",
+    "TMPDIR-independent heavy-Mac lock"
+  ],
+  "finalCommitAndCI": "Record in the PR after commit/push; this receipt does not fabricate future CI results."
+}

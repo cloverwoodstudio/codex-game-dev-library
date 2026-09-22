@@ -43,4 +43,4 @@ Test missing dependencies, cycles, conflicting IDs, old/new API versions, corrup
 - Steam Workshop overview: https://partner.steamgames.com/doc/features/workshop
 - Steam Workshop implementation: https://partner.steamgames.com/doc/features/workshop/implementation
 - Unreal Game Features and Modular Gameplay: https://dev.epicgames.com/documentation/en-us/unreal-engine/game-features-and-modular-gameplay-in-unreal-engine
-- OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
+- OWASP Game Security Framework: https://owasp.org/projects/gamesec-framework

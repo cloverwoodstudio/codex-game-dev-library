@@ -1,10 +1,12 @@
 # Codex Game Development Library
 
-A living, source-backed playbook for building games with Codex. This repository is designed to be cloned into, linked from, or consulted by every Codex agent working on a game.
+A shared Cloverwood game-development library for ChatGPT + Remote Desktop Commander, Codex, and other authorized agents. The existing repository name, skill paths, samples and tools remain unchanged.
+
+Read [START_HERE.md](START_HERE.md) for the common entry contract and [the capability registry](capabilities/README.md) to distinguish guidance, executable helpers and bounded test evidence. This is not an installer or a new execution backend.
 
 ## Start here
 
-1. Read [`AGENTS.md`](AGENTS.md).
+1. Read [`START_HERE.md`](START_HERE.md) and [`AGENTS.md`](AGENTS.md).
 2. Pick an engine with [`guides/engine-selection.md`](guides/engine-selection.md).
 3. Copy [`templates/PLAN.template.md`](templates/PLAN.template.md) as `PLAN.md` and [`templates/ENGINE_BOOTSTRAP.template.md`](templates/ENGINE_BOOTSTRAP.template.md) as `ENGINE_BOOTSTRAP.md`.
 4. Read the matching playbook in [`guides/engines/`](guides/engines/) and verify its command patterns for the pinned version.
@@ -19,7 +21,7 @@ A living, source-backed playbook for building games with Codex. This repository 
 - `guides/design/` — player experience, worlds, characters and game rules
 - `guides/systems/` — architecture, gameplay systems, networking and security
 - `guides/art/` — visual, 3D and VFX production pipelines
-- `guides/workflows/` — repeatable Codex workflows
+- `guides/workflows/` — repeatable agent workflows (Codex paths retained)
 - `templates/` — files to copy into new game repositories
 - `references/` — curated primary sources and example repositories
 - `research/` — research notes, findings, and backlog
@@ -27,7 +29,7 @@ A living, source-backed playbook for building games with Codex. This repository 
 - `code-patterns/` — engine-neutral reference implementations
 - `samples/` — runnable, versioned reference implementations with expected evidence
 - `tools/` — executable production helpers, beginning with calibrated reference-sheet-to-3D reconstruction
-- `.agents/skills/` — auto-discovered repository-local Codex skills; the Apple skill includes a large tool catalog and read-only host audit
+- `.agents/skills/` — repository-local Codex skills that other agents can explicitly read; the Apple skill includes a large tool catalog and read-only host audit
 
 ## Complete development map
 
@@ -41,13 +43,13 @@ Game development is an empirical loop: **specify → build the smallest playable
 
 This is a growing foundation, not a claim to contain the whole internet. It now covers the playable-development loop plus art, audio, worlds, systems, accessibility, localization, platforms, provenance, release, modding, backend security, observability, performance and store preparation. Game engines and Codex evolve continuously. Every important claim should link to a primary source, record a review date, and distinguish official guidance from community experience.
 
-The current coverage audit and prioritized implementation sequence live in [`research/library-audit-2026-08-29.md`](research/library-audit-2026-08-29.md). Runnable evidence begins with [`samples/determinism-conformance/`](samples/determinism-conformance/).
+The historical coverage audit and prioritized implementation sequence live in [`research/library-audit-2026-08-29.md`](research/library-audit-2026-08-29.md). Runnable evidence begins with [`samples/determinism-conformance/`](samples/determinism-conformance/).
 
 For image sheets, blueprints and datasheets, Codex can load [the reference-sheet-to-3D skill](.agents/skills/reference-sheet-to-3d/SKILL.md) and run [ViewForge](tools/viewforge/README.md) to produce a measurable visual hull, GLB/USD exports, orthographic evidence and a reprojection report instead of guessing a mesh.
 
 The current reconstruction capability and missing stages are tracked in the [ViewForge audit](research/viewforge-audit-2026-08-29.md).
 
-Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample. Codex can route Apple work through [the auto-discovered Apple platform skill](.agents/skills/apple-platform-development/SKILL.md) and its maintained tool catalog.
+Apple-first implementation priorities live in [`research/apple-games-roadmap.md`](research/apple-games-roadmap.md); the first native proof is the Swift/SpriteKit port inside the determinism sample. Codex can route Apple work through [the Apple platform skill](.agents/skills/apple-platform-development/SKILL.md) and its maintained tool catalog.
 
 ## Contributing
 

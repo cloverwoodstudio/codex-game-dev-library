@@ -1,6 +1,10 @@
-# Instructions for Codex agents
+# Instructions for game-development agents
 
 This repository is a shared game-development knowledge base. Preserve it as a source-backed, engine-neutral library.
+
+## Shared entry and capability discovery
+
+Read `START_HERE.md` and `capabilities/README.md`. These rules apply to ChatGPT + DC, Codex and other authorized agents. Load relevant skill files explicitly when automatic discovery is not available. Registry entries are non-executing pointers, not installed-tool proof or authorization. Preserve Asset Viewer as the external owner-review workflow; do not confuse it with ViewForge.
 
 ## When using this library to build a game
 

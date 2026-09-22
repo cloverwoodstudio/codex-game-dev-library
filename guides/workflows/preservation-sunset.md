@@ -29,4 +29,7 @@ The Library of Congress recommended-formats material recognizes software/games a
 ## Sources
 
 - Library of Congress Recommended Formats Statement: https://www.loc.gov/preservation/resources/rfs/
-- Software Heritage preservation mission: https://www.softwareheritage.org/mission/
+- Software Heritage official archiving and preservation documentation: https://docs.softwareheritage.org/
+
+Source-link review: 2026-09-22; the official documentation replaces the mission-site
+link after CI certificate verification failed. No TLS checks were disabled.
