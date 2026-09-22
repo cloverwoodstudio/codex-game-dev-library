@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "mode": "DISCOVERY_ONLY",
+  "repository": "cloverwoodstudio/codex-game-dev-library",
+  "sourceCommit": "45d91d6c191b7e42a462e70962161fc439d39a95",
+  "reviewedOn": "2026-09-22",
+  "isExecutionAuthority": false,
+  "capabilities": [
+    {
+      "id": "apple-host-discovery",
+      "title": "Apple host discovery",
+      "kind": "EXECUTABLE_HELPER",
+      "entrypoint": ".agents/skills/apple-platform-development/SKILL.md",
+      "sources": {
+        ".agents/skills/apple-platform-development/SKILL.md": "294d61663d81b7d9424d9499146c187aa2056e584f00d87fa8b3e859fed37adc",
+        ".agents/skills/apple-platform-development/scripts/audit-apple-tools.sh": "b7107a0855fe27139852021164082c9dd016178dc2506d96ed4e6fe92c05adb2",
+        "research/evidence/library-audit-2026-09-22.json": "1855ccfa9ea0d03444f886d19f0e1dd4bdd22b1cd71c2d1ed4107a07bf305426"
+      },
+      "requiredTools": [
+        "Authorized Mac",
+        "Existing Apple command-line tools"
+      ],
+      "inputs": [
+        "Target repository and authorized host"
+      ],
+      "outputs": [
+        "Installed-tool and destination observations"
+      ],
+      "integrationStatus": "NONE",
+      "verification": {
+        "level": "HOST_DISCOVERY_ONLY",
+        "date": "2026-09-22",
+        "scope": "Selected host tools observed in the prior audit; the complete audit script itself was not run.",
+        "evidence": [
+          "research/evidence/library-audit-2026-09-22.json"
+        ]
+      },
+      "limitations": [
+        "Presence on PATH does not prove successful builds or full installation inventory."
+      ],
+      "authorizationRequired": [
+        "Scope for host inspection; no installation or device mutation."
+      ]
+    },
+    {
+      "id": "determinism-reference",
+      "title": "Determinism conformance",
+      "kind": "RUNNABLE_SAMPLE",
+      "entrypoint": "samples/determinism-conformance/README.md",
+      "sources": {
+        "samples/determinism-conformance/README.md": "5654b45d53c55b64572a2386870ec7c18050b141115f0e429064421ef14a5fe7",
+        "samples/determinism-conformance/src/simulation.js": "279322b9b96768e26b0ee6cf5224aad71cc2ab974af6a5e2f87f66f61908ed95",
+        "samples/determinism-conformance/test/conformance.test.js": "637003ce48c4ff7dcebda54cc86fd56728e6f69b4a3085c527b2b45435925eda",
+        "samples/determinism-conformance/fixtures/golden-replay.json": "8397386bcacfafc52c50e2fc58ad1cbcfb395b4b7f0f18b38c5d10f78e1ed6a9",
+        "research/evidence/library-audit-2026-09-22.json": "1855ccfa9ea0d03444f886d19f0e1dd4bdd22b1cd71c2d1ed4107a07bf305426"
+      },
+      "requiredTools": [
+        "Node.js version declared by the sample"
+      ],
+      "inputs": [
+        "Versioned reference fixture"
+      ],
+      "outputs": [
+        "Checkpoint and final state hashes",
+        "Test output"
+      ],
+      "integrationStatus": "NONE",
+      "verification": {
+        "level": "LIMITED_TEST_WITH_GAPS",
+        "date": "2026-09-22",
+        "scope": "Three JavaScript tests passed in the prior audit; 12 ticks, hash d282e067. Not a game recorder.",
+        "evidence": [
+          "research/evidence/library-audit-2026-09-22.json",
+          "samples/determinism-conformance/test/conformance.test.js"
+        ]
+      },
+      "limitations": [
+        "Unknown algorithmVersion is accepted; values above the axis range are clamped instead of rejected.",
+        "Game replay, other ports and physical hitch reproduction are not established."
+      ],
+      "authorizationRequired": [
+        "Scope for isolated sample tests; game integration requires separate scope."
+      ]
+    },
+    {
+      "id": "text-to-cad",
+      "title": "Text-to-CAD / build123d",
+      "kind": "EXTERNAL_TOOL_LAB_FIXTURE",
+      "entrypoint": "tools/text-to-cad-lab/README.md",
+      "sources": {
+        "tools/text-to-cad-lab/README.md": "ddaff54fd8021186cbb58264256cb8b04fb7eb0be60f41a058e158cd640cc317",
+        "research/text-to-cad-audit-2026-08-30.md": "1e75e09522adcdfa12b58d016d01627da81c2ed3b740dcb91a59a6315e15ab58",
+        "tools/text-to-cad-lab/models/lighthouse_junction.step.py": "0fe6f13d6bec8621ef4c2c0c523b935754f1a5e2f2f3804f603f92fe8477e675"
+      },
+      "requiredTools": [
+        "Audited, pinned upstream CAD environment",
+        "Blender and Apple conversion tools when required"
+      ],
+      "inputs": [
+        "Dimensioned hard-surface brief"
+      ],
+      "outputs": [
+        "Parametric source and STEP",
+        "Derived GLB/USDZ and fixture reports"
+      ],
+      "integrationStatus": "PROPOSED",
+      "verification": {
+        "level": "HISTORICAL_FIXTURE",
+        "date": "2026-08-30",
+        "scope": "One historical junction fixture passed CAD, GLB, strict USDZ and macOS RealityKit checks.",
+        "evidence": [
+          "research/text-to-cad-audit-2026-08-30.md"
+        ]
+      },
+      "limitations": [
+        "Not a current upstream security, license or installation verification.",
+        "Not organic character art, animation topology or physical iPhone evidence."
+      ],
+      "authorizationRequired": [
+        "Explicit approval for installs, provider use, uploads or spending; scoped local asset job."
+      ]
+    },
+    {
+      "id": "viewforge",
+      "title": "ViewForge reconstruction",
+      "kind": "EXECUTABLE_HELPER",
+      "entrypoint": "tools/viewforge/README.md",
+      "sources": {
+        "tools/viewforge/README.md": "42d1a657e559b7e71733b23e2276e789676f3fb0af4806f76b52b136ea94777d",
+        "research/viewforge-audit-2026-08-29.md": "9ba31146457327e83f8aab4aef90d4df6a7e8cf10584e0505bfef3d3a078efa2",
+        ".agents/skills/reference-sheet-to-3d/SKILL.md": "66a3c29d9d66add838e5c688f49704e8df1e5b27aa4bb7f9bc3ab0eecb09215f",
+        "tools/viewforge/viewforge.sh": "15bbe73ab97b15be59905192d376d5834a754ac37de53928a1fb29caf6a2860c",
+        "tools/viewforge/viewforge.py": "1750291539a660ad2798d940c362ed923b39fbdcdc22c2f735bc9a8e97ffe998"
+      },
+      "requiredTools": [
+        "Compatible, project-verified Blender"
+      ],
+      "inputs": [
+        "Calibrated front/side/top views",
+        "Dimension and source authority"
+      ],
+      "outputs": [
+        "Visual hull and derived files",
+        "Reprojection report and masks"
+      ],
+      "integrationStatus": "PROPOSED",
+      "verification": {
+        "level": "HISTORICAL_FIXTURE",
+        "date": "2026-08-29",
+        "scope": "Retained fixture documentation establishes bounded silhouette reconstruction, not a new benchmark.",
+        "evidence": [
+          "research/viewforge-audit-2026-08-29.md"
+        ]
+      },
+      "limitations": [
+        "ViewForge is not Asset Viewer.",
+        "Hidden holes, concavity, anatomy and game readiness are not recovered by silhouette agreement."
+      ],
+      "authorizationRequired": [
+        "Scoped local authoring; preserve source images and require owner review."
+      ]
+    },
+    {
+      "id": "apple-build-release",
+      "title": "Apple build and release",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/workflows/apple-build-release.md",
+      "sources": {
+        "guides/workflows/apple-build-release.md": "f588ce2570ce4284ed781c67833727ed833c29e00ebf2730ac5aec387551dd09",
+        "templates/APPLE_TEST_MATRIX.template.md": "84c3d937cfa6cd795fbf4b6e104b8926d7de799b37ca29ca3cff9c719c040ac3",
+        "templates/RELEASE_READINESS.template.md": "c08afdfd8cb756a80f207562350c9562bb7ae436a017dc7ca87a5252d99b5f91"
+      },
+      "requiredTools": [
+        "Project-pinned Xcode and existing project build scripts"
+      ],
+      "inputs": [
+        "Exact source commit, scheme, destination and build contract"
+      ],
+      "outputs": [
+        "Project-specific tests and release evidence"
+      ],
+      "integrationStatus": "PER_PROJECT",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Guidance and templates reviewed; no shared release implementation or new archive.",
+        "evidence": [
+          "guides/workflows/apple-build-release.md"
+        ]
+      },
+      "limitations": [
+        "Simulator, physical device, signing and storefront evidence remain separate gates."
+      ],
+      "authorizationRequired": [
+        "Signing, device install, TestFlight and App Store mutations require explicit scope."
+      ]
+    },
+    {
+      "id": "storekit-qa",
+      "title": "Purchases and entitlements",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/systems/commerce-entitlements.md",
+      "sources": {
+        "guides/systems/commerce-entitlements.md": "1741030cb13a2879a00d94ac779ca0e0af84217765dc6a8342cbac4f6e52148a",
+        "templates/APPLE_TEST_MATRIX.template.md": "84c3d937cfa6cd795fbf4b6e104b8926d7de799b37ca29ca3cff9c719c040ac3"
+      },
+      "requiredTools": [
+        "Existing project purchase adapter and authorized test environment"
+      ],
+      "inputs": [
+        "Product and entitlement contract"
+      ],
+      "outputs": [
+        "Pending/cancel/restore/revocation test matrix"
+      ],
+      "integrationStatus": "NOT_SHARED_IMPLEMENTATION",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Scenario guidance, not a shared StoreKit package or verified sandbox run.",
+        "evidence": [
+          "guides/systems/commerce-entitlements.md"
+        ]
+      },
+      "limitations": [
+        "Displaying a purchase sheet is not proof of a verified entitlement."
+      ],
+      "authorizationRequired": [
+        "No real purchase or account mutation without explicit authorization."
+      ]
+    },
+    {
+      "id": "gamekit-qa",
+      "title": "Platform services and achievements",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/systems/platform-services.md",
+      "sources": {
+        "guides/systems/platform-services.md": "648109a46ff062a1da58604a173b44e1309fefd456a7a46d55ed5253d1202d9d",
+        "templates/APPLE_TEST_MATRIX.template.md": "84c3d937cfa6cd795fbf4b6e104b8926d7de799b37ca29ca3cff9c719c040ac3"
+      },
+      "requiredTools": [
+        "Existing project platform-service adapter"
+      ],
+      "inputs": [
+        "Achievement IDs and offline/account behavior"
+      ],
+      "outputs": [
+        "Platform-service test scenarios"
+      ],
+      "integrationStatus": "NOT_SHARED_IMPLEMENTATION",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Generic service guidance; not a shared GameKit adapter.",
+        "evidence": [
+          "guides/systems/platform-services.md"
+        ]
+      },
+      "limitations": [
+        "No current external account state or service availability is inferred."
+      ],
+      "authorizationRequired": [
+        "Account and achievement mutations require explicit test scope."
+      ]
+    },
+    {
+      "id": "audio-haptics",
+      "title": "Audio and haptics",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/systems/audio.md",
+      "sources": {
+        "guides/systems/audio.md": "a898b13dde3340f56b61669927d999c672b815c5d9c77a064e747dc5f690d336",
+        "guides/systems/input-haptics.md": "8a873ad9bf17cd49b5178df8cb8b25c09dd352000bab1820a15041c26c2af19b"
+      },
+      "requiredTools": [
+        "Existing project audio and feedback stack"
+      ],
+      "inputs": [
+        "Semantic game events, settings and interruption rules"
+      ],
+      "outputs": [
+        "Feedback and lifecycle test plan"
+      ],
+      "integrationStatus": "NOT_SHARED_IMPLEMENTATION",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Workflow guidance, not a common audio engine.",
+        "evidence": [
+          "guides/systems/audio.md",
+          "guides/systems/input-haptics.md"
+        ]
+      },
+      "limitations": [
+        "Catalog inclusion does not justify installing FMOD, Wwise or replacing game audio."
+      ],
+      "authorizationRequired": [
+        "New dependencies, licensed audio and device captures need appropriate scope."
+      ]
+    },
+    {
+      "id": "performance",
+      "title": "Performance diagnosis",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/workflows/performance-lab.md",
+      "sources": {
+        "guides/workflows/performance-lab.md": "736f8572ce812c5967edbb563da35bb2ccbec850e6d414346226a678cfa556c8",
+        "templates/PERFORMANCE_REPORT.template.md": "19882696f45ee50bde8d5118212a0280222cf977e7cc5472a99eb67dd00e44f4",
+        "templates/APPLE_TEST_MATRIX.template.md": "84c3d937cfa6cd795fbf4b6e104b8926d7de799b37ca29ca3cff9c719c040ac3"
+      },
+      "requiredTools": [
+        "Project-compatible profiler",
+        "Authorized representative physical hardware"
+      ],
+      "inputs": [
+        "Pinned build, reproducible workload and capture conditions"
+      ],
+      "outputs": [
+        "Frame-time, memory and thermal evidence"
+      ],
+      "integrationStatus": "PER_PROJECT",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Methodology reviewed; profiler availability does not constitute a workload capture.",
+        "evidence": [
+          "guides/workflows/performance-lab.md"
+        ]
+      },
+      "limitations": [
+        "Logic replay alone cannot guarantee reproduction of a physical hitch."
+      ],
+      "authorizationRequired": [
+        "Profiling requires an authorized device/workload and privacy-safe evidence."
+      ]
+    },
+    {
+      "id": "visual-regression",
+      "title": "Visual regression",
+      "kind": "PLAYBOOK",
+      "entrypoint": "guides/workflows/visual-regression.md",
+      "sources": {
+        "guides/workflows/visual-regression.md": "0d6b12bea728b5e31072b6e2f8304f2b894eb769ed7ed17f5d5cbe6a7cb0078e"
+      },
+      "requiredTools": [
+        "Project-specific capture and comparison tools"
+      ],
+      "inputs": [
+        "Approved baseline and deterministic capture state"
+      ],
+      "outputs": [
+        "Candidate/baseline/diff with metadata"
+      ],
+      "integrationStatus": "NOT_SHARED_IMPLEMENTATION",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Methodology only; no shared screenshot runner is claimed.",
+        "evidence": [
+          "guides/workflows/visual-regression.md"
+        ]
+      },
+      "limitations": [
+        "Each renderer and project needs its own reviewed capture baseline."
+      ],
+      "authorizationRequired": [
+        "Never auto-approve or overwrite an owner baseline to make a test pass."
+      ]
+    },
+    {
+      "id": "procedural-generation",
+      "title": "Procedural generation and balance",
+      "kind": "PLAYBOOK_AND_PSEUDOCODE",
+      "entrypoint": "guides/design/procedural-generation.md",
+      "sources": {
+        "guides/design/procedural-generation.md": "d6baa46bec7479f911dbe032ebad1a638660a6138472ca4632bf33f32d60db52",
+        "guides/design/economy-balancing.md": "7ebe64ba9c5dea70c6d8b69c4f1e7d009f5204f50120d3bbebda39a07a7a3586",
+        "code-patterns/seed-stream-pseudocode.md": "60ea5a662df915b194e9dc86b2756844b9ab0b15f23fc1a1c04ae3e10b9fa346"
+      },
+      "requiredTools": [
+        "Existing project simulation and content validator"
+      ],
+      "inputs": [
+        "Constraints, versioned seeds, content and configuration"
+      ],
+      "outputs": [
+        "Reproduction keys and validation/repair strategy"
+      ],
+      "integrationStatus": "NOT_SHARED_IMPLEMENTATION",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Patterns and guidance, not a universal generator or balance engine.",
+        "evidence": [
+          "guides/design/procedural-generation.md"
+        ]
+      },
+      "limitations": [
+        "No Starfall or SPLIT generator integration is added by this registry."
+      ],
+      "authorizationRequired": [
+        "Any game code or balance change needs its own project scope and owner test."
+      ]
+    },
+    {
+      "id": "engine-reference",
+      "title": "Engine discovery",
+      "kind": "REFERENCE_CATALOG",
+      "entrypoint": "guides/engine-selection.md",
+      "sources": {
+        "guides/engine-selection.md": "ce7457f0d7e483312f8e05874f53c6a4c4c7037ccb3bd6eff526b07b693b6430",
+        ".agents/skills/apple-platform-development/references/tool-catalog.md": "3e6bd1e4918c9b254b7cb2635a1f599b4068c4bb9ab536614d1172e58acd3973"
+      },
+      "requiredTools": [
+        "No runtime needed for reading"
+      ],
+      "inputs": [
+        "Product, platform and engine constraints"
+      ],
+      "outputs": [
+        "Relevant engine/tool documentation"
+      ],
+      "integrationStatus": "REFERENCE_ONLY",
+      "verification": {
+        "level": "SOURCE_REVIEWED",
+        "date": "2026-09-22",
+        "scope": "Catalog navigation reviewed; listed versions and optional tools require execution-time verification.",
+        "evidence": [
+          "guides/engine-selection.md"
+        ]
+      },
+      "limitations": [
+        "Presence in a catalog is not endorsement, installation or compatibility proof."
+      ],
+      "authorizationRequired": [
+        "No engine migration or dependency installation is authorized."
+      ]
+    }
+  ],
+  "externalWorkflows": [
+    {
+      "id": "asset-viewer",
+      "title": "Asset Viewer / PROJECT FORGE review workflow",
+      "sourceUrl": "https://github.com/cloverwoodstudio/PROJECT-FORGE/blob/8017b23927896bde755251082ccdb4b7db858fe5/PROJECT_STATUS.md",
+      "sourceBlobSha": "3cdf0c01fc1a155068bed232b66232a9a44b942c",
+      "verification": "DOCUMENT_REVIEW_ONLY",
+      "preserveOwnerReview": true,
+      "viewerSourceVerified": false,
+      "liveDeploymentVerified": false,
+      "note": "External document records Asset 005 owner acceptance. It is not the Viewer implementation or live site, not ViewForge, and not approval of other assets. Preserve model -> review link -> owner rotation/inspection -> PASS/FIX; promotion is separate."
+    }
+  ]
+}

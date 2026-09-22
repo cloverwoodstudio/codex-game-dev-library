@@ -1,0 +1,61 @@
+{
+  "kind": "prior-library-audit-observation",
+  "schemaVersion": 1,
+  "auditDate": "2026-09-22",
+  "repository": "cloverwoodstudio/codex-game-dev-library",
+  "commit": "45d91d6c191b7e42a462e70962161fc439d39a95",
+  "origin": "Imported from the audit evidence supplied in the owner conversation before this implementation. Not a new run of all capabilities.",
+  "scope": {
+    "fullTreeInventory": true,
+    "selectedSourceReview": true,
+    "fullSecurityAudit": false,
+    "allToolsRetested": false
+  },
+  "inventory": {
+    "totalFiles": 190,
+    "guides": 83,
+    "templates": 18,
+    "codePatterns": 10
+  },
+  "hostObservation": {
+    "xcode": "26.6",
+    "blender": "5.2.1 LTS",
+    "node": "24.19.0",
+    "discoveredThroughXcrun": [
+      "simctl",
+      "devicectl",
+      "xcresulttool",
+      "xctrace",
+      "metal"
+    ],
+    "qualification": "Tool discovery only; original host audit script was not run."
+  },
+  "test": {
+    "implementation": "JavaScript reference only",
+    "command": "node --test test/conformance.test.js",
+    "tests": 3,
+    "passed": 3,
+    "failed": 0,
+    "fixtureTicks": 12,
+    "goldenHash": "d282e067",
+    "unsupportedAlgorithmVersionAccepted": true,
+    "outOfRangeAcceptedAndClamped": true,
+    "qualification": "Existing tests pass with validation gaps. No Swift/Godot/Phaser/device re-test or game replay integration."
+  },
+  "cleanup": {
+    "runId": "audit-node-1790081986073623000",
+    "commandExit": 0,
+    "wrapperCleanup": "PASS",
+    "freeBeforeKiB": 31573492,
+    "freeAfterKiB": 31573484,
+    "bootstrapRemoved": true
+  },
+  "mutationsDuringPriorAudit": {
+    "repositoryWrites": false,
+    "installs": false,
+    "githubPush": false,
+    "gameChanges": false,
+    "deployment": false,
+    "testflightUpload": false
+  }
+}

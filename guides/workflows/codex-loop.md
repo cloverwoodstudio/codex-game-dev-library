@@ -1,4 +1,6 @@
-# The Codex game-development loop
+# The shared agent game-development loop
+
+The existing `codex-loop.md` path remains for compatibility. ChatGPT + DC and Codex use the same evidence loop; begin with [START_HERE.md](../../START_HERE.md).
 
 ## 1. Specify
 
@@ -30,7 +32,7 @@ For each meaningful pass, record hypothesis, change, observed result, regression
 
 Only after the loop is sound: expand levels/content, accessibility, localization, audio mix, onboarding, progression, analytics, platform services, and release operations.
 
-## High-value Codex prompts
+## High-value agent prompts
 
 - “Inspect the repository and write a risk-ranked `PLAN.md`; do not implement yet.”
 - “Implement the smallest playable vertical slice and state exact acceptance checks.”
