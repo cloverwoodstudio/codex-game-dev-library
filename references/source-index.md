@@ -105,7 +105,7 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Unity multiplayer: https://docs.unity.com/multiplayer/netcode/netcode
 - Godot multiplayer: https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html
 - Gaffer on Games networking: https://gafferongames.com/
-- OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
+- OWASP Game Security Framework: https://owasp.org/projects/gamesec-framework
 - Unreal saving: https://dev.epicgames.com/documentation/en-us/unreal-engine/saving-and-loading-your-game-in-unreal-engine
 
 ## Feel, narrative, economy and release
@@ -217,3 +217,9 @@ Study architecture and behavior; do not copy code or assets without verifying th
 - [Prior bounded audit observation](../research/evidence/library-audit-2026-09-22.json); source baseline and limits remain explicit.
 
 These are repository-owned contracts/evidence, not fresh verification of every upstream source above.
+
+## Link-check repair references — reviewed 2026-09-22
+
+- ripgrep stdin and search behavior: https://raw.githubusercontent.com/BurntSushi/ripgrep/master/FAQ.md
+- curl request methods, redirect and address-pinning options: https://curl.se/docs/manpage.html
+- [PR #3 review scope and reproduction](../research/pr3-review-2026-09-22.md).

@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-rg -No 'https?://[^ )`]+' --glob '*.md' \
-  | sed 's/^[^:]*://' \
-  | sort -u \
-  | while IFS= read -r url; do
-      code="$(curl -L -sS -o /dev/null -w '%{http_code}' --max-time 20 "$url" || true)"
-      case "$code" in
-        2??|301|302|303|307|308|401|403|429) ;;
-        *) printf '%s %s\n' "$code" "$url"; exit 1 ;;
-      esac
-    done
+# Resolve the checkout explicitly; never infer a recursive search from stdin.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec python3 -B "$SCRIPT_DIR/check_links.py" "$@"

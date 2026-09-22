@@ -32,4 +32,4 @@ Sources:
 - Unity netcode choices: https://docs.unity.com/multiplayer/netcode/netcode
 - Godot high-level multiplayer: https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html
 - Gaffer on Games: https://gafferongames.com/post/snapshot_interpolation/
-- OWASP Game Security Framework: https://owasp.org/www-project-gamesec-framework/OGSF
+- OWASP Game Security Framework: https://owasp.org/projects/gamesec-framework

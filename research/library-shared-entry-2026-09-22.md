@@ -43,3 +43,12 @@ are preserved. The remote repository is not renamed.
 Review changed files and fresh exact-head test evidence; merge requires a separate
 owner decision. No signing material, production credentials, accepted asset binary,
 new model, game build, provider upload or TestFlight operation is part of this work.
+
+## Owner-authorized review follow-up — 2026-09-22
+
+The subsequent `Go` authorized REVIEW and repair of the existing Check links
+failure before merge. The compatibility shell entry now calls a bounded Python
+checker and the links CI no longer installs ripgrep. Four references to the same stale OWASP URL now point to its verified official
+project page. Samples, asset tools and the heavy-Mac wrapper are not changed. Historical failure receipts
+above remain original observations, not current release status.
+See [review and reproduction](pr3-review-2026-09-22.md). Merge remains separate.

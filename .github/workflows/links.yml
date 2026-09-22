@@ -4,11 +4,20 @@ on:
   schedule:
     - cron: '17 6 1 * *'
   pull_request:
-    paths: ['**/*.md', 'scripts/check-links.sh']
+    paths: ['**/*.md', 'scripts/check-links.sh', 'scripts/check_links.py', 'tests/test_check_links.py', '.github/workflows/links.yml']
+permissions:
+  contents: read
 jobs:
   links:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update && sudo apt-get install -y ripgrep
-      - run: bash scripts/check-links.sh
+        with:
+          persist-credentials: false
+      - name: Test checker without external network
+        run: python3 -B -m unittest discover -s tests -p test_check_links.py -v
+      - name: Check tracked Markdown HTTP references
+        run: bash scripts/check-links.sh
