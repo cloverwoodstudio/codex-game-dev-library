@@ -57,3 +57,11 @@ Read `START_HERE.md` and `capabilities/README.md`. These rules apply to ChatGPT 
 - Every local Mac build, test or CI command MUST run through `bash scripts/cloverwood-local-run.sh -- <command> [args...]` so disposable storage, disk gating, signal-safe cleanup and the cleanup receipt are enforced.
 - For Xcode, 3D or other heavy Mac workloads set `CLOVERWOOD_EXCLUSIVE_MAC=1` so two heavy jobs cannot compete for CoreSimulator/build storage on the same Mac.
 - Do not bypass the wrapper to obtain PASS/READY. If a tool technically cannot be nested under the wrapper, reproduce the same disposable run-root + trap/finally + deletion verification contract and emit an equivalent cleanup receipt.
+
+## Shared heavy-job lock — library protocol 2026-09-22
+
+The wrapper acquires common `/tmp`, canonical macOS-user temp and caller-temp
+locks before a heavy foreground command. See `research/shared-mac-lock-2026-09-22.md`
+for compatibility, cleanup, signal and crash limits. Never delete a foreign or
+orphaned lock just because its PID is absent; inspect descendants and obtain
+appropriate recovery scope. No detached jobs under this foreground contract.

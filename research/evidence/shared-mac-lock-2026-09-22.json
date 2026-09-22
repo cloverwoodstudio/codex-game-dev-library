@@ -1,0 +1,89 @@
+{
+  "kind": "shared-mac-lock-validation",
+  "version": 1,
+  "date": "2026-09-22",
+  "libraryBaseline": "8d9468cd159b6983ab2eefc60bd0db740995a5d3",
+  "reference": {
+    "repository": "cloverwoodstudio/SPLIT",
+    "path": "scripts/cloverwood-local-run.sh",
+    "gitBlob": "aa89add520d291ce0234d9186e4637965d7d16fc",
+    "readOnly": true
+  },
+  "scope": "Library wrapper only; small Bash/Python processes, no heavy build or asset generation.",
+  "shell": "macOS /bin/bash 3.2.57 on authorized Mac mini",
+  "initialSuite": {
+    "wrapperTestsPassed": 26,
+    "runId": "mac-lock-tests-01-20260922",
+    "cleanup": "PASS"
+  },
+  "expandedSuiteFinding": {
+    "runId": "mac-lock-full-tests-20260922",
+    "total": 96,
+    "failures": 1,
+    "finding": "Stripping the slash from a canonical root / yielded an empty cd target; reject root and relative lock roots without trimming before normalization.",
+    "fixed": true,
+    "cleanup": "PASS"
+  },
+  "finalLocalSuite": {
+    "runId": "mac-lock-final-tests-20260922",
+    "total": 96,
+    "passed": 96,
+    "failed": 0,
+    "wrapperCases": 28,
+    "registryAndLinkCases": 68,
+    "unchangedJavaScriptTestsPassed": 3,
+    "registry": "PASS",
+    "shellSyntax": "PASS",
+    "diffWhitespace": "PASS",
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30915928,
+    "freeAfterKiB": 30910032
+  },
+  "productionRootSmoke": {
+    "runId": "mac-lock-smoke-20260922",
+    "oldDifferentTmpdirsAllowedOverlap": true,
+    "newDifferentTmpdirsBlocked": true,
+    "splitCompatibilityWhileLibraryHeld": true,
+    "splitCanStartAfterRelease": true,
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30912944,
+    "freeAfterKiB": 30912920,
+    "qualification": "Executed before the final invalid-canonical-root edge-case correction; normal-root protocol unchanged. Exact-head follow-up evidence is recorded on the PR."
+  },
+  "fileSha256": {
+    "scripts/cloverwood-local-run.sh": "97b640544549671a0f83d884ddeb70e179ae79d8e17f333115e991f2a291d364",
+    "tests/test_local_run.py": "f1d0a5411d6c479c7c3f06d99f5608afc24924383c1c63fb5ebcdbf5f4c23c5c",
+    ".github/workflows/local-run.yml": "aaaf6550a68b0c39ed5ef1c25762ca00031559486e53c4329a6d6765ed397198"
+  },
+  "limits": [
+    "Cooperative foreground jobs only; no detached children or unwrapped process control.",
+    "SIGKILL/host crash leaves an orphan lock for inspected, authorized recovery.",
+    "No automatic rollout into other repositories; legacy arbitrary custom-TMPDIR wrappers remain a compatibility gap."
+  ],
+  "mutations": {
+    "libraryBranchOnly": true,
+    "gameChanges": false,
+    "viewerChanges": false,
+    "dependencyInstalls": false,
+    "signingChanges": false,
+    "testflightUpload": false,
+    "mergePerformed": false
+  },
+  "ci": "See exact-head GitHub workflow results; not inferred from local tests.",
+  "localLinkCheck": {
+    "runId": "mac-lock-links-20260922",
+    "markdownFiles": 131,
+    "pageURLs": 316,
+    "httpSuccess": 311,
+    "restrictedNotVerified": 5,
+    "hardFailures": 0,
+    "transportUnverified": 0,
+    "contentAndAnchorsVerified": false,
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30908912,
+    "freeAfterKiB": 30908088
+  }
+}

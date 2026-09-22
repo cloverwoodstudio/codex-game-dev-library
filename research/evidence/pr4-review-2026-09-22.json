@@ -1,0 +1,72 @@
+{
+  "kind": "shared-mac-lock-review",
+  "version": 1,
+  "date": "2026-09-22",
+  "base": "8d9468cd159b6983ab2eefc60bd0db740995a5d3",
+  "initialHead": "ea657e69007923f9c8782416fec6192bf1fab9f3",
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "MEDIUM",
+      "description": "Previously marked lock was removed after PID marker disappeared or empty directory replaced it.",
+      "fixed": true
+    },
+    {
+      "id": "R2",
+      "severity": "MEDIUM",
+      "description": "Recursive chmod changed outside hard-linked source mode 0400 -> 0600 and failed cleanup of nested mode-000 directories.",
+      "fixed": true
+    }
+  ],
+  "regressionsBefore": {
+    "run": "pr4-review-regressions-before-20260922",
+    "tests": 4,
+    "failures": 4,
+    "wrapperSource": "initial head; tests newly added",
+    "commandExit": 1,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30703560,
+    "freeAfterKiB": 30703496
+  },
+  "regressionsAfter": {
+    "run": "pr4-review-regressions-after-20260922",
+    "tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30703520,
+    "freeAfterKiB": 30707592
+  },
+  "fullLocalRun": {
+    "run": "pr4-review-full-20260922",
+    "pythonTests": 100,
+    "wrapperTests": 32,
+    "registryAndLinkTests": 68,
+    "failed": 0,
+    "javaScriptPassed": 3,
+    "syntax": "PASS",
+    "registry": "PASS",
+    "whitespace": "PASS",
+    "commandExit": 0,
+    "cleanup": "PASS",
+    "freeBeforeKiB": 30706480,
+    "freeAfterKiB": 30700300
+  },
+  "fileSha256": {
+    "scripts/cloverwood-local-run.sh": "f1464c9e63b2b6563eb77f5073b12bbd140d221b1a8160eb66159b8d9c52d307",
+    "tests/test_local_run.py": "28b6d0507fae72c03019ae866e8ad16ad4088ccedff202a012511011f9f9252a",
+    ".github/workflows/local-run.yml": "aaaf6550a68b0c39ed5ef1c25762ca00031559486e53c4329a6d6765ed397198"
+  },
+  "qualification": "Local observations on these source bytes; exact committed-head and CI results recorded on PR. Not independent human review or production approval.",
+  "boundaries": {
+    "libraryOnly": true,
+    "productionLocksModifiedByNegativeTests": false,
+    "userFileTestFixtures": false,
+    "gameChanges": false,
+    "viewerChanges": false,
+    "dependencyInstalls": false,
+    "merge": false,
+    "testflight": false
+  }
+}
