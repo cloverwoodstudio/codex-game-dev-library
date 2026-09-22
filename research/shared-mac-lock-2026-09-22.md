@@ -28,12 +28,17 @@ custom temp roots remain a migration gap, not silently protected.
 - Atomic mkdir claims each lock; another owner/unknown/orphaned lock blocks with 75.
 - Partial lock acquisition releases only locations acquired by this invocation.
 - Cleanup checks PID ownership, does not recursively delete locks, and fails if
-  ownership changes or unexpected lock contents prevent removal.
+  ownership changes, a previously written PID marker disappears, or unexpected
+  lock contents prevent removal. Empty-lock rollback is limited to pre-marker
+  setup failure; missing evidence later is never treated as permission to unlock.
 - A run ID must be a safe path component and a new directory, claimed atomically.
   Existing IDs and symlink roots are never reused or removed as this run's output.
 - Cleanup is registered before locks/run directories. Child exit status is preserved
   unless cleanup fails (86). Low disk blocks before execution (78), retaining the
   default 20 GiB floor. Invalid configuration exits 64; setup/collision exits 73.
+- Cleanup adjusts access only on real directories before traversal, not regular
+  files. Hard-linked source/cache files retain their permission bits; symlink
+  targets are not followed. Nested no-access disposable directories can be removed.
 - The existing exports for DerivedData, SwiftPM, test results and TMPDIR remain.
 - Only same-user, old, marked, dead-owner run directories can be swept. Unknown,
   malformed, symlink and live-owner directories remain untouched. Existing heavy
@@ -49,7 +54,9 @@ This is a cooperative foreground-command wrapper, not a process supervisor or
 security sandbox. A signal sent only to Bash is deferred while the foreground
 command runs; that deliberately prevents premature unlock. For immediate
 cancellation, run the invocation in its own process group and signal that group,
-not a shared terminal/CI group. Tests cover TERM, HUP and INT after child startup.
+not a shared terminal/CI group. The foreground command must finish/reap its own
+children before returning; this shell does not supervise signal-ignoring descendants.
+Tests cover TERM, HUP and INT after child startup.
 
 SIGKILL, host crash or power loss cannot execute a shell trap. The orphaned lock
 therefore remains and prevents a new heavy job from proceeding. Inspect the exact
@@ -91,3 +98,5 @@ Source checks and CI do not authorize merge, deployment or rolling this change
 out to additional repositories. Review the exact PR head and its evidence first.
 
 Retained local observations: [validation receipt](evidence/shared-mac-lock-2026-09-22.json).
+
+Additional review regressions and corrections: [PR #4 review](pr4-review-2026-09-22.md).

@@ -229,3 +229,5 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - [Library adoption and verification contract](../research/shared-mac-lock-2026-09-22.md).
 - [Executable foreground wrapper](../scripts/cloverwood-local-run.sh) and [isolated process tests](../tests/test_local_run.py).
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
+
+- [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).

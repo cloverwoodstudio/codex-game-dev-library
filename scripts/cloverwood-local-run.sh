@@ -15,7 +15,7 @@ MIN_FREE_GIB="${CLOVERWOOD_MIN_FREE_GIB:-20}"
 EXCLUSIVE_MAC="${CLOVERWOOD_EXCLUSIVE_MAC:-0}"
 BEFORE_KIB=0; RUN_ROOT_OWNED=0; RUN_MARKED=0
 RUN_ROOT=""; REPO_RUN_BASE=""
-OWNED_LOCKS=(); LOCK_PATHS=()
+OWNED_LOCKS=(); MARKED_LOCKS=(); LOCK_PATHS=()
 
 blocked() { echo "CLOVERWOOD_RUN_BLOCKED reason=$1 repo=$REPO_NAME" >&2; exit "$2"; }
 free_kib() { df -Pk "$BASE_TMP" | awk 'NR==2 {print $4}'; }
@@ -31,7 +31,10 @@ remove_run() {
   # Only trusted disposable, owner-marked directories under this repo namespace.
   [ ! -L "$BASE_TMP/cloverwood-ci" ] && [ ! -L "$REPO_RUN_BASE" ] &&
     [ -d "$1" ] && [ ! -L "$1" ] && [ -O "$1" ] || return 1
-  chmod -R u+w "$1" 2>/dev/null || return 1
+  # Unlinking needs directory access, not writable file contents. Never chmod
+  # regular files: a disposable hard link can share an inode with source/cache.
+  # Preorder, non-following traversal opens each directory before descending.
+  find -P "$1" -type d -exec chmod u+rwx {} \; 2>/dev/null || return 1
   rm -rf -- "$1" || return 1
   [ ! -e "$1" ] && [ ! -L "$1" ]
 }
@@ -47,11 +50,17 @@ cleanup() {
   fi
   for owned in "${OWNED_LOCKS[@]-}"; do
     [ -n "$owned" ] || continue
+    was_marked=0
+    for marked in "${MARKED_LOCKS[@]-}"; do
+      [ "$owned" != "$marked" ] || was_marked=1
+    done
     if owned_marker "$owned" pid; then
       # Never recursively remove locks, unknown contents, or another owner.
       rm -f -- "$owned/pid" && rmdir "$owned" 2>/dev/null || cleanup_state=FAIL
-    elif [ ! -L "$owned" ] && [ ! -e "$owned/pid" ] && [ ! -L "$owned/pid" ]; then
-      # mkdir succeeded but recording our PID failed/interrupted; empty only.
+    elif [ "$was_marked" = 0 ] && [ -d "$owned" ] && [ ! -L "$owned" ] &&
+         [ -O "$owned" ] && [ ! -e "$owned/pid" ] && [ ! -L "$owned/pid" ]; then
+      # Only pre-marker setup failure permits empty-directory rollback. A PID
+      # disappearing after successful marking is lost ownership, never success.
       rmdir "$owned" 2>/dev/null || cleanup_state=FAIL
     else cleanup_state=FAIL; fi
   done
@@ -129,6 +138,7 @@ if [ "$EXCLUSIVE_MAC" = 1 ]; then
     # Register immediately, so partial acquisition is rolled back on failure.
     OWNED_LOCKS+=("$candidate")
     printf '%s\n' "$$" > "$candidate/pid" || blocked lock_marker_failed 73
+    MARKED_LOCKS+=("$candidate")
   done
 fi
 

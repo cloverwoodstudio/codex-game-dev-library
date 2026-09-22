@@ -118,3 +118,5 @@ Each completed item should include primary sources, a reproducible mini-example 
 Implementation and review boundary: [shared-entry scope](library-shared-entry-2026-09-22.md). Completed here means code exists, not merge, deployment or owner visual approval.
 
 Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](shared-mac-lock-2026-09-22.md).
+
+- [x] PR #4 review: preserve missing-owner locks and hard-linked source permissions; add four cleanup regressions. See [review](pr4-review-2026-09-22.md).

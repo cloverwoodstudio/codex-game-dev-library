@@ -240,6 +240,46 @@ class LocalRunTests(unittest.TestCase):
         self.assertEqual(path.read_text().strip(), 'keep')
         self.assertTrue(path.parent.exists())
 
+    def test_removed_owned_lock_marker_is_not_a_setup_failure(self):
+        path = self.lock(self.system)
+        out = self.finish(self.launch([BASH, '-c', 'rm -- "$1/pid"', '_', str(path)]), 86)
+        self.assertIn('cleanup=FAIL', out)
+        self.assertTrue(path.is_dir(), 'lost ownership evidence must not authorize removal')
+        self.assert_clear(self.canonical, self.a)
+
+    def test_replaced_empty_lock_is_preserved(self):
+        path = self.lock(self.system)
+        code = 'rm -- "$1/pid" && rmdir "$1" && mkdir "$1"'
+        self.finish(self.launch([BASH, '-c', code, '_', str(path)]), 86)
+        self.assertTrue(path.is_dir(), 'replacement without owner evidence must remain blocked')
+
+    def test_hardlinked_file_cleanup_preserves_external_permissions(self):
+        outside = self.base / 'readonly-source'
+        outside.write_text('keep source bytes')
+        outside.chmod(0o400)
+        inode = outside.stat().st_ino
+        code = 'import os,sys; os.link(sys.argv[1], os.path.join(os.environ["CLOVERWOOD_RUN_ROOT"], "linked-source"))'
+        self.finish(self.launch([sys.executable, '-B', '-c', code, str(outside)]))
+        self.assertEqual(outside.read_text(), 'keep source bytes')
+        self.assertEqual(outside.stat().st_ino, inode)
+        self.assertEqual(outside.stat().st_nlink, 1)
+        self.assertEqual(outside.stat().st_mode & 0o777, 0o400,
+                         'cleanup must not chmod a source inode via its hard link')
+
+    def test_readonly_nested_directories_clean_without_chmoding_files(self):
+        outside = self.base / 'readonly-original'
+        outside.write_text('keep')
+        outside.chmod(0o400)
+        code = ('import os,sys; from pathlib import Path; '
+                'root=Path(os.environ["CLOVERWOOD_RUN_ROOT"]); '
+                'parent=root/"no-access"; inner=parent/"nested"; inner.mkdir(parents=True); '
+                'os.link(sys.argv[1],inner/"hardlink"); '
+                'inner.chmod(0); parent.chmod(0)')
+        self.finish(self.launch([sys.executable, '-B', '-c', code, str(outside)]))
+        self.assertFalse(self.run_root().exists())
+        self.assertEqual(outside.stat().st_mode & 0o777, 0o400)
+        self.assertEqual(outside.read_text(), 'keep')
+
     def test_replaced_run_owner_is_not_deleted(self):
         self.finish(self.launch([BASH, '-c', 'echo other-owner > "$CLOVERWOOD_RUN_ROOT/.owner-pid"']), 86)
         self.assertEqual((self.run_root() / '.owner-pid').read_text().strip(), 'other-owner')
