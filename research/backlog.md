@@ -110,8 +110,11 @@ Each completed item should include primary sources, a reproducible mini-example 
 - [x] Shared reading entry for ChatGPT + DC and Codex, preserving repository and skill paths.
 - [x] Non-executing capability registry with local source pins, evidence limits and offline validation/tests.
 - [ ] Strict replay schema/version/range validation and consistent negative tests across ports.
-- [ ] Reconcile TMPDIR-independent heavy-Mac locking and local/CI cleanup contracts.
+- [x] Adopt SPLIT-compatible TMPDIR-independent heavy-Mac locking in the library; test isolated contention, signals and cleanup on macOS/Linux.
+- [ ] Roll the reviewed wrapper into other repositories only under separate scope; legacy custom-TMPDIR callers are not universally protected.
 - [x] Repair external-link discovery for piped stdin and a Mac without rg; retain honest restricted/failed HTTP diagnostics. Exact-head CI evidence is recorded in PR #3.
 - [ ] One separately authorized pilot integration into one game; preserve Viewer owner review.
 
 Implementation and review boundary: [shared-entry scope](library-shared-entry-2026-09-22.md). Completed here means code exists, not merge, deployment or owner visual approval.
+
+Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](shared-mac-lock-2026-09-22.md).

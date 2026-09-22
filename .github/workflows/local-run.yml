@@ -1,0 +1,29 @@
+name: Local-run wrapper
+
+on:
+  push:
+    paths: ['scripts/cloverwood-local-run.sh', 'tests/test_local_run.py', '.github/workflows/local-run.yml']
+  pull_request:
+    paths: ['scripts/cloverwood-local-run.sh', 'tests/test_local_run.py', '.github/workflows/local-run.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  macos-wrapper:
+    runs-on: macos-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      CLOVERWOOD_EXCLUSIVE_MAC: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Record shell and host
+        run: |
+          sw_vers
+          /bin/bash --version
+          python3 --version
+      - name: Test isolated lock and cleanup scenarios
+        run: bash scripts/cloverwood-local-run.sh -- python3 -B -m unittest discover -s tests -p test_local_run.py -v
