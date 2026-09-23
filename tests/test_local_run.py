@@ -154,12 +154,12 @@ class LocalRunTests(unittest.TestCase):
         self.assertEqual((lock / 'pid').read_text(), 'legacy-owner')
         self.assertFalse(self.run_root().exists())
 
-    def test_occupied_last_lock_releases_only_earlier_locks(self):
+    def test_live_last_lock_releases_only_earlier_locks(self):
         lock = self.lock(self.a); lock.mkdir(parents=True)
-        (lock / 'pid').write_text('99999999')
+        (lock / 'pid').write_text(str(os.getpid()))
         self.finish(self.launch(['true']), 75)
         self.assert_clear(self.system, self.canonical)
-        self.assertEqual((lock / 'pid').read_text(), '99999999')
+        self.assertEqual((lock / 'pid').read_text(), str(os.getpid()))
 
     def test_missing_owner_lock_never_auto_removed(self):
         self.lock(self.system).mkdir(parents=True)
@@ -211,16 +211,24 @@ class LocalRunTests(unittest.TestCase):
         release.touch(); self.finish(proc, 143)
         self.assert_clear()
 
-    def test_sigkill_orphan_blocks_new_work_instead_of_guessing_cleanup(self):
+    def test_sigkill_orphan_lock_is_recovered_when_owner_is_provably_dead(self):
         proc, release = self.held()
         proc.kill()
         proc.wait(timeout=3)
-        self.finish(self.launch(['true'], self.env(self.b, run='after-crash')), 75)
-        self.assertTrue(self.lock(self.system).exists())
-        self.assertTrue(self.run_root().exists())
+        out = self.finish(self.launch(['true'], self.env(self.b, run='after-crash')))
+        self.assertIn('CLOVERWOOD_STALE_LOCK_RECOVERED', out)
+        self.assertFalse(self.lock(self.system).exists())
+        self.assertTrue(self.run_root().exists(), 'orphan run data is preserved for later bounded sweep')
         release.touch()
         out = self.finish(proc, -signal.SIGKILL)
         self.assertNotIn('CLOVERWOOD_CLEANUP_RECEIPT', out)
+
+    def test_dead_pid_lock_with_extra_content_stays_fail_closed(self):
+        lock = self.lock(self.system); lock.mkdir(parents=True)
+        (lock / 'pid').write_text('2147483647')
+        (lock / 'unexpected').write_text('keep')
+        self.finish(self.launch(['true'], self.env(self.b, run='ambiguous-dead')), 75)
+        self.assertTrue((lock / 'unexpected').exists())
 
     def test_invalid_canonical_root_never_creates_root_lock(self):
         out = self.finish(self.launch(['true'], self.env(TEST_CANONICAL='/')), 73)
