@@ -1,12 +1,15 @@
 # AI Visual Asset Lab
-Experimental transport/generation helper for the CW-MECH-001 A/B/C pilot.
 
-Secrets are never committed. Set `TRIPO_API_KEY` only in the local environment/keychain-backed session.
-The helper supports read-only balance/status calls and explicit multiview generation through Tripo API v3.
-Generation is billable and must only be invoked after owner authorization for the specific run.
+Experimental adapter area for complex visual-mesh generation. This does not own gameplay semantics and is not a promoted capability by itself.
 
-Example preflight:
-`TRIPO_API_KEY=... python3 tools/ai-visual-asset-lab/tripo_v3.py balance`
+## Canonical validated Tripo route
+Use the official `tripo` CLI. The 2026-09-23 Xeno benchmark was completed end-to-end with Tripo CLI 0.5.1 after interactive `tripo login`; no API key or custom HTTP wrapper is required.
 
-Example C generation after source views are approved:
-`python3 tools/ai-visual-asset-lab/tripo_v3.py multiview --front ... --left ... --back ... --right ... --texture --pbr`
+Typical flow:
+- `tripo generate multiview-to-model <front> <left> <back> <right> --out <dir> --name <name> --yes --no-open`
+- record the returned task ID and query/download it with `tripo task get <task-id> --download -o <dir> --yes --no-open`
+- preserve downloaded MASTER unchanged
+- create a separate optimized GAME derivative with the official CLI processing command selected from `tripo --help`; record its task ID/settings
+- run Blender QA and Viewer owner review as defined in `docs/AI_VISUAL_ASSET_PIPELINE.md`
+
+Do not invent or depend on undocumented Tripo HTTP endpoints/payloads. Re-check `tripo --help` before automation because provider CLI syntax can evolve. Provider authorization, uploads and credit spending remain explicit-owner-authorized actions.
