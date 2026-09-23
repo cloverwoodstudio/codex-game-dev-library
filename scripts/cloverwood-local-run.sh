@@ -132,8 +132,23 @@ if [ "$EXCLUSIVE_MAC" = 1 ]; then
   done
   for candidate in "${LOCK_PATHS[@]-}"; do
     if ! mkdir "$candidate" 2>/dev/null; then
-      echo "CLOVERWOOD_RUN_BLOCKED reason=mac_busy lock=$candidate repo=$REPO_NAME" >&2
-      exit 75
+      # Recover only an unambiguous lock whose sole numeric owner PID is dead.
+      stale_pid=""
+      if [ -d "$candidate" ] && [ ! -L "$candidate" ] && [ -O "$candidate" ] &&
+         [ -f "$candidate/pid" ] && [ ! -L "$candidate/pid" ] &&
+         [ "$(find "$candidate" -mindepth 1 -maxdepth 1 -print 2>/dev/null | wc -l | tr -d ' ')" = 1 ]; then
+        stale_pid="$(cat "$candidate/pid" 2>/dev/null)"
+      fi
+      case "$stale_pid" in ""|0|*[!0-9]*) stale_pid="" ;; esac
+      if [ -n "$stale_pid" ] && [ "${#stale_pid}" -le 10 ] && [ "$stale_pid" -le 2147483647 ] &&
+         ! kill -0 "$stale_pid" 2>/dev/null; then
+        rm -f -- "$candidate/pid" && rmdir "$candidate" 2>/dev/null || blocked stale_lock_cleanup_failed 86
+        echo "CLOVERWOOD_STALE_LOCK_RECOVERED lock=$candidate dead_pid=$stale_pid repo=$REPO_NAME" >&2
+        mkdir "$candidate" 2>/dev/null || blocked lock_reacquire_failed 75
+      else
+        echo "CLOVERWOOD_RUN_BLOCKED reason=mac_busy lock=$candidate repo=$REPO_NAME" >&2
+        exit 75
+      fi
     fi
     # Register immediately, so partial acquisition is rolled back on failure.
     OWNED_LOCKS+=("$candidate")
