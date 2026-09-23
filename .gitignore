@@ -10,3 +10,7 @@
 **/.derived-*/
 tools/viewforge/**/output/
 tools/viewforge/workspaces/
+**/__pycache__/
+*.pyc
+tools/text-to-cad-lab/models/__cadgen__/
+tools/text-to-cad-lab/models/*.step

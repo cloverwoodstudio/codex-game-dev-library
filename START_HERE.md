@@ -69,3 +69,11 @@ The [registry contract](capabilities/README.md) and
 slice. The library now includes the [shared Mac-lock protocol](research/shared-mac-lock-2026-09-22.md).
 Replay hardening, new adapters, game integration, and rolling the wrapper into other
 repositories remain separate work. No accepted model, Viewer deployment or game is changed.
+
+## AI visual asset route
+
+For visually complex assets that exceed the practical code-CAD/blockout route, read
+[AI Visual Asset Pipeline](docs/AI_VISUAL_ASSET_PIPELINE.md). It adds a mandatory
+Design Datasheet Gate 0, preserves the provider MASTER, creates a separate optimized
+GAME derivative, runs Blender/runtime QA, and finishes at explicit owner review in
+Asset Viewer. Technical PASS never implies owner approval or game integration.

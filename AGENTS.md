@@ -18,6 +18,7 @@ Read `START_HERE.md` and `capabilities/README.md`. These rules apply to ChatGPT 
 6. Prefer deterministic logic and headless tests for systems; use real play sessions for feel, rendering, audio, and performance.
 7. Keep generated asset prompts and provenance. Never assume an asset is commercially usable without checking its license.
    For models reconstructed from images, datasheets or technical drawings, load `.agents/skills/reference-sheet-to-3d/SKILL.md` and follow `guides/art/datasheet-to-3d.md`; create a dimension ledger and validation report before claiming dimensional accuracy.
+   For visually complex AI-generated 3D assets, also follow `docs/AI_VISUAL_ASSET_PIPELINE.md`: Design Datasheet Gate 0 -> preserved MASTER -> separate GAME derivative -> QA -> explicit owner review. Never infer game integration from a benchmark PASS.
 8. Profile on target hardware before optimizing. Record baseline and after-change evidence.
 9. Keep commits small and do not overwrite unrelated user work.
 
