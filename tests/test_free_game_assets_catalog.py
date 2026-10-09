@@ -88,6 +88,81 @@ class CatalogTest(unittest.TestCase):
         x["commercial_game_use"] = "yes"
         self.assertTrue(any("unproven blanket" in x for x in lib.validate(data)))
 
+    def test_generated_markdown_rejects_spoofed_links(self):
+        data = copy.deepcopy(BASE)
+        entry = data["resources"][0]
+        entry["name"] = "Kenney Source](https://evil.invalid/collect)[Impostor"
+        entry["notes"] = "Helpful! [Download](https://evil.invalid/) <img src='https://evil.invalid/pixel'>"
+        # Invalid catalog entries are rejected before generation; rendering
+        # remains safely escaped as defense in depth.
+        self.assertTrue(any("URL-like content" in x for x in lib.validate(data)))
+        index = lib.make_index(data)
+        self.assertIn("https://kenney.nl/assets", index)
+        self.assertNotIn("](https://evil.invalid", index)
+        self.assertNotIn("<img", index)
+        self.assertIn("&lt;img", index)
+        self.assertIn(r"\]\(https://evil.invalid/collect\)\[", index)
+
+    def test_generated_markdown_table_text_is_escaped(self):
+        data = copy.deepcopy(BASE)
+        record = data["resources"][0]
+        record["name"] = "Safe | widgets *bold* and backslash \\\\"
+        record["notes"] = "A | B & <script>alert(1)</script> ![image](malicious)"
+        self.assertEqual([], lib.validate(data))
+        index = lib.make_index(data)
+        self.assertIn(r"Safe \| widgets \*bold\*", index)
+        self.assertIn("&amp;", index)
+        self.assertIn("&lt;script&gt;", index)
+        self.assertNotIn("<script>", index)
+        self.assertNotIn("![image](", index)
+
+    def test_autolinks_are_rejected_in_plain_text_fields(self):
+        for field, value in (
+            ("name", "Free asset https://evil.invalid/redirect"),
+            ("notes", "Check www.evil.invalid for more details"),
+        ):
+            with self.subTest(field=field):
+                data = copy.deepcopy(BASE)
+                data["resources"][0][field] = value
+                self.assertTrue(any("URL-like content not allowed" in x for x in lib.validate(data)))
+
+    def test_url_rejects_nonpublic_and_numeric_hosts(self):
+        unsafe = (
+            "https://127.0.0.1:8443/admin",
+            "https://127.0.0.1/",
+            "https://8.8.8.8/",
+            "https://169.254.169.254/latest/meta-data/",
+            "https://192.168.1.1/",
+            "https://10.0.0.10/",
+            "https://172.16.2.3/",
+            "https://[::1]/",
+            "https://[fe80::1]/",
+            "https://[::ffff:127.0.0.1]/",
+            "https://2130706433/",
+            "https://0x7f000001/",
+            "https://0177.0.0.1/",
+            "https://localhost/",
+            "https://localhost./",
+            "https://renderer.internal/private",
+            "https://server.local/",
+            "https://foo.lan/",
+            "https://metadata.google.internal/",
+            "https://example.com:8443/private",
+            "https://example.com@127.0.0.1/",
+            "https://exa%6dple.com/",
+            "https://example.com\\@evil.invalid/",
+        )
+        for url in unsafe:
+            with self.subTest(url=url):
+                self.assertFalse(lib.safe_https_url(url), url)
+                data = copy.deepcopy(BASE)
+                data["resources"][0]["license_url"] = url
+                self.assertTrue(any("invalid license_url" in e for e in lib.validate(data)))
+        for url in ("https://kenney.nl/assets", "https://quaternius.com/license.html",
+                    "https://github.com/YuriSizov/boscaceoil-blue"):
+            with self.subTest(good=url):
+                self.assertTrue(lib.safe_https_url(url), url)
+
     def test_index_deterministic(self):
         idx=lib.make_index(BASE)
         self.assertIn("Mixkit Stock Music",idx)

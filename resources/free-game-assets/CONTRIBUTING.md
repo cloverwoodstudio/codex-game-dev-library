@@ -2,7 +2,7 @@
 
 **Reviewed:** 2026-10-09
 
-1. Do `catalog.json` pridaj jeden záznam s unikátnym stabilným slug `id`. Použi HTTPS oficiálnu URL a samostatný `license_url`.
+1. Do `catalog.json` pridaj jeden záznam s unikátnym stabilným slug `id`. Použi verejnú HTTPS adresu oficiálneho poskytovateľa a samostatný `license_url`. Validátor odmieta IP literály, lokálne/interné hosty, vlastné porty a URL nevhodné pre Markdown.
 2. `commercial_game_use: yes` nastav len vtedy, keď oficiálny zdroj povoľuje **komerčné videohry**; ak ide o trhovisko s rôznymi licenciami, musí byť `verify-item`.
 3. `free-tier` neznamená, že sú zdarma platené rozšírenia alebo zdrojové `.blend` súbory.
 4. Vyplň `reviewed` v ISO dátume. Do `notes` píš vlastné krátke zhrnutie, nie kopírovaný obsah stránok.

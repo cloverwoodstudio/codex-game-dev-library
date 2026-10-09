@@ -50,16 +50,46 @@ REQUIRED = {
     "notes", "reviewed",
 }
 
+# Catalog URLs must point to ordinary public DNS provider hostnames.
+# All IP literals are disallowed, including noncanonical numeric IP spellings.
+# No DNS/network resolution is performed here; network checks are separate.
+PRIVATE_SUFFIXES = {
+    "localhost", "local", "internal", "lan", "home", "test",
+    "invalid", "example", "arpa", "onion",
+}
+DNS_LABEL = re.compile(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\Z")
+
+def public_provider_host(host: str) -> bool:
+    if not isinstance(host, str) or not host or len(host) > 253:
+        return False
+    host = host.lower()
+    if host.endswith(".") or "%" in host or ":" in host:
+        return False
+    labels = host.split(".")
+    if len(labels) < 2 or len(labels[-1]) < 2 or labels[-1].isdigit():
+        return False
+    if labels[-1] in PRIVATE_SUFFIXES:
+        return False
+    return all(DNS_LABEL.fullmatch(label) is not None for label in labels)
+
 def safe_https_url(s: str) -> bool:
+    if not isinstance(s, str):
+        return False
+    if any(ord(c) <= 32 or ord(c) == 127 for c in s):
+        return False
+    if any(c in s for c in "<>[]()\\`'\""):
+        return False
     try:
         p = urlparse(s)
         return (
             p.scheme == "https"
-            and bool(p.hostname)
+            and bool(p.netloc)
+            and public_provider_host(p.hostname or "")
             and p.username is None
             and p.password is None
+            and p.port is None
             and not p.fragment
-            and all(c not in s for c in "\r\n<>[]()\\`'\"")
+            and not p.path.startswith("//")
         )
     except ValueError:
         return False
@@ -98,6 +128,11 @@ def validate(data: object) -> list[str]:
                 return False
             if any(ord(c) < 32 or ord(c) == 127 for c in value):
                 errors.append(f"{ref} control characters in {field}")
+                return False
+            # GitHub can auto-link bare URLs even after Markdown punctuation is
+            # escaped. URLs belong only in validated url/license_url fields.
+            if field in {"name", "notes"} and re.search(r"(?i)(?:https?://|www\.)", value):
+                errors.append(f"{ref} URL-like content not allowed in {field}")
                 return False
             return True
 
@@ -173,7 +208,14 @@ def validate(data: object) -> list[str]:
     return errors
 
 def esc(s: str) -> str:
-    return s.replace("|", "\\|").replace("\n", " ").strip()
+    """Render untrusted catalog text as literal Markdown table text.
+
+    URLs are supplied only by independently validated url/license_url values.
+    A name or note may never create its own active link/HTML/image/table column.
+    """
+    safe = s.replace("\r", " ").replace("\n", " ").replace("\t", " ")
+    safe = safe.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return re.sub(r"([\\`*_{\[\]()!|}~])", r"\\\1", safe)
 
 def make_index(data: dict) -> str:
     counts = Counter(a["category"] for a in data["resources"])
