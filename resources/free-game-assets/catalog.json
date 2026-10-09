@@ -1,0 +1,946 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-09",
+  "owner": "Cloverwood Studio",
+  "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
+  "resources": [
+    {
+      "id": "kenney",
+      "name": "Kenney Free Asset Library",
+      "category": "mixed-catalog",
+      "url": "https://kenney.nl/assets",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Free individual 2D 3D audio and UI packs. The All-in-1 ZIP is paid.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-furniture",
+      "name": "Kenney Furniture Kit (140)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/furniture-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Furniture for rooms and props.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-food",
+      "name": "Kenney Food Kit (200)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/food-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Food and bar props.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-factory",
+      "name": "Kenney Factory Kit (140)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/factory-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Industrial conveyor and factory props.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-prototype",
+      "name": "Kenney Prototype Kit (145)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/prototype-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL",
+        "SPLIT"
+      ],
+      "notes": "Blockout and mechanics prototyping.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-modular-space",
+      "name": "Kenney Modular Space Kit (40)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/modular-space-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Modular sci-fi interior scenes.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-space",
+      "name": "Kenney Space Kit (150)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/space-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Space themed models.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-space-station",
+      "name": "Kenney Space Station Kit (90)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/space-station-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Station interiors and props.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-caves",
+      "name": "Kenney Modular Cave Kit (40)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/modular-cave-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Cave modules. Suitable for quick game prototyping.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-dungeon",
+      "name": "Kenney Modular Dungeon Kit (40)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/modular-dungeon-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Dungeon modules.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-adventurers",
+      "name": "KayKit Adventurers Free Characters",
+      "category": "characters-animation",
+      "url": "https://kaylousberg.itch.io/kaykit",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/kaykit",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Five rigged characters in the free tier. EXTRA and Blend source paid.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-animations",
+      "name": "KayKit Character Animations",
+      "category": "characters-animation",
+      "url": "https://kaylousberg.itch.io/kaykit-character-animations",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/kaykit-character-animations",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Free FBX and GLTF animations. Blend editing sources paid.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-platformer",
+      "name": "KayKit Platformer Pack",
+      "category": "3d-models",
+      "url": "https://kaylousberg.itch.io/kaykit-platformer",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/kaykit-platformer",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "SPLIT",
+        "GENERAL"
+      ],
+      "notes": "120+ free platformer models. EXTRA and SOURCE tiers paid.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-prototype",
+      "name": "KayKit Prototype Bits",
+      "category": "3d-models",
+      "url": "https://kaylousberg.itch.io/prototype-bits",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/prototype-bits",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "GENERAL",
+        "BB"
+      ],
+      "notes": "64+ free prototype models.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-block",
+      "name": "KayKit Block Bits",
+      "category": "3d-models",
+      "url": "https://kaylousberg.itch.io/block-bits",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/block-bits",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "GENERAL"
+      ],
+      "notes": "Blocky diorama props. Requires BB visual bible restyling.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kaykit-resource",
+      "name": "KayKit Resource Bits",
+      "category": "3d-models",
+      "url": "https://kaylousberg.itch.io/resource-bits",
+      "license": "CC0",
+      "license_url": "https://kaylousberg.itch.io/resource-bits",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Wood stone metal and resource props.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "quaternius",
+      "name": "Quaternius Free Game Assets",
+      "category": "3d-models",
+      "url": "https://quaternius.com/",
+      "license": "QAL",
+      "license_url": "https://quaternius.com/license.html",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "QAL permits commercial games but prohibits standalone redistribution. Historic packs may have other terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "quaternius-animations1",
+      "name": "Quaternius Universal Animation Library",
+      "category": "characters-animation",
+      "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "license": "CC0-page",
+      "license_url": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "120+ animation collection. Only free subset available without purchase. Archive license check required.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "quaternius-animations2",
+      "name": "Quaternius Universal Animation Library 2",
+      "category": "characters-animation",
+      "url": "https://quaternius.com/packs/universalanimationlibrary2.html",
+      "license": "CC0-page",
+      "license_url": "https://quaternius.com/packs/universalanimationlibrary2.html",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "130+ animation collection. Check download-tier and archive terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "poly-pizza",
+      "name": "Poly Pizza Models",
+      "category": "3d-models",
+      "url": "https://poly.pizza/",
+      "license": "per-item",
+      "license_url": "https://poly.pizza/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-tier",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "GENERAL"
+      ],
+      "notes": "Licenses vary by individual creator and model including credit requirements.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "itch-free",
+      "name": "itch.io Free Game Assets",
+      "category": "mixed-catalog",
+      "url": "https://itch.io/game-assets/free",
+      "license": "per-item",
+      "license_url": "https://itch.io/game-assets/free",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-tier",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Free price is not a license. Check each creator and included archive terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "polyhaven",
+      "name": "Poly Haven",
+      "category": "materials",
+      "url": "https://polyhaven.com/",
+      "license": "CC0",
+      "license_url": "https://polyhaven.com/license",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "3D scans HDRIs and PBR materials. Optimize for mobile budget.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "ambientcg",
+      "name": "ambientCG",
+      "category": "materials",
+      "url": "https://ambientcg.com/",
+      "license": "CC0",
+      "license_url": "https://ambientcg.com/license",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "PBR surfaces and HDRIs for realistic paper and interiors.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "texturecan",
+      "name": "TextureCan",
+      "category": "materials",
+      "url": "https://www.texturecan.com/",
+      "license": "CC0",
+      "license_url": "https://www.texturecan.com/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Free PBR textures. Recheck per resource before import. REVIEW HOLD: CC0 claim needs an identifiable publisher license page or explicit archived download terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "material-maker",
+      "name": "Material Maker",
+      "category": "tools",
+      "url": "https://materialmaker.org/",
+      "license": "open-source",
+      "license_url": "https://materialmaker.org/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "BB",
+        "GENERAL"
+      ],
+      "notes": "Procedural material tool. External presets and samples need own license review. REVIEW HOLD: Software being open source does not license every linked material/preset or imported texture.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "mixamo",
+      "name": "Adobe Mixamo",
+      "category": "characters-animation",
+      "url": "https://www.mixamo.com/",
+      "license": "Mixamo-FAQ",
+      "license_url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free-account",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Free Adobe ID. Royalty-free commercial game character animations and biped auto-rigging.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "sonniss-gdc",
+      "name": "Sonniss GDC 2026 Audio Bundle",
+      "category": "sfx",
+      "url": "https://gdc.sonniss.com/",
+      "license": "Sonniss",
+      "license_url": "https://sonniss.com/gdc-bundle-license/",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "7.47GB+ royalty-free effects. AI or ML training prohibited. Do not redistribute raw archive.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-ui-audio",
+      "name": "Kenney UI Audio (50)",
+      "category": "sfx",
+      "url": "https://kenney.nl/assets/ui-audio",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "SPLIT",
+        "NELUVO",
+        "GENERAL"
+      ],
+      "notes": "Clicks and switches.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-interface",
+      "name": "Kenney Interface Sounds (100)",
+      "category": "sfx",
+      "url": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "SPLIT",
+        "NELUVO",
+        "GENERAL"
+      ],
+      "notes": "Interface interactions.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-rpg",
+      "name": "Kenney RPG Audio (50)",
+      "category": "sfx",
+      "url": "https://kenney.nl/assets/rpg-audio",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Footsteps hits and item interactions.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "freesound",
+      "name": "Freesound",
+      "category": "sfx",
+      "url": "https://freesound.org/",
+      "license": "per-item",
+      "license_url": "https://freesound.org/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-account",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "GENERAL"
+      ],
+      "notes": "CC0 and CC BY can be commercial. Exclude CC BY-NC from paid games.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "mixkit-sfx",
+      "name": "Mixkit Free Sound Effects",
+      "category": "sfx",
+      "url": "https://mixkit.co/free-sound-effects/",
+      "license": "Mixkit-SFX",
+      "license_url": "https://mixkit.co/license/modal/sfxFree/",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "GENERAL"
+      ],
+      "notes": "Video games explicitly allowed. Redistribution as stock/source prohibited.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "zapsplat",
+      "name": "ZapSplat Sound Effects",
+      "category": "sfx",
+      "url": "https://www.zapsplat.com/",
+      "license": "custom",
+      "license_url": "https://www.zapsplat.com/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-account",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Check free-tier attribution and terms before use.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "opengameart",
+      "name": "OpenGameArt",
+      "category": "mixed-catalog",
+      "url": "https://opengameart.org/",
+      "license": "per-item",
+      "license_url": "https://opengameart.org/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "License varies per asset. Do not assume catalog-wide CC0.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "opengameart-cc0-music",
+      "name": "OpenGameArt CC0 Music Collection",
+      "category": "music",
+      "url": "https://opengameart.org/content/free-music-cc0",
+      "license": "per-item",
+      "license_url": "https://opengameart.org/content/free-music-cc0",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Curated CC0 selection but verify track license and author.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "incompetech",
+      "name": "Incompetech Kevin MacLeod Music",
+      "category": "music",
+      "url": "https://incompetech.com/music/royalty-free/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://incompetech.com/music/royalty-free/licenses/",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Free CC music requires exact track credit.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "soundimage",
+      "name": "Soundimage Eric Matyas",
+      "category": "music",
+      "url": "https://soundimage.org/",
+      "license": "Soundimage",
+      "license_url": "https://soundimage.org/attribution-info/",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Attribution must appear inside actual game not only store listing.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "mixkit-music-blocked",
+      "name": "Mixkit Stock Music - NOT FOR GAMES",
+      "category": "music",
+      "url": "https://mixkit.co/free-stock-music/",
+      "license": "Mixkit-Music",
+      "license_url": "https://mixkit.co/license/modal/musicFree/",
+      "commercial_game_use": "no",
+      "attribution": "n-a",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Explicitly prohibited in video games. Possible separate marketing use under terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-ui",
+      "name": "Kenney UI Pack (430)",
+      "category": "ui-2d",
+      "url": "https://kenney.nl/assets/ui-pack",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Interface buttons panels and sliders.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-pixel-ui",
+      "name": "Kenney Pixel UI Pack (750)",
+      "category": "ui-2d",
+      "url": "https://kenney.nl/assets/pixel-ui-pack",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Pixel interface elements.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-sci-fi-ui",
+      "name": "Kenney Sci-Fi UI (130)",
+      "category": "ui-2d",
+      "url": "https://kenney.nl/assets/ui-pack-sci-fi",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Sci-fi buttons and HUD.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "game-icons",
+      "name": "Game-icons.net",
+      "category": "ui-2d",
+      "url": "https://game-icons.net/",
+      "license": "CC-BY-3.0",
+      "license_url": "https://game-icons.net/about.html",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Credit original icon author and website inside shipped product.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "lucide",
+      "name": "Lucide Icons",
+      "category": "ui-2d",
+      "url": "https://lucide.dev/",
+      "license": "ISC",
+      "license_url": "https://lucide.dev/license",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Retain copyright and license notice.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "google-symbols",
+      "name": "Google Material Symbols",
+      "category": "ui-2d",
+      "url": "https://fonts.google.com/icons",
+      "license": "Apache-2.0",
+      "license_url": "https://developers.google.com/fonts/docs/material_symbols",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Keep applicable license notices. Separate fonts and assets can have own terms.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "craftpix",
+      "name": "CraftPix Free Assets",
+      "category": "ui-2d",
+      "url": "https://craftpix.net/",
+      "license": "per-item",
+      "license_url": "https://craftpix.net/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-tier",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Free download needs pack-specific licensing review.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "godot-shaders",
+      "name": "Godot Shaders",
+      "category": "vfx-shaders",
+      "url": "https://godotshaders.com/",
+      "license": "per-item",
+      "license_url": "https://godotshaders.com/license/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Shader code CC0 MIT or GPL per entry. Preview media not included in license. Automated CI HTTP probe returns 455; review the official site manually.",
+      "reviewed": "2026-10-09",
+      "link_check_mode": "manual"
+    },
+    {
+      "id": "kenney-particle",
+      "name": "Kenney Particle Pack (80)",
+      "category": "vfx-shaders",
+      "url": "https://kenney.nl/assets/particle-pack",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "BB",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "80 2D particle effect sprites.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "blender",
+      "name": "Blender",
+      "category": "tools",
+      "url": "https://www.blender.org/",
+      "license": "GPL",
+      "license_url": "https://www.blender.org/",
+      "commercial_game_use": "yes",
+      "attribution": "n-a",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Open-source 3D authoring tool. Third-party inputs retain their own licenses.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "godot",
+      "name": "Godot Engine",
+      "category": "tools",
+      "url": "https://godotengine.org/",
+      "license": "MIT",
+      "license_url": "https://godotengine.org/license/",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE"
+      ],
+      "notes": "Open-source game engine. Include MIT engine license notice in published game.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "godot-library",
+      "name": "Godot Asset Library",
+      "category": "tools",
+      "url": "https://godotengine.org/asset-library/asset",
+      "license": "per-item",
+      "license_url": "https://godotengine.org/asset-library/asset",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Each community plugin has its own license.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "krita",
+      "name": "Krita",
+      "category": "tools",
+      "url": "https://krita.org/",
+      "license": "GPL",
+      "license_url": "https://krita.org/",
+      "commercial_game_use": "yes",
+      "attribution": "n-a",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "2D sprites concept art and texture painting.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "audacity",
+      "name": "Audacity",
+      "category": "tools",
+      "url": "https://www.audacityteam.org/",
+      "license": "GPL",
+      "license_url": "https://www.audacityteam.org/",
+      "commercial_game_use": "yes",
+      "attribution": "n-a",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "NELUVO"
+      ],
+      "notes": "Audio editing and mastering. Embedded external samples have their own licensing.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "jfxr",
+      "name": "JFXR",
+      "category": "tools",
+      "url": "https://jfxr.frozenfractal.com/",
+      "license": "tool-terms",
+      "license_url": "https://jfxr.frozenfractal.com/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Synthesized video game sound effects. REVIEW HOLD: Generated audio rights and bundling terms still require an explicit provider reference.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "lmms",
+      "name": "LMMS",
+      "category": "tools",
+      "url": "https://lmms.io/",
+      "license": "GPL",
+      "license_url": "https://lmms.io/",
+      "commercial_game_use": "yes",
+      "attribution": "n-a",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Music sequencer. Imported samples and plugins may have separate rights.",
+      "reviewed": "2026-10-09"
+    },
+    {
+      "id": "bosca-ceoil-blue",
+      "name": "Bosca Ceoil Blue",
+      "category": "tools",
+      "url": "https://github.com/YuriSizov/boscaceoil-blue",
+      "license": "open-source",
+      "license_url": "https://github.com/YuriSizov/boscaceoil-blue",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "SPLIT",
+        "NELUVO"
+      ],
+      "notes": "Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release.",
+      "reviewed": "2026-10-09"
+    }
+  ]
+}

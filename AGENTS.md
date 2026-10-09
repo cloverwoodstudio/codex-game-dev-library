@@ -32,6 +32,10 @@ Read `START_HERE.md` and `capabilities/README.md`. These rules apply to ChatGPT 
 - Update `references/source-index.md` and `research/backlog.md`.
 - Put reusable prompts in `prompts/`, engine-neutral examples in `code-patterns/`, and tested engine-specific examples in a clearly named future sample project.
 
+## Free-game-asset selection
+
+Read `resources/free-game-assets/README.md`, `catalog.json`, and `LICENSE_POLICY.md` for external 3D, animation, audio, UI, shader or tooling recommendations. `commercial_game_use: yes` only describes a provider-level permission with conditions; use `verify-item` for mixed-license catalogs and never ship `no` items. Preserve source URL, downloaded-file license and SHA-256 in a project-owned ledger. Do not mirror third-party files into the knowledge library. No asset is approved for a game until game-specific QA and explicit owner review.
+
 ## Definition of done for a game task
 
 - The requested behavior works in a real run.

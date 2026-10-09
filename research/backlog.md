@@ -120,3 +120,16 @@ Implementation and review boundary: [shared-entry scope](library-shared-entry-20
 Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](shared-mac-lock-2026-09-22.md).
 
 - [x] PR #4 review: preserve missing-owner locks and hard-linked source permissions; add four cleanup regressions. See [review](pr4-review-2026-09-22.md).
+
+
+## Free game assets & tools catalog — 2026-10-09
+
+- [x] Create curated, machine-readable catalog of 55 outbound sources across nine categories (3D packs, characters/animation, materials, SFX, music, UI, shaders, production tools and mixed portals).
+- [x] Add exact provider/license links, commercial game decisions, credit/access metadata, and a download-provenance template.
+- [x] Publish per-project recommendations for BB, Hotel Panic, Starfall Rescue, Split and Neluvo without changing game repositories.
+- [x] Include offline catalog validator, deterministic Markdown index and GitHub Actions check.
+- [ ] Refresh external licensing/source availability quarterly; mixed-license entries require per-item owner-side evidence.
+- [ ] Pilot download of one explicitly approved pack to an external-only workspace; preserve original SHA and verify GLB/runtime on device.
+- [ ] Add accessibility/audio normalization and mobile polygon/texture budget data after measured asset QA.
+
+**Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.

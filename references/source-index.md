@@ -63,6 +63,20 @@ Reviewed: 2026-08-29. Prefer these primary sources before blogs or generated sum
 - Gaffer on Games (physics/networking): https://gafferongames.com/
 - Valve developer community: https://developer.valvesoftware.com/wiki/Main_Page
 
+## Free assets and music — 2026-10-09
+
+See the [full machine-readable external resource registry](../resources/free-game-assets/catalog.json) and [commercial license policy](../resources/free-game-assets/LICENSE_POLICY.md). Official licensing sources:
+
+- Kenney CC0: https://kenney.nl/support
+- KayKit CC0 packs: https://kaylousberg.itch.io/kaykit
+- Quaternius QAL: https://quaternius.com/license.html
+- Mixamo royalty-free commercial games: https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html
+- Sonniss #GameAudioGDC: https://sonniss.com/gdc-bundle-license/
+- Mixkit SFX allowed games: https://mixkit.co/license/modal/sfxFree/
+- Mixkit stock music **disallows games**: https://mixkit.co/license/modal/musicFree/
+- Freesound per-item licenses: https://freesound.org/help/faq/
+- Poly Haven CC0: https://polyhaven.com/license
+
 ## Worlds, characters, art and 3D
 
 - Blender manual: https://docs.blender.org/manual/en/latest/

@@ -24,12 +24,17 @@ Read [START_HERE.md](START_HERE.md) for the common entry contract and [the capab
 - `guides/workflows/` — repeatable agent workflows (Codex paths retained)
 - `templates/` — files to copy into new game repositories
 - `references/` — curated primary sources and example repositories
+- `resources/free-game-assets/` — [55 curated free game-asset and tool sources](resources/free-game-assets/README.md), searchable JSON, licence gates, BB/Hotel Panic/Starfall choices and automated validation
 - `research/` — research notes, findings, and backlog
 - `prompts/` — reusable briefs and prompts for Codex and asset generation
 - `code-patterns/` — engine-neutral reference implementations
 - `samples/` — runnable, versioned reference implementations with expected evidence
 - `tools/` — executable production helpers, beginning with calibrated reference-sheet-to-3D reconstruction
 - `.agents/skills/` — repository-local Codex skills that other agents can explicitly read; the Apple skill includes a large tool catalog and read-only host audit
+
+## Free models, animations, music and audio
+
+Browse the [Free Game Assets & Tools library](resources/free-game-assets/README.md) and the [full linked catalog](resources/free-game-assets/INDEX.md) before sourcing third-party content. It lists free *sources* and license constraints, never mirrored asset files. A listed link is not production approval.
 
 ## Complete development map
 

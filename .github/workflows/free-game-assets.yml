@@ -1,0 +1,31 @@
+name: Free game assets catalog
+
+on:
+  pull_request:
+    paths:
+      - 'resources/free-game-assets/**'
+      - 'scripts/check_free_game_assets.py'
+      - 'tests/test_free_game_assets_catalog.py'
+      - '.github/workflows/free-game-assets.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'resources/free-game-assets/**'
+      - 'scripts/check_free_game_assets.py'
+      - 'tests/test_free_game_assets_catalog.py'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate catalog and generated index
+        run: python3 scripts/check_free_game_assets.py --check
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -p 'test_free_game_assets_catalog.py' -v
