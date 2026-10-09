@@ -25,6 +25,8 @@ Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súb
 | `verify-item` | Portál ponúka rôzne licencie alebo je potrebné preveriť konkrétny balík. | **Bez schválenia nepoužívať v hre.** |
 | `no` | Použitie v komerčnej videohre nie je povolené. | **Nepoužívať.** |
 
+Pri `commercial_game_use: yes` nejde o univerzálne povolenie na ľubovoľný súbor z danej stránky. Katalóg je len predbežná klasifikácia. `verify-item` znamená, že výber je **zablokovaný pre produkčnú integráciu**, kým agent nezdokumentuje konkrétny súbor, licenciu a schválenie.
+
 `free-tier` znamená, že **iba bezplatná časť** katalógu je dostupná bez zaplatenia. Plné balíky, editovateľné .blend zdroje a rozšírenia bývajú platené.
 
 **Dôležité:** Mixkit **sound effects** povoľuje vo videohrách, ale Mixkit **stock music** ich výslovne zakazuje. Quaternius QAL zakazuje samostatné šírenie modelov ako asset balíkov. Pri starších packoch skontroluj priloženú licenciu.

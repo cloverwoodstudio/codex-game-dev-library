@@ -7,7 +7,7 @@
     {
       "id": "kenney",
       "name": "Kenney Free Asset Library",
-      "category": "3d-models",
+      "category": "mixed-catalog",
       "url": "https://kenney.nl/assets",
       "license": "CC0",
       "license_url": "https://kenney.nl/support",
@@ -399,14 +399,14 @@
       "url": "https://www.texturecan.com/",
       "license": "CC0",
       "license_url": "https://www.texturecan.com/",
-      "commercial_game_use": "yes",
-      "attribution": "none",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
       "access": "free",
       "projects": [
         "BB",
         "HOTEL_PANIC"
       ],
-      "notes": "Free PBR textures. Recheck per resource before import.",
+      "notes": "Free PBR textures. Recheck per resource before import. REVIEW HOLD: CC0 claim needs an identifiable publisher license page or explicit archived download terms.",
       "reviewed": "2026-10-09"
     },
     {
@@ -416,14 +416,14 @@
       "url": "https://materialmaker.org/",
       "license": "open-source",
       "license_url": "https://materialmaker.org/",
-      "commercial_game_use": "yes",
+      "commercial_game_use": "verify-item",
       "attribution": "per-item",
       "access": "free",
       "projects": [
         "BB",
         "GENERAL"
       ],
-      "notes": "Procedural material tool. External presets and samples need own license review.",
+      "notes": "Procedural material tool. External presets and samples need own license review. REVIEW HOLD: Software being open source does not license every linked material/preset or imported texture.",
       "reviewed": "2026-10-09"
     },
     {
@@ -899,14 +899,14 @@
       "url": "https://jfxr.frozenfractal.com/",
       "license": "tool-terms",
       "license_url": "https://jfxr.frozenfractal.com/",
-      "commercial_game_use": "yes",
+      "commercial_game_use": "verify-item",
       "attribution": "per-item",
       "access": "free",
       "projects": [
         "SPLIT",
         "NELUVO"
       ],
-      "notes": "Synthesized video game sound effects.",
+      "notes": "Synthesized video game sound effects. REVIEW HOLD: Generated audio rights and bundling terms still require an explicit provider reference.",
       "reviewed": "2026-10-09"
     },
     {
@@ -932,14 +932,14 @@
       "url": "https://github.com/YuriSizov/boscaceoil-blue",
       "license": "open-source",
       "license_url": "https://github.com/YuriSizov/boscaceoil-blue",
-      "commercial_game_use": "yes",
+      "commercial_game_use": "verify-item",
       "attribution": "per-item",
       "access": "free",
       "projects": [
         "SPLIT",
         "NELUVO"
       ],
-      "notes": "Simple music sequencer. Validate packaged samples.",
+      "notes": "Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release.",
       "reviewed": "2026-10-09"
     }
   ]

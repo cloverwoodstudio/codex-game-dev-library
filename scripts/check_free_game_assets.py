@@ -35,6 +35,15 @@ PROJECTS = {"BB", "HOTEL_PANIC", "STARFALL_RESCUE", "SPLIT", "NELUVO", "GENERAL"
 COMMERCIAL = {"yes", "verify-item", "no"}
 ATTRIBUTION = {"none", "required", "per-item", "n-a"}
 ACCESS = {"free", "free-tier", "free-account"}
+# Enumerated licenses are *classifications*, not proof of asset-specific clearance.
+LICENSES = {
+    "Apache-2.0", "CC-BY-3.0", "CC-BY-4.0", "CC0", "CC0-page",
+    "GPL", "ISC", "MIT", "Mixamo-FAQ", "Mixkit-Music", "Mixkit-SFX",
+    "QAL", "Sonniss", "Soundimage", "custom", "open-source",
+    "per-item", "tool-terms",
+}
+NO_BLANKET_APPROVAL = {"custom", "per-item", "open-source", "tool-terms"}
+
 REQUIRED = {
     "id", "name", "category", "url", "license", "license_url",
     "commercial_game_use", "attribution", "access", "projects",
@@ -50,7 +59,7 @@ def safe_https_url(s: str) -> bool:
             and p.username is None
             and p.password is None
             and not p.fragment
-            and all(c not in s for c in "\r\n<>")
+            and all(c not in s for c in "\r\n<>[]()\\`'\"")
         )
     except ValueError:
         return False
@@ -81,46 +90,74 @@ def validate(data: object) -> list[str]:
         if missing:
             errors.append(f"{ref} missing {sorted(missing)}")
             continue
-        slug = asset["id"]
-        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
-            errors.append(f"{ref} invalid slug")
-        if slug in seen_ids:
-            errors.append(f"{ref} duplicate id {slug}")
-        seen_ids.add(slug)
-        if not isinstance(asset["name"], str) or len(asset["name"].strip()) < 3:
-            errors.append(f"{ref} invalid name")
-        if asset["category"] not in CATS:
-            errors.append(f"{ref} unknown category")
-        if asset["commercial_game_use"] not in COMMERCIAL:
-            errors.append(f"{ref} invalid commercial_game_use")
-        if asset["attribution"] not in ATTRIBUTION:
-            errors.append(f"{ref} invalid attribution")
-        if asset["access"] not in ACCESS:
-            errors.append(f"{ref} invalid access")
-        if asset.get("link_check_mode","automated") not in {"automated","manual"}:
-            errors.append(f"{ref} invalid link_check_mode")
-        if asset.get("link_check_mode")=="manual" and asset["commercial_game_use"] != "verify-item":
-            errors.append(f"{ref} manual link check cannot imply provider-approved use")
-        for field in ("url", "license_url"):
-            if not isinstance(asset[field], str) or not safe_https_url(asset[field]):
+
+        def string_field(field: str, minimum: int = 1) -> bool:
+            value = asset[field]
+            if not isinstance(value, str) or len(value.strip()) < minimum:
                 errors.append(f"{ref} invalid {field}")
-        if asset["url"] in seen_urls:
-            errors.append(f"{ref} duplicate URL")
-        seen_urls.add(asset["url"])
+                return False
+            if any(ord(c) < 32 or ord(c) == 127 for c in value):
+                errors.append(f"{ref} control characters in {field}")
+                return False
+            return True
+
+        for name, min_length in (
+            ("id", 1), ("name", 3), ("category", 1),
+            ("license", 1), ("commercial_game_use", 1),
+            ("attribution", 1), ("access", 1),
+            ("notes", 14), ("reviewed", 10),
+        ):
+            string_field(name, min_length)
+
+        slug = asset["id"]
+        if isinstance(slug, str):
+            if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+                errors.append(f"{ref} invalid slug")
+            elif slug in seen_ids:
+                errors.append(f"{ref} duplicate id {slug}")
+            else:
+                seen_ids.add(slug)
+        for field, choices in (
+            ("category", CATS),
+            ("license", LICENSES),
+            ("commercial_game_use", COMMERCIAL),
+            ("attribution", ATTRIBUTION),
+            ("access", ACCESS),
+        ):
+            value = asset[field]
+            if not isinstance(value, str) or value not in choices:
+                errors.append(f"{ref} invalid/unknown {field}")
+        check_mode = asset.get("link_check_mode", "automated")
+        if not isinstance(check_mode, str) or check_mode not in {"automated", "manual"}:
+            errors.append(f"{ref} invalid link_check_mode")
+        if check_mode == "manual" and asset["commercial_game_use"] != "verify-item":
+            errors.append(f"{ref} manual link check cannot imply provider-approved use")
+
+        for field in ("url", "license_url"):
+            value = asset[field]
+            if not isinstance(value, str) or not safe_https_url(value):
+                errors.append(f"{ref} invalid {field}")
+        url = asset["url"]
+        if isinstance(url, str):
+            if url in seen_urls:
+                errors.append(f"{ref} duplicate URL")
+            seen_urls.add(url)
         try:
             resource_reviewed = date.fromisoformat(asset["reviewed"])
             if catalog_reviewed is not None and resource_reviewed > catalog_reviewed:
                 errors.append(f"{ref} resource reviewed after catalog")
         except (ValueError, TypeError):
             errors.append(f"{ref} invalid reviewed date")
-        if not isinstance(asset["projects"], list) or not asset["projects"]:
-            errors.append(f"{ref} has no projects")
-        elif any(p not in PROJECTS for p in asset["projects"]) or len(set(asset["projects"])) != len(asset["projects"]):
-            errors.append(f"{ref} invalid project IDs")
-        if not isinstance(asset["notes"], str) or len(asset["notes"].strip()) < 14:
-            errors.append(f"{ref} missing meaningful notes")
-        if asset["license"] in ("per-item", "custom") and asset["commercial_game_use"] == "yes":
-            errors.append(f"{ref} custom/per-item license cannot be globally approved")
+
+        projects = asset["projects"]
+        if (not isinstance(projects, list) or not projects or
+            not all(isinstance(p, str) and p in PROJECTS for p in projects)):
+            errors.append(f"{ref} invalid projects")
+        elif len(set(projects)) != len(projects):
+            errors.append(f"{ref} duplicate project IDs")
+
+        if isinstance(asset["license"], str) and asset["license"] in NO_BLANKET_APPROVAL and asset["commercial_game_use"] == "yes":
+            errors.append(f"{ref} unproven blanket commercial approval")
         if asset["commercial_game_use"] == "verify-item" and asset["attribution"] != "per-item":
             errors.append(f"{ref} mixed license needs per-item credit review")
         if asset["commercial_game_use"] == "no" and asset["attribution"] != "n-a":

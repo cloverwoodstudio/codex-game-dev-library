@@ -4,7 +4,7 @@
 
 ## Pred každým použitím
 
-1. Otvor **oficiálnu stránku konkrétneho balíka alebo súboru** a jeho aktuálnu licenciu (`license_url`).
+1. Otvor **oficiálnu stránku konkrétneho balíka alebo súboru** a jeho aktuálnu licenciu (`license_url`). Ak `license_url` odkazuje len na profil alebo titulnú stránku, nejde o dostatočný dôkaz; zisti osobitné podmienky balíka.
 2. Skontroluj: komerčná hra, mobilné distribúcie/App Store, právo na úpravu, zákaz opätovnej distribúcie surového assetu, prípadný kredit.
 3. Poznamenaj verziu, autora, dátum stiahnutia a originálny ZIP / SHA-256 do [DOWNLOAD_LEDGER.template.csv](DOWNLOAD_LEDGER.template.csv).
 4. Ak licenciu nevieš overiť, označ `BLOCKED_LICENSE_REVIEW`; nič neimportuj do hry.
@@ -38,6 +38,10 @@
 - Soundimage: https://soundimage.org/attribution-info/
 - Godot Shaders (každý shader osobitne): `godotshaders.com/license/` (manuálne; poskytovateľ pri automatickom overovaní vracia HTTP 455)
 - Game-icons.net: https://game-icons.net/about.html
+
+## REVIEW HOLD — bez preukázania práv nepoužiť
+
+Aktuálny katalóg úmyselne označuje `texturecan`, `material-maker`, `jfxr` a `bosca-ceoil-blue` ako `verify-item`: prvé vydanie uvádzalo všeobecné/licenčne nešpecifické URL, ktoré ešte nie sú dôkazom práv ku konkrétnemu assetu alebo vzorkám. Záznam môže zostať ako užitočný odkaz na nástroj či materiály, ale žiadny agent z neho nesmie odvodiť hotový komerčne schválený asset.
 
 ## Trh so zmiešanými licenciami
 

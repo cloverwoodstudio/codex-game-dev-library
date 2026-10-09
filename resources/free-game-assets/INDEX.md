@@ -6,7 +6,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 
 **Licencie:** ✅ = povolené za podmienok zdroja; ⚠️ = over konkrétnu položku; ⛔ = zakázané pre videohry. Ani ✅ nenahrádza kontrolu stiahnutého archívu.
 
-## 3D modely a kompletné balíky (16)
+## 3D modely a kompletné balíky (15)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -16,7 +16,6 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [KayKit Resource Bits](https://kaylousberg.itch.io/resource-bits) | [CC0](https://kaylousberg.itch.io/resource-bits) | ✅ | zdarma časť | BB, HOTEL_PANIC | Wood stone metal and resource props. |
 | [Kenney Factory Kit (140)](https://kenney.nl/assets/factory-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, HOTEL_PANIC | Industrial conveyor and factory props. |
 | [Kenney Food Kit (200)](https://kenney.nl/assets/food-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, HOTEL_PANIC | Food and bar props. |
-| [Kenney Free Asset Library](https://kenney.nl/assets) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Free individual 2D 3D audio and UI packs. The All-in-1 ZIP is paid. |
 | [Kenney Furniture Kit (140)](https://kenney.nl/assets/furniture-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, HOTEL_PANIC | Furniture for rooms and props. |
 | [Kenney Modular Cave Kit (40)](https://kenney.nl/assets/modular-cave-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Cave modules. Suitable for quick game prototyping. |
 | [Kenney Modular Dungeon Kit (40)](https://kenney.nl/assets/modular-dungeon-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Dungeon modules. |
@@ -43,7 +42,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | --- | --- | :---: | --- | --- | --- |
 | [ambientCG](https://ambientcg.com/) | [CC0](https://ambientcg.com/license) | ✅ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | PBR surfaces and HDRIs for realistic paper and interiors. |
 | [Poly Haven](https://polyhaven.com/) | [CC0](https://polyhaven.com/license) | ✅ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | 3D scans HDRIs and PBR materials. Optimize for mobile budget. |
-| [TextureCan](https://www.texturecan.com/) | [CC0](https://www.texturecan.com/) | ✅ | zdarma | BB, HOTEL_PANIC | Free PBR textures. Recheck per resource before import. |
+| [TextureCan](https://www.texturecan.com/) | [CC0](https://www.texturecan.com/) | ⚠️ | zdarma | BB, HOTEL_PANIC | Free PBR textures. Recheck per resource before import. REVIEW HOLD: CC0 claim needs an identifiable publisher license page or explicit archived download terms. |
 
 ## Zvukové efekty (7)
 
@@ -91,19 +90,20 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | --- | --- | :---: | --- | --- | --- |
 | [Audacity](https://www.audacityteam.org/) | [GPL](https://www.audacityteam.org/) | ✅ | zdarma | BB, HOTEL_PANIC, NELUVO | Audio editing and mastering. Embedded external samples have their own licensing. |
 | [Blender](https://www.blender.org/) | [GPL](https://www.blender.org/) | ✅ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | Open-source 3D authoring tool. Third-party inputs retain their own licenses. |
-| [Bosca Ceoil Blue](https://github.com/YuriSizov/boscaceoil-blue) | [open-source](https://github.com/YuriSizov/boscaceoil-blue) | ✅ | zdarma | SPLIT, NELUVO | Simple music sequencer. Validate packaged samples. |
+| [Bosca Ceoil Blue](https://github.com/YuriSizov/boscaceoil-blue) | [open-source](https://github.com/YuriSizov/boscaceoil-blue) | ⚠️ | zdarma | SPLIT, NELUVO | Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release. |
 | [Godot Asset Library](https://godotengine.org/asset-library/asset) | [per-item](https://godotengine.org/asset-library/asset) | ⚠️ | zdarma | GENERAL | Each community plugin has its own license. |
 | [Godot Engine](https://godotengine.org/) | [MIT](https://godotengine.org/license/) | ✅ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | Open-source game engine. Include MIT engine license notice in published game. |
-| [JFXR](https://jfxr.frozenfractal.com/) | [tool-terms](https://jfxr.frozenfractal.com/) | ✅ | zdarma | SPLIT, NELUVO | Synthesized video game sound effects. |
+| [JFXR](https://jfxr.frozenfractal.com/) | [tool-terms](https://jfxr.frozenfractal.com/) | ⚠️ | zdarma | SPLIT, NELUVO | Synthesized video game sound effects. REVIEW HOLD: Generated audio rights and bundling terms still require an explicit provider reference. |
 | [Krita](https://krita.org/) | [GPL](https://krita.org/) | ✅ | zdarma | GENERAL | 2D sprites concept art and texture painting. |
 | [LMMS](https://lmms.io/) | [GPL](https://lmms.io/) | ✅ | zdarma | GENERAL | Music sequencer. Imported samples and plugins may have separate rights. |
-| [Material Maker](https://materialmaker.org/) | [open-source](https://materialmaker.org/) | ✅ | zdarma | BB, GENERAL | Procedural material tool. External presets and samples need own license review. |
+| [Material Maker](https://materialmaker.org/) | [open-source](https://materialmaker.org/) | ⚠️ | zdarma | BB, GENERAL | Procedural material tool. External presets and samples need own license review. REVIEW HOLD: Software being open source does not license every linked material/preset or imported texture. |
 
-## Zmiešané katalógy (2)
+## Zmiešané katalógy (3)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
 | [itch.io Free Game Assets](https://itch.io/game-assets/free) | [per-item](https://itch.io/game-assets/free) | ⚠️ | zdarma časť | GENERAL | Free price is not a license. Check each creator and included archive terms. |
+| [Kenney Free Asset Library](https://kenney.nl/assets) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Free individual 2D 3D audio and UI packs. The All-in-1 ZIP is paid. |
 | [OpenGameArt](https://opengameart.org/) | [per-item](https://opengameart.org/) | ⚠️ | zdarma | GENERAL | License varies per asset. Do not assume catalog-wide CC0. |
 
 ## Výslovné upozornenia

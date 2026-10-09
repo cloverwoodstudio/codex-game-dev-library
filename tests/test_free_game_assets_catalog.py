@@ -25,7 +25,7 @@ class CatalogTest(unittest.TestCase):
         data=copy.deepcopy(BASE)
         x=next(a for a in data["resources"] if a["id"]=="freesound")
         x["commercial_game_use"]="yes"
-        self.assertTrue(any("globally approved" in x for x in lib.validate(data)))
+        self.assertTrue(any("unproven blanket commercial approval" in x for x in lib.validate(data)))
 
     def test_mixkit_music_cannot_be_allowed(self):
         data=copy.deepcopy(BASE)
@@ -48,6 +48,45 @@ class CatalogTest(unittest.TestCase):
         self.assertNotIn("https://godotshaders.com/",index)
         incompetech=next(x for x in data["resources"] if x["id"]=="incompetech")
         self.assertEqual("incompetech.com",__import__("urllib.parse",fromlist=["urlparse"]).urlparse(incompetech["license_url"]).hostname)
+
+    def test_bad_field_types_do_not_crash(self):
+        examples = [
+            ("id", {}),
+            ("category", []),
+            ("license", {"wrong": True}),
+            ("url", ["https://example.com"]),
+            ("notes", None),
+            ("projects", [["BB"]]),
+            ("commercial_game_use", None),
+            ("attribution", []),
+            ("reviewed", {}),
+        ]
+        for field, bad in examples:
+            with self.subTest(field=field):
+                data = copy.deepcopy(BASE)
+                data["resources"][0][field] = bad
+                self.assertTrue(lib.validate(data), f"bad {field} accepted")
+
+    def test_unknown_licenses_and_unsafe_urls_rejected(self):
+        data = copy.deepcopy(BASE)
+        data["resources"][0]["license"] = "INVENTED"
+        self.assertTrue(any("unknown license" in x for x in lib.validate(data)))
+        data = copy.deepcopy(BASE)
+        data["resources"][0]["url"] = "https://example.com/foo)(bad"
+        self.assertTrue(any("invalid url" in x for x in lib.validate(data)))
+
+    def test_unverified_tool_and_material_entries_gated(self):
+        for resource_id in ("texturecan", "material-maker", "jfxr", "bosca-ceoil-blue"):
+            with self.subTest(resource_id=resource_id):
+                rec = next(x for x in BASE["resources"] if x["id"] == resource_id)
+                self.assertEqual(rec["commercial_game_use"], "verify-item")
+                self.assertEqual(rec["attribution"], "per-item")
+
+    def test_ambiguous_tool_licensing_cannot_be_marked_approved(self):
+        data = copy.deepcopy(BASE)
+        x = next(x for x in data["resources"] if x["id"] == "material-maker")
+        x["commercial_game_use"] = "yes"
+        self.assertTrue(any("unproven blanket" in x for x in lib.validate(data)))
 
     def test_index_deterministic(self):
         idx=lib.make_index(BASE)
