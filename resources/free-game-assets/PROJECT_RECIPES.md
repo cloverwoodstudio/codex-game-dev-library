@@ -26,7 +26,7 @@ Pravidlo: **nepoužívať generický model ako produkčný vzhľad.** Art QA pre
 
 - [Kenney Modular Space Kit](https://kenney.nl/assets/modular-space-kit), [Space Station Kit](https://kenney.nl/assets/space-station-kit), [Space Kit](https://kenney.nl/assets/space-kit).
 - [Kenney Sci-Fi UI](https://kenney.nl/assets/ui-pack-sci-fi) pre prototyp rozhrania.
-- [Godot Shaders](https://godotshaders.com/) pre efekty — licencia po konkrétnom shadere.
+- Godot Shaders (manuálne: `godotshaders.com`) pre efekty — licencia po konkrétnom shadere.
 - iPhone a budúci foldable layout vyžadujú vlastnú QA, nie automatickú kompatibilitu z balíka.
 
 ## SPLIT a NELUVO

@@ -38,6 +38,17 @@ class CatalogTest(unittest.TestCase):
         data["resources"][0]["url"]="http://kenney.nl/"
         self.assertTrue(any("invalid url" in x for x in lib.validate(data)))
 
+    def test_provider_blocked_urls_keep_manual_gate(self):
+        data=copy.deepcopy(BASE)
+        godot=next(x for x in data["resources"] if x["id"]=="godot-shaders")
+        self.assertEqual("manual",godot["link_check_mode"])
+        self.assertEqual("verify-item",godot["commercial_game_use"])
+        index=lib.make_index(data)
+        self.assertIn("godotshaders.com/license/",index)
+        self.assertNotIn("https://godotshaders.com/",index)
+        incompetech=next(x for x in data["resources"] if x["id"]=="incompetech")
+        self.assertEqual("incompetech.com",__import__("urllib.parse",fromlist=["urlparse"]).urlparse(incompetech["license_url"]).hostname)
+
     def test_index_deterministic(self):
         idx=lib.make_index(BASE)
         self.assertIn("Mixkit Stock Music",idx)

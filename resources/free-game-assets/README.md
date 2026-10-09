@@ -6,7 +6,7 @@ Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súb
 
 ## Začni tu
 
-- [Celý preklikateľný katalóg](INDEX.md) — všetky odkazy rozdelené podľa kategórie.
+- [Katalóg (odkazy overiteľné v CI; blokované weby označené manuálne)](INDEX.md) — všetky odkazy rozdelené podľa kategórie.
 - [JSON katalóg](catalog.json) — strojové vyhľadávanie, výber pre projekt a agentov.
 - [Licenčné pravidlá pre App Store](LICENSE_POLICY.md) — povolené, podmienené a zakázané zdroje.
 - [Výber pre naše hry](PROJECT_RECIPES.md) — BB, Hotel Panic, Starfall Rescue, Split a Neluvo.

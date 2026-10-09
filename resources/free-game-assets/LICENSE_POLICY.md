@@ -34,9 +34,9 @@
 - Sonniss: https://sonniss.com/gdc-bundle-license/
 - Mixkit SFX: https://mixkit.co/license/modal/sfxFree/
 - Mixkit Music **zakázané pre hry**: https://mixkit.co/license/modal/musicFree/
-- Incompetech: https://web.incompetech.com/music/royalty-free/licenses/
+- Incompetech: https://incompetech.com/music/royalty-free/licenses/
 - Soundimage: https://soundimage.org/attribution-info/
-- Godot Shaders (každý shader osobitne): https://godotshaders.com/license/
+- Godot Shaders (každý shader osobitne): `godotshaders.com/license/` (manuálne; poskytovateľ pri automatickom overovaní vracia HTTP 455)
 - Game-icons.net: https://game-icons.net/about.html
 
 ## Trh so zmiešanými licenciami

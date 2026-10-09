@@ -61,7 +61,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
-| [Incompetech Kevin MacLeod Music](https://incompetech.com/music/royalty-free/) | [CC-BY-4.0](https://web.incompetech.com/music/royalty-free/licenses/) | ✅ | zdarma | BB, HOTEL_PANIC, SPLIT, NELUVO | Free CC music requires exact track credit. |
+| [Incompetech Kevin MacLeod Music](https://incompetech.com/music/royalty-free/) | [CC-BY-4.0](https://incompetech.com/music/royalty-free/licenses/) | ✅ | zdarma | BB, HOTEL_PANIC, SPLIT, NELUVO | Free CC music requires exact track credit. |
 | [Mixkit Stock Music - NOT FOR GAMES](https://mixkit.co/free-stock-music/) | [Mixkit-Music](https://mixkit.co/license/modal/musicFree/) | ⛔ | zdarma | GENERAL | Explicitly prohibited in video games. Possible separate marketing use under terms. |
 | [OpenGameArt CC0 Music Collection](https://opengameart.org/content/free-music-cc0) | [per-item](https://opengameart.org/content/free-music-cc0) | ⚠️ | zdarma | BB, HOTEL_PANIC, SPLIT, NELUVO | Curated CC0 selection but verify track license and author. |
 | [Soundimage Eric Matyas](https://soundimage.org/) | [Soundimage](https://soundimage.org/attribution-info/) | ✅ | zdarma | BB, HOTEL_PANIC | Attribution must appear inside actual game not only store listing. |
@@ -82,7 +82,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
-| [Godot Shaders](https://godotshaders.com/) | [per-item](https://godotshaders.com/) | ⚠️ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | Shader code CC0 MIT or GPL per entry. Preview media not included in license. |
+| Godot Shaders (`godotshaders.com/`) | per-item (`godotshaders.com/license/`) | ⚠️ | zdarma | BB, HOTEL_PANIC, STARFALL_RESCUE | Shader code CC0 MIT or GPL per entry. Preview media not included in license. Automated CI HTTP probe returns 455; review the official site manually. |
 | [Kenney Particle Pack (80)](https://kenney.nl/assets/particle-pack) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, STARFALL_RESCUE | 80 2D particle effect sprites. |
 
 ## Nástroje na tvorbu hier (9)

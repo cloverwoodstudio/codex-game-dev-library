@@ -608,7 +608,7 @@
       "category": "music",
       "url": "https://incompetech.com/music/royalty-free/",
       "license": "CC-BY-4.0",
-      "license_url": "https://web.incompetech.com/music/royalty-free/licenses/",
+      "license_url": "https://incompetech.com/music/royalty-free/licenses/",
       "commercial_game_use": "yes",
       "attribution": "required",
       "access": "free",
@@ -776,7 +776,7 @@
       "category": "vfx-shaders",
       "url": "https://godotshaders.com/",
       "license": "per-item",
-      "license_url": "https://godotshaders.com/",
+      "license_url": "https://godotshaders.com/license/",
       "commercial_game_use": "verify-item",
       "attribution": "per-item",
       "access": "free",
@@ -785,8 +785,9 @@
         "HOTEL_PANIC",
         "STARFALL_RESCUE"
       ],
-      "notes": "Shader code CC0 MIT or GPL per entry. Preview media not included in license.",
-      "reviewed": "2026-10-09"
+      "notes": "Shader code CC0 MIT or GPL per entry. Preview media not included in license. Automated CI HTTP probe returns 455; review the official site manually.",
+      "reviewed": "2026-10-09",
+      "link_check_mode": "manual"
     },
     {
       "id": "kenney-particle",

@@ -97,6 +97,10 @@ def validate(data: object) -> list[str]:
             errors.append(f"{ref} invalid attribution")
         if asset["access"] not in ACCESS:
             errors.append(f"{ref} invalid access")
+        if asset.get("link_check_mode","automated") not in {"automated","manual"}:
+            errors.append(f"{ref} invalid link_check_mode")
+        if asset.get("link_check_mode")=="manual" and asset["commercial_game_use"] != "verify-item":
+            errors.append(f"{ref} manual link check cannot imply provider-approved use")
         for field in ("url", "license_url"):
             if not isinstance(asset[field], str) or not safe_https_url(asset[field]):
                 errors.append(f"{ref} invalid {field}")
@@ -163,8 +167,15 @@ def make_index(data: dict) -> str:
         ])
         for a in assets:
             code = {"yes":"✅","verify-item":"⚠️","no":"⛔"}[a["commercial_game_use"]]
-            label_link = f"[{esc(a['name'])}]({a['url']})"
-            license_link = f"[{esc(a['license'])}]({a['license_url']})"
+            if a.get("link_check_mode") == "manual":
+                # Preserve the canonical HTTPS URLs in JSON, but do not claim that a
+                # CI-blocked provider has passed our tracked-Markdown link checker.
+                u, license_u = urlparse(a["url"]), urlparse(a["license_url"])
+                label_link = f"{esc(a['name'])} (`{u.netloc}{u.path}`)"
+                license_link = f"{esc(a['license'])} (`{license_u.netloc}{license_u.path}`)"
+            else:
+                label_link = f"[{esc(a['name'])}]({a['url']})"
+                license_link = f"[{esc(a['license'])}]({a['license_url']})"
             projects = ", ".join(a["projects"])
             access = a["access"].replace("free-tier","free časť").replace("free-account","účet zdarma").replace("free","zdarma")
             parts.append(f"| {label_link} | {license_link} | {code} | {access} | {esc(projects)} | {esc(a['notes'])} |")
