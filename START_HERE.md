@@ -30,6 +30,10 @@ Reading a skill file through a connector is explicit loading. Do not assume that
 ChatGPT automatically discovers `.agents/skills/`, and do not remove those paths
 or Codex configuration merely because another agent can read the same files.
 
+## Game-asset source discovery
+
+For ready-made 3D characters, animations, sound effects, music, UI and tools, consult [Free Game Assets & Tools](resources/free-game-assets/README.md) and [license policy](resources/free-game-assets/LICENSE_POLICY.md). The catalog is non-executing and does not grant download, import, copyright clearance or game-release authorization. Each third-party file still needs its own license review and owner approval.
+
 ## Offline discovery on the Mac
 
 The following commands only inspect the local registry and its pinned sources.
