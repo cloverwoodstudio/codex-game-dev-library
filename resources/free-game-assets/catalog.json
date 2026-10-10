@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-10-10",
   "owner": "Cloverwood Studio",
   "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
   "resources": [
@@ -941,6 +941,54 @@
       ],
       "notes": "Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release.",
       "reviewed": "2026-10-09"
+    },
+    {
+      "id": "kenney-watercraft",
+      "name": "Kenney Watercraft Kit (45)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/watercraft-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Boats, tugs, buoys and cargo. PAUSEPORT visual pilot imported actual GLBs; preserve the relative Textures/colormap.png palette beside extracted models.",
+      "reviewed": "2026-10-10"
+    },
+    {
+      "id": "kenney-pirate-kit",
+      "name": "Kenney Pirate Kit (70)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/pirate-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Docks, piers, crates, barrels, islands and palm models. PAUSEPORT visual pilot imported actual GLBs; preserve the relative Textures/colormap.png palette beside extracted models.",
+      "reviewed": "2026-10-10"
+    },
+    {
+      "id": "kenney-nature-kit",
+      "name": "Kenney Nature Kit (330)",
+      "category": "3d-models",
+      "url": "https://kenney.nl/assets/nature-kit",
+      "license": "CC0",
+      "license_url": "https://kenney.nl/support",
+      "commercial_game_use": "yes",
+      "attribution": "none",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Palm trees, rocks, terrain and bridges. PAUSEPORT visual pilot imported selected real GLBs. Verify model scale and optimize the selected runtime asset.",
+      "reviewed": "2026-10-10"
     }
   ]
 }

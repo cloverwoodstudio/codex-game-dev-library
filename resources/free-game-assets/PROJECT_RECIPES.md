@@ -36,6 +36,15 @@ Pravidlo: **nepoužívať generický model ako produkčný vzhľad.** Art QA pre
 - Pre Neluvo prioritne **zachovať pôvodný vizuál a zvukovú identitu**; nový asset musí prejsť samostatným owner review.
 - Hudba z [Incompetech](https://incompetech.com/music/royalty-free/) alebo vybrané CC0 z OpenGameArt len s kompletnou evidenciou licencie.
 
+## PAUSEPORT — prvý 3D prístav
+
+- [Kenney Watercraft Kit](https://kenney.nl/assets/watercraft-kit): lode, remorkéry a bóje, GLB import reálne overený.
+- [Kenney Pirate Kit](https://kenney.nl/assets/pirate-kit): prístavné móla, sudy, debny, dekorácie.
+- [Kenney Nature Kit](https://kenney.nl/assets/nature-kit): stromy, skaly a mosty.
+- **Dôležitý FIX:** Watercraft a Pirate GLB vyžadujú aj relatívnu textúru `Textures/colormap.png` zo ZIP. Bez nej sú modely fialové.
+- Stav: Blender export/render PASS, Godot 4.7.2 import a headless runtime PASS, USDZ `usdchecker --arkit --strict` PASS. Nie je to hrateľnosť ani fyzický iPhone test.
+- Presný zdrojový projekt, originálne ZIP a SHA ledger na externom Mac disku: `/Volumes/CLOVERWOOD_DEV/Workspace/PAUSEPORT-REVIEW-01/`. Komerčné použitie až po projektovom owner review.
+
 ## Výberový proces
 
 Vybrať z katalógu → overiť konkrétnu licenciu → stiahnuť originál na schválené pracovné úložisko → zachovať zdroj a SHA → vyrobiť samostatný optimalizovaný GAME derivát → runtime QA → Asset Viewer → owner REVIEW → až potom samostatne schválená integrácia.

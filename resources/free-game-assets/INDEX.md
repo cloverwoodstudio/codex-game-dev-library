@@ -1,12 +1,12 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**55 zdrojov · Reviewed: 2026-10-09**
+**58 zdrojov · Reviewed: 2026-10-10**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
 **Licencie:** ✅ = povolené za podmienok zdroja; ⚠️ = over konkrétnu položku; ⛔ = zakázané pre videohry. Ani ✅ nenahrádza kontrolu stiahnutého archívu.
 
-## 3D modely a kompletné balíky (15)
+## 3D modely a kompletné balíky (18)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -20,9 +20,12 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [Kenney Modular Cave Kit \(40\)](https://kenney.nl/assets/modular-cave-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Cave modules. Suitable for quick game prototyping. |
 | [Kenney Modular Dungeon Kit \(40\)](https://kenney.nl/assets/modular-dungeon-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Dungeon modules. |
 | [Kenney Modular Space Kit \(40\)](https://kenney.nl/assets/modular-space-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Modular sci-fi interior scenes. |
+| [Kenney Nature Kit \(330\)](https://kenney.nl/assets/nature-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Palm trees, rocks, terrain and bridges. PAUSEPORT visual pilot imported selected real GLBs. Verify model scale and optimize the selected runtime asset. |
+| [Kenney Pirate Kit \(70\)](https://kenney.nl/assets/pirate-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Docks, piers, crates, barrels, islands and palm models. PAUSEPORT visual pilot imported actual GLBs; preserve the relative Textures/colormap.png palette beside extracted models. |
 | [Kenney Prototype Kit \(145\)](https://kenney.nl/assets/prototype-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL, SPLIT | Blockout and mechanics prototyping. |
 | [Kenney Space Kit \(150\)](https://kenney.nl/assets/space-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Space themed models. |
 | [Kenney Space Station Kit \(90\)](https://kenney.nl/assets/space-station-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Station interiors and props. |
+| [Kenney Watercraft Kit \(45\)](https://kenney.nl/assets/watercraft-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL | Boats, tugs, buoys and cargo. PAUSEPORT visual pilot imported actual GLBs; preserve the relative Textures/colormap.png palette beside extracted models. |
 | [Poly Pizza Models](https://poly.pizza/) | [per-item](https://poly.pizza/) | ⚠️ | zdarma časť | BB, HOTEL\_PANIC, GENERAL | Licenses vary by individual creator and model including credit requirements. |
 | [Quaternius Free Game Assets](https://quaternius.com/) | [QAL](https://quaternius.com/license.html) | ✅ | zdarma časť | BB, HOTEL\_PANIC, STARFALL\_RESCUE | QAL permits commercial games but prohibits standalone redistribution. Historic packs may have other terms. |
 

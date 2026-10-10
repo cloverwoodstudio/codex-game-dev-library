@@ -24,7 +24,7 @@ Read [START_HERE.md](START_HERE.md) for the common entry contract and [the capab
 - `guides/workflows/` — repeatable agent workflows (Codex paths retained)
 - `templates/` — files to copy into new game repositories
 - `references/` — curated primary sources and example repositories
-- `resources/free-game-assets/` — [55 curated free game-asset and tool sources](resources/free-game-assets/README.md), searchable JSON, licence gates, BB/Hotel Panic/Starfall choices and automated validation
+- `resources/free-game-assets/` — [58 curated free game-asset and tool sources](resources/free-game-assets/README.md), searchable JSON, licence gates, BB/Hotel Panic/Starfall choices and automated validation
 - `research/` — research notes, findings, and backlog
 - `prompts/` — reusable briefs and prompts for Codex and asset generation
 - `code-patterns/` — engine-neutral reference implementations

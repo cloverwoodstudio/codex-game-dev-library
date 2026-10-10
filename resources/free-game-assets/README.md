@@ -1,6 +1,6 @@
 # Cloverwood Free Game Assets & Tools
 
-**Reviewed:** 2026-10-09 · **Owner:** Cloverwood Studio · **Scope:** commercial iPhone games, Blender/Godot workflows, 2D games.
+**Reviewed:** 2026-10-10 · **Owner:** Cloverwood Studio · **Scope:** commercial iPhone games, Blender/Godot workflows, 2D games.
 
 Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súborov. Je súčasťou [Codex Game Development Library](../../README.md) a môže ju čítať ChatGPT, Codex aj ďalší autorizovaní agenti.
 
@@ -9,7 +9,7 @@ Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súb
 - [Katalóg (odkazy overiteľné v CI; blokované weby označené manuálne)](INDEX.md) — všetky odkazy rozdelené podľa kategórie.
 - [JSON katalóg](catalog.json) — strojové vyhľadávanie, výber pre projekt a agentov.
 - [Licenčné pravidlá pre App Store](LICENSE_POLICY.md) — povolené, podmienené a zakázané zdroje.
-- [Výber pre naše hry](PROJECT_RECIPES.md) — BB, Hotel Panic, Starfall Rescue, Split a Neluvo.
+- [Výber pre naše hry](PROJECT_RECIPES.md) — BB, Hotel Panic, Starfall Rescue, Split, Neluvo a PAUSEPORT.
 - [Karta pôvodu stiahnutého assetu](DOWNLOAD_LEDGER.template.csv) — pred použitím v hre.
 - [Ako rozširovať katalóg](CONTRIBUTING.md).
 
