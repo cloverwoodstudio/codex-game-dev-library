@@ -133,3 +133,11 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] Add accessibility/audio normalization and mobile polygon/texture budget data after measured asset QA.
 
 **Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.
+
+## Swift Testing + Concurrency skill pilot — 2026-10-13
+
+- [x] Audit overlap with installed Apple platform skill, CRYVIQ's project-pinned `swiftui-pro`, shared test/release playbooks and optional upstream Swift Concurrency Pro; see [pilot audit](swift-testing-concurrency-pilot-2026-10-13.md).
+- [x] Add narrow manual-only Swift Testing/concurrency pilot skill, evidence contract and isolated green/red SwiftPM fixture in separate branch. This is **not** adoption, installation or app integration.
+- [ ] Confirm dedicated macOS CI and static skill contract at exact PR HEAD.
+- [ ] Independently A/B-test incremental agent findings on one **separately approved** project task; reject duplication/false positives before adoption.
+- [ ] Owner REVIEW/decision; do not MERGE or install globally from the pilot alone.
