@@ -133,3 +133,9 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] Add accessibility/audio normalization and mobile polygon/texture budget data after measured asset QA.
 
 **Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.
+
+## Eterea Blender tooling — 2026-10-13
+
+- [x] Isolated Eterea Blender Tools v1.7.0 runtime pilot on Blender 5.2.1: 5/5 technical QA, original Block Bouncer source hash preserved, mandatory Mac cleanup receipt PASS. See [evidence and limitations](../guides/art/eterea-blender-tools-pilot.md).
+- [ ] OWNER visual check of a separate Blender-modified prop candidate, then material/UV/rig/animation and real-engine-render parity checks where relevant.
+- [ ] Decide separately whether to install Eterea Tools in the regular Blender environment or publish a shared OpenCode/ChatGPT skill. Do not auto-promote the local pilot.
