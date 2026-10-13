@@ -6,6 +6,7 @@ on:
       - '.agents/skills/swift-testing-concurrency/**'
       - 'samples/swift-testing-concurrency-pilot/**'
       - 'tests/test_swift_testing_concurrency_pilot.py'
+      - 'tests/test_swift_negative_red_parser.py'
       - 'research/swift-testing-concurrency-pilot-2026-10-13.md'
       - '.github/workflows/swift-testing-concurrency-pilot.yml'
   workflow_dispatch:
@@ -33,6 +34,7 @@ jobs:
       - name: Prove green tests and intentional red regression via safe wrapper
         run: |
           bash scripts/cloverwood-local-run.sh -- /bin/bash -euo pipefail -c '
+            python3 -B -m unittest discover -s tests -p "test_swift_*.py" -v
             cd samples/swift-testing-concurrency-pilot
             swift test --scratch-path "$CLOVERWOOD_RUN_ROOT/swiftpm" --parallel
             cd ../..
