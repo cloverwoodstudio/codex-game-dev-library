@@ -32,6 +32,54 @@ Use source/version-appropriate commands, not guessed settings:
 - Swift Testing defaults to parallel tests; global mutable state may create suite-level interactions. A serialized suite does not provide cross-suite mutex semantics.
 - `#expect` and `#require` have different control flow. Do not convert XCTest's UI automation/performance coverage just because `@Test` exists.
 
+## Result-bundle retention before wrapper cleanup
+
+The Mac wrapper **always deletes** its disposable `CLOVERWOOD_RUN_ROOT` after a run, even on failure. A `.xcresult` stored only inside that root is **NOT retained proof**. An authorized Xcode testing ticket must name an access-controlled evidence location on the development disk **outside that disposable root**, and approve the size/privacy classification of the bundle **before** running a potentially heavy test.
+
+The following is a **command-shape example**, not a copy/paste invocation for an unknown app; discover the actual project, scheme and destination first. Run all of these steps **within the same wrapper invocation** so the failure bundle is copied **before cleanup** and the real test exit code survives:
+
+```bash
+# Before running: select a unique, owner-approved directory outside /tmp/cloverwood-ci.
+# Create EVIDENCE_DIR under the authorized development disk with restricted access.
+export EVIDENCE_DIR="/Volumes/CLOVERWOOD_DEV/QA_EVIDENCE/<repo>/<ticket>/<sha>"
+test -d "$EVIDENCE_DIR" && test ! -L "$EVIDENCE_DIR"
+
+bash scripts/cloverwood-local-run.sh -- bash -c '
+  set -u
+  source_bundle="$CLOVERWOOD_RUN_ROOT/results/ScopedTests.xcresult"
+  # Use the *discovered* Xcode project/scheme/destination and explicit build flags.
+  xcodebuild test -project "<actual>.xcodeproj" -scheme "<actual-scheme>" \
+    -destination "<actual-destination>" \
+    -derivedDataPath "$CLOVERWOOD_RUN_ROOT/DerivedData" \
+    -resultBundlePath "$source_bundle"
+  test_exit=$?
+  # Preserve a FAILED test bundle too; never put this after `set -e` early exit.
+  if test -d "$source_bundle"; then
+    case "$EVIDENCE_DIR" in "$CLOVERWOOD_RUN_ROOT"|"$CLOVERWOOD_RUN_ROOT"/*)
+      echo "EVIDENCE_FAIL: destination is disposable" >&2; exit 86 ;;
+    esac
+    target="$EVIDENCE_DIR/ScopedTests.xcresult"
+    if test -e "$target" || test -L "$target"; then
+      echo "EVIDENCE_FAIL: refuse evidence overwrite" >&2; exit 86
+    fi
+    ditto "$source_bundle" "$target" || exit 86
+    test -d "$target" || exit 86
+    xcrun xcresulttool get test-results summary --path "$target" \
+      > "$EVIDENCE_DIR/ScopedTests-summary.json" || exit 86
+    test -s "$EVIDENCE_DIR/ScopedTests-summary.json" || exit 86
+    echo "XCRESULT_RETENTION_PASS $target"
+  else
+    echo "EVIDENCE_FAIL: no result bundle; retain bounded stderr/build log separately" >&2
+    exit 86
+  fi
+  exit "$test_exit"
+'
+```
+
+**Validation limits:** The placeholder command is not pre-approved for any real app. The evidence directory must be pre-created and independently validated against symlink/path traversal, disk capacity and sensitive data; never use a shared public folder for private logs. Prefer a per-run unique destination and hash/size receipt. The `xcodebuild` invocation above does not contain project-specific signing decisions. When `xcodebuild` returns nonzero, **retaining the bundle does not convert FAIL into PASS**. If the tool crashes before producing `.xcresult`, retain a bounded separate log, mark `EVIDENCE_FAIL / TEST_FAIL`, and never manufacture a bundle. Only the repo-approved `CLOVERWOOD_RUN_ROOT` is automatically cleaned; intentional evidence survives. Avoid overwriting previous evidence.
+
+**Codex vs OpenCode skill discovery:** OpenCode's `opencode/autoinvoke: "false"` is an OpenCode metadata preference, **not a Codex skill-discovery control**. Codex may infer skill relevance from `name` / `description` even when it is DRAFT. Keep this skill only in the isolated pilot branch; direct Codex to load it only by exact user/owner request, and leave other projects on existing stable skills. This is a documented policy, not a guarantee of technical suppression of Codex's implicit selection.
+
 ## Static decision fixtures — expected, not runtime results
 
 | ID | Scenario | Required decision |
