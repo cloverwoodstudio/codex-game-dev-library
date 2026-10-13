@@ -142,4 +142,4 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] Independently A/B-test incremental agent findings on one **separately approved** project task; reject duplication/false positives before adoption.
 - [ ] Owner REVIEW/decision; do not MERGE or install globally from the pilot alone.
 
-- [x] [Synthetic Swift A/B fixture and oracle proof](swift-testing-concurrency-ab-2026-10-13.md): three expected failing tests, corrected reference 4/4 PASS on Mac; **MODEL A/B BLOCKED (OpenCode CLI free-tier HTTP 403)**, no effectiveness results and no permission to MERGE.
+- [x] [Synthetic Swift A/B and four actual OpenCode model responses](swift-testing-concurrency-ab-2026-10-13.md): compiler oracle proves 3 failing defects and corrected 4/4 PASS; A and B **both 6/6 seeded true positives**. B detected the independently Swift-verified spinner issue twice vs once with A but cost more output/time; **small signal, not proof of general benefit**. Remain DRAFT without MERGE or global installation.
