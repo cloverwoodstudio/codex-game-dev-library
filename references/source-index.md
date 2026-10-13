@@ -245,3 +245,14 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
 
 - [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).
+
+## Swift Testing and concurrency pilot — reviewed 2026-10-13
+
+- [Isolated testing-specific skill proposal](../.agents/skills/swift-testing-concurrency/SKILL.md) and [evidence contract](../.agents/skills/swift-testing-concurrency/references/DIRECT_QA_CONTRACT.md); DRAFT, not installed or adopted.
+- [Existing skills overlap audit and green/red fixture receipt](../research/swift-testing-concurrency-pilot-2026-10-13.md).
+- Apple Swift Testing official reference: https://developer.apple.com/documentation/testing
+- Apple asynchronous testing and confirmations: https://developer.apple.com/documentation/testing/testing-asynchronous-code
+- Apple test parallelization and serialized semantics: https://developer.apple.com/documentation/testing/parallelization
+- Apple selective XCTest migration/interoperability: https://developer.apple.com/documentation/testing/migratingfromxctest
+- Swift 6 language-mode / data-race safety: https://www.swift.org/migration/documentation/swift-6-concurrency-migration-guide/enabledataracesafety/
+- Swift Concurrency Pro upstream by Paul Hudson (optional MIT external reference, not installed): https://github.com/twostraws/Swift-Concurrency-Agent-Skill
