@@ -42,6 +42,18 @@ On owner-authorized Mac via DC and repository wrapper, pinned local Swift toolch
 
 The new CI must pass on **the eventual exact PR HEAD**; `Green` and intentional `Red` must be reported separately. A regression catching one deliberate bug does not by itself prove the *agent skill* adds signal above baseline.
 
+## GitHub CI evidence on the code-bearing PR HEAD
+
+The isolated pilot was executed on GitHub at exact commit `1f62e4d90a5a46b4e85e82e590dc7b8112696659` (DRAFT PR #10).
+
+- [macOS Swift Testing pilot job](https://github.com/cloverwoodstudio/codex-game-dev-library/actions/runs/38433281921/job/115420706478): **SUCCESS** under **Apple Swift 6.3.3** on GitHub runner. All **4/4 Swift Testing cases PASS**, intentional stale-response bug produces the expected red assertion and nonzero status, regression harness passes. Foreground wrapper cleanup **PASS**.
+- [Offline registry and library tests](https://github.com/cloverwoodstudio/codex-game-dev-library/actions/runs/38433281786/job/115420706062): **SUCCESS**, including the pilot's seven static contract tests and existing 123 library tests. Capability registry remains `DISCOVERY_ONLY`, 12 existing entries and no newly promoted capability.
+- [Links CI](https://github.com/cloverwoodstudio/codex-game-dev-library/actions/runs/38433281841/job/115420704407): **SUCCESS**.
+- The full exact-HEAD check inventory comprised **eight named check types**, all SUCCESS: Swift pilot, offline registry, links, SpriteKit, Apple iOS, Godot, Phaser and deterministic conformance.
+- No paid services or project accounts accessed. The Apple CI runtime is a **small pure SwiftPM fixture**, not an iPhone app build or device acceptance.
+
+These are **compiler/runtime and integrity** results. An agent actually using this skill to find defects better than baseline Apple routing is still **NOT_MEASURED**. Any later documentation-only commit advances PR HEAD; revalidate checks on that exact HEAD before review or merge.
+
 ## Adoption / independent A-B required
 
 | Gate | Evidence required | Status |
@@ -49,7 +61,7 @@ The new CI must pass on **the eventual exact PR HEAD**; `Green` and intentional 
 | Existing-skill overlap classified | Real sources, scoped non-duplication | PASS, audit above |
 | Swift sample: actual compiler and four tests | Swift/version/HEAD/exit/log/cleanup | PASS, isolated Mac run |
 | Deliberately broken fixture rejected | Failure from the named assertion, **not** generic compile failure | PASS, isolated Mac run |
-| CI and static skill checks | Green GitHub checks at **exact current HEAD** | PENDING until CI |
+| CI and static skill checks | Green GitHub checks at tested code HEAD `1f62e4d` | PASS at that HEAD; recheck subsequent docs-only HEAD |
 | Apple app integration | Specific authorized project and target, actual build and tests | NOT_RUN |
 | OpenCode/Codex/ChatGPT skill load | Tool-specific actual load event | NOT_RUN |
 | Independent baseline vs skill A/B | Same frozen source SHA, confirmed defects, false positives and effort | NOT_MEASURED |
