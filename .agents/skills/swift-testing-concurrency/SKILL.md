@@ -1,13 +1,13 @@
 ---
 name: swift-testing-concurrency
-description: "Use for an explicitly scoped Swift Testing or Swift-concurrency correctness ticket in an authorized Apple/Swift target. Design deterministic async tests, verify isolation/Sendable, capture actual Swift/Xcode compiler and test evidence, and distinguish XCTest/UI/device gates. Not an automatic Swift 6 migration, source refactor, signing, or deployment."
+description: "DRAFT PILOT: load only if owner explicitly names swift-testing-concurrency for a scoped, isolated Swift Testing/concurrency test; otherwise use existing Apple skill. Evidence for actor isolation, Sendable, async cancellation and XCTest boundary. No implicit adoption, production refactor, signing or deployment."
 metadata:
   opencode/autoinvoke: "false"
 ---
 
 # Swift Testing + Concurrency — Cloverwood isolated pilot
 
-**Status: DRAFT / NOT ADOPTED / MANUAL LOAD ONLY.** This is a source-backed, narrowly scoped testing skill. The `opencode/autoinvoke: "false"` metadata keeps the proposal out of OpenCode's automatic skill suggestions; it does **not** grant permission to mutate a project or disable manual invocation. A checked-out DRAFT branch can make the file discoverable, but is not a globally installed skill.
+**Status: DRAFT / NOT ADOPTED / EXPLICIT OWNER INVOCATION ONLY BY POLICY.** This is a source-backed, narrowly scoped testing skill. OpenCode honors `opencode/autoinvoke: "false"` by excluding it from model-facing automatic skill suggestions; that flag **does not control Codex**. Codex may discover repo-local skill name/description and implicitly select it, so the **description itself forbids implicit use** and this proposal stays only on its isolated DRAFT branch until separately approved. The instruction is a policy guard, **not a technical disable switch for Codex**. Never globally link/install or copy it into product repos during this pilot. Merely opening a checkout can expose its metadata; no agent/model activation has been proven.
 
 ## 1. Authority, no duplication
 
@@ -36,7 +36,7 @@ metadata:
 ## 4. Execute with evidence
 
 - Read [direct QA contract](references/DIRECT_QA_CONTRACT.md) and use its ticket/evidence template.
-- Authorized local Mac: preflight external dev disk UUID/write/free space; 20 GiB internal free minimum for heavy work; check shared heavy lock. For all build/test commands use repository-owned `bash scripts/cloverwood-local-run.sh -- ...` and distinct disposable roots under `/tmp/cloverwood-ci/<repo>/<run-id>`; pass `swift test --scratch-path "$CLOVERWOOD_RUN_ROOT/swiftpm"` and `xcodebuild -derivedDataPath "$CLOVERWOOD_RUN_ROOT/DerivedData" -resultBundlePath "$CLOVERWOOD_RUN_ROOT/<name>.xcresult"` when applicable. Retain bounded useful evidence **outside** disposable roots, without secrets; verify cleanup receipt.
+- Authorized local Mac: preflight external dev disk UUID/write/free space; 20 GiB internal free minimum for heavy work; check shared heavy lock. For all build/test commands use repository-owned `bash scripts/cloverwood-local-run.sh -- ...` and distinct disposable roots under `/tmp/cloverwood-ci/<repo>/<run-id>`; pass `swift test --scratch-path "$CLOVERWOOD_RUN_ROOT/swiftpm"` and `xcodebuild -derivedDataPath "$CLOVERWOOD_RUN_ROOT/DerivedData" -resultBundlePath "$CLOVERWOOD_RUN_ROOT/results/<name>.xcresult"` when applicable. **Before the wrapper exits**, preserve the requested `.xcresult` (including on test FAIL) and bounded logs to a preapproved, access-controlled evidence directory **outside** the disposable root; confirm the copied bundle exists and is readable, preserve the original `xcodebuild` exit code, and only then let the wrapper clean up. See [mandatory evidence-retention example](references/DIRECT_QA_CONTRACT.md#result-bundle-retention-before-wrapper-cleanup). If preservation fails, report `EVIDENCE_FAIL`, not `PASS`. Never commit potentially private test data. Verify cleanup receipt.
 - Run an actual scoped `swift test` or `xcodebuild test`, with exact toolchain, source/head SHA, command, exit code, test count and stderr diagnostics. A static read/format check is `STATIC_PASS`, not `TEST_PASS`. Check `swiftc` actor isolation diagnostics separately.
 - No simulator creation/deletion, automatic dependency installation, new test frameworks, signing, TestFlight, OTA, global skill install or edits to product games/apps without explicit authorization.
 
