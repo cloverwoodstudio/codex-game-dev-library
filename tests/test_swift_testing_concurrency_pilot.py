@@ -19,7 +19,7 @@ class SwiftTestingConcurrencyPilotContract(unittest.TestCase):
     def test_manual_only_pilot_frontmatter(self):
         text = SKILL.read_text(encoding="utf-8")
         self.assertTrue(text.startswith("---\nname: swift-testing-concurrency\n"))
-        self.assertIn('  opencode/autoinvoke: "false"\n', text.split("\n---\n", 1)[0])
+        self.assertIn('  opencode/autoinvoke: "false"', text.split("\n---\n", 1)[0])
         self.assertIn("DRAFT / NOT ADOPTED", text)
 
     def test_complements_existing_apple_skill(self):
