@@ -53,7 +53,7 @@ The isolated pilot was executed on GitHub at exact commit `1f62e4d90a5a46b4e85e8
 - The full exact-HEAD check inventory comprised **eight named check types**, all SUCCESS: Swift pilot, offline registry, links, SpriteKit, Apple iOS, Godot, Phaser and deterministic conformance.
 - No paid services or project accounts accessed. The Apple CI runtime is a **small pure SwiftPM fixture**, not an iPhone app build or device acceptance.
 
-These are **compiler/runtime and integrity** results. An agent actually using this skill to find defects better than baseline Apple routing is still **NOT_MEASURED**. Any later documentation-only commit advances PR HEAD; revalidate checks on that exact HEAD before review or merge.
+These are **compiler/runtime and integrity** results for the earlier test-fixture gate. The actual subsequent, controlled A/B model comparison is now documented in [the completed synthetic A/B study](swift-testing-concurrency-ab-2026-10-13.md). Any later documentation-only commit advances PR HEAD; revalidate checks on that exact HEAD before review or merge.
 
 ## Review FIX — 2026-10-13
 
@@ -65,9 +65,9 @@ The independent REVIEW of PR #10 on `d187be16227b28a6bb5a88a66e8fa361435bea2a` r
 
 **Local FIX test receipt:** owner Mac external isolated checkout at `/Volumes/CLOVERWOOD_DEV/Pilots/SwiftTestingConcurrency-01/workspace/library` on code-bearing HEAD `a8809985348abc4517af5fb83b7948452e3e80b4`; Apple Swift 6.4; `20/20` Python pilot regressions PASS, `4/4` real Swift Testing PASS, intentionally mutated stale-response test **failed with the expected exact assertion** and the red verifier PASS, `REGISTRY_CHECK_PASS`, cleanup PASS. Evidence log retained at `/Volumes/CLOVERWOOD_DEV/Pilots/SwiftTestingConcurrency-01/evidence/review_fix_local.log`.
 
-**CI:** dedicated macOS workflow updated to run the parser unit regressions and real green/red Swift tests. The **latest post-FIX PR HEAD** must have its own successful GitHub checks; old `d187be16` CI is not a substitute. **SKILL A/B effectiveness remains NOT_MEASURED**, and no app/production changes were authorized.
+**CI:** dedicated macOS workflow updated to run the parser unit regressions and real green/red Swift tests. The **latest post-FIX PR HEAD** must have its own successful GitHub checks; old `d187be16` CI is not a substitute. **At this initial CI stage the skill A/B had not run**; the subsequent small synthetic four-run comparison is now complete with no improvement in seeded-bug recall. No app/production changes were authorized.
 
-**A/B preparation outcome (2026-10-13):** [Frozen benchmark and actual Swift compiler oracle evidence](swift-testing-concurrency-ab-2026-10-13.md) now establish a synthetic, same-source baseline-vs-treatment task. Buggy code had **three deterministic Swift Testing failures**, a corrected oracle had **4/4 PASS**; the planned agent runs themselves are **BLOCKED** because the existing OpenCode CLI free model returned **HTTP 403 / FreeTierError** and no provider account was connected. **No actual A/B agent responses, no skill-value measurement.** Do not merge or install from this preliminary fixture proof.
+**A/B completed (2026-10-13):** [Frozen benchmark, actual OpenCode responses, blind-scoring receipts and compiler-verified post-hoc spinner regression](swift-testing-concurrency-ab-2026-10-13.md): both A and B detected **all three seeded bugs in both repetitions (6/6 each)**; candidate B detected an additional valid loading-ownership bug in **2/2** vs **1/2** baseline, but used **~5× prompt bytes**, longer outputs and longer average completion time. Same model and isolated sessions; zero tool calls or product mutations. The earlier free-tier blocker was resolved by correctly using OpenCode V2 `permissions`. **No broad production benefit has been established; PR remains DRAFT.**
 
 ## Adoption / independent A-B required
 
@@ -79,7 +79,7 @@ The independent REVIEW of PR #10 on `d187be16227b28a6bb5a88a66e8fa361435bea2a` r
 | CI and static skill checks | Green GitHub checks at tested code HEAD `1f62e4d` | PASS at that HEAD; recheck subsequent docs-only HEAD |
 | Apple app integration | Specific authorized project and target, actual build and tests | NOT_RUN |
 | OpenCode/Codex/ChatGPT skill load | Tool-specific actual load event | NOT_RUN |
-| Independent baseline vs skill A/B | Same frozen source SHA, confirmed defects, false positives and effort | NOT_MEASURED |
+| Independent baseline vs skill A/B | Same frozen source SHA, blind scoring, actual model responses and elapsed time | COMPLETED on one synthetic benchmark; 6/6 vs 6/6 seeded TP, limited extra spinner signal, not generalized |
 | Owner adoption, global installation, MERGE, OTA | Explicit later decision | NOT_APPROVED |
 
 Pilot advancement requires a real defect/evidence improvement, zero unsafe actions and acceptable time overhead. If it adds no value beyond the Apple router and existing SwiftUI/concurrency skills, keep as a testing reference rather than install globally. Do not extrapolate the SwiftPM fixture to physical iPhone correctness.
