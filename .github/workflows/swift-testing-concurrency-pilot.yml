@@ -1,0 +1,41 @@
+name: Swift Testing + Concurrency Pilot
+
+on:
+  pull_request:
+    paths:
+      - '.agents/skills/swift-testing-concurrency/**'
+      - 'samples/swift-testing-concurrency-pilot/**'
+      - 'tests/test_swift_testing_concurrency_pilot.py'
+      - 'research/swift-testing-concurrency-pilot-2026-10-13.md'
+      - '.github/workflows/swift-testing-concurrency-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  swift-testing-fixture:
+    runs-on: macos-latest
+    timeout-minutes: 15
+    env:
+      CLOVERWOOD_REPO_NAME: codex-game-dev-library
+      CLOVERWOOD_EXCLUSIVE_MAC: '0'
+      CLOVERWOOD_MIN_FREE_GIB: '1' # Hosted runner: tiny SwiftPM fixture, no simulator/Xcode heavyweight work.
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read actual Swift/Xcode versions
+        run: |
+          xcode-select -p
+          swift --version
+      - name: Prove green tests and intentional red regression via safe wrapper
+        run: |
+          bash scripts/cloverwood-local-run.sh -- /bin/bash -euo pipefail -c '
+            cd samples/swift-testing-concurrency-pilot
+            swift test --scratch-path "$CLOVERWOOD_RUN_ROOT/swiftpm" --parallel
+            cd ../..
+            bash samples/swift-testing-concurrency-pilot/verify-negative-regression.sh
+            git diff --exit-code
+          '
