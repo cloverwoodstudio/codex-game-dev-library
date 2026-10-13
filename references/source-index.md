@@ -245,3 +245,10 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
 
 - [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).
+
+## Blender editor tooling — reviewed 2026-10-13
+
+- Eterea Blender Tools original project (GPL-3.0-or-later): https://github.com/Eterea/blender_addons
+- Eterea Blender Tools v1.7.0 release (Blender 5.2+): https://github.com/Eterea/blender_addons/releases/tag/v1.7.0
+- Author's resource index: https://etereaestudios.com/resources/blender-resources/
+- [Cloverwood isolated technical pilot, QA gates, provenance and limitations](../guides/art/eterea-blender-tools-pilot.md). Non-executing reference; not a production/install authorization.
