@@ -54,13 +54,39 @@ class SwiftTestingConcurrencyPilotContract(unittest.TestCase):
         script = (PACKAGE / "verify-negative-regression.sh").read_text(encoding="utf-8")
         self.assertIn('"${CLOVERWOOD_RUN_ROOT:?', script)
         self.assertIn("guard token == generation, !Task.isCancelled else", script)
-        self.assertIn("EXPECTED_RED_TEST_PASS", script)
-        self.assertIn("NEGATIVE_REGRESSION_FAIL", script)
+        self.assertIn("RevisionedInboxTests.staleResponseIsRejected", script)
+        self.assertIn("verify_expected_red.py", script)
+        parser = (PACKAGE / "verify_expected_red.py").read_text(encoding="utf-8")
+        self.assertIn("EXPECTED_RED_TEST_PASS", parser)
+        self.assertIn("NEGATIVE_REGRESSION_FAIL", parser)
+        self.assertIn("EXPECTED_ASSERTION", parser)
 
     def test_no_implicit_app_permissions(self):
         text = SKILL.read_text(encoding="utf-8")
         for guard in ["No simulator creation/deletion", "No MERGE, DEPLOY", "dirty", "source SHA", "NOT_RUN"]:
             self.assertIn(guard, text)
+
+    def test_evidence_retention_before_wrapper_cleanup_required(self):
+        skill = SKILL.read_text(encoding="utf-8")
+        contract = CONTRACT.read_text(encoding="utf-8")
+        self.assertIn("Before the wrapper exits", skill)
+        self.assertIn("preserve the original `xcodebuild` exit code", skill)
+        self.assertIn("EVIDENCE_FAIL", skill)
+        for expected in ["Result-bundle retention before wrapper cleanup",
+                         "ditto", "xcresulttool get test-results summary",
+                         'exit "$test_exit"', "EVIDENCE_FAIL: refuse evidence overwrite",
+                         "even on failure"]:
+            self.assertIn(expected, contract)
+
+    def test_codex_manual_policy_does_not_claim_technical_suppression(self):
+        skill = SKILL.read_text(encoding="utf-8")
+        contract = CONTRACT.read_text(encoding="utf-8")
+        head = skill.split("\n---\n", 1)[0]
+        self.assertIn("DRAFT PILOT: load only if owner explicitly names", head)
+        self.assertIn('opencode/autoinvoke: "false"', head)
+        self.assertIn("does not control Codex", skill)
+        self.assertIn("not a technical disable switch for Codex", skill)
+        self.assertIn("not a Codex skill-discovery control", contract)
 
     def test_decision_fixtures_are_not_misrepresented_as_runtime(self):
         text = CONTRACT.read_text(encoding="utf-8")
