@@ -52,6 +52,11 @@ Retained evidence: `reports/qa_results.json`, `reports/blender_qa.log`, `reports
 6. Compare **mesh/material/UV/rig/animation** counts as applicable, export a separate candidate, render/view it in the *real game engine* and in Asset Viewer.
 7. Obtain **OWNER PASS** before adoption or promotion. No autonomous install, game integration, OTA, MERGE or production bulk edits from this reference.
 
+## Follow-up visual test (2026-10-13)
+
+- [Visual Pilot 02: Block Bouncer bar stool, material/GLB QA and pixel-identical comparison](../../research/eterea-blender-visual-pilot-2026-10-13.md) — technical PASS, owner visual approval pending.
+- Includes a repaired-topology **copy** and two added Bevel modifiers; this is not proof that the original 160-triangle in-game prop should be replaced by the 656-triangle candidate.
+
 ## Next validation gates
 
 - Pilot a real *copy* of an approved Bevel-heavy prop with geometry/material comparison and visual review.
