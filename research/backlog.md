@@ -133,3 +133,13 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] Add accessibility/audio normalization and mobile polygon/texture budget data after measured asset QA.
 
 **Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.
+
+## Swift Testing + Concurrency skill pilot — 2026-10-13
+
+- [x] Audit overlap with installed Apple platform skill, CRYVIQ's project-pinned `swiftui-pro`, shared test/release playbooks and optional upstream Swift Concurrency Pro; see [pilot audit](swift-testing-concurrency-pilot-2026-10-13.md).
+- [x] Add narrow manual-only Swift Testing/concurrency pilot skill, evidence contract and isolated green/red SwiftPM fixture in separate branch. This is **not** adoption, installation or app integration.
+- [x] Dedicated macOS CI, deliberate red regression, and static skill contract PASS at tested code-bearing PR HEAD; subsequent docs-only HEAD must be rechecked.
+- [ ] Independently A/B-test incremental agent findings on one **separately approved** project task; reject duplication/false positives before adoption.
+- [ ] Owner REVIEW/decision; do not MERGE or install globally from the pilot alone.
+
+- [x] [Synthetic Swift A/B and four actual OpenCode model responses](swift-testing-concurrency-ab-2026-10-13.md): compiler oracle proves 3 failing defects and corrected 4/4 PASS; A and B **both 6/6 seeded true positives**. B detected the independently Swift-verified spinner issue twice vs once with A but cost more output/time; **small signal, not proof of general benefit**. Remain DRAFT without MERGE or global installation.
