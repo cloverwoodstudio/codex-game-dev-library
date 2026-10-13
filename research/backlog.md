@@ -141,3 +141,5 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [x] Dedicated macOS CI, deliberate red regression, and static skill contract PASS at tested code-bearing PR HEAD; subsequent docs-only HEAD must be rechecked.
 - [ ] Independently A/B-test incremental agent findings on one **separately approved** project task; reject duplication/false positives before adoption.
 - [ ] Owner REVIEW/decision; do not MERGE or install globally from the pilot alone.
+
+- [x] [Synthetic Swift A/B fixture and oracle proof](swift-testing-concurrency-ab-2026-10-13.md): three expected failing tests, corrected reference 4/4 PASS on Mac; **MODEL A/B BLOCKED (OpenCode CLI free-tier HTTP 403)**, no effectiveness results and no permission to MERGE.
