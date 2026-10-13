@@ -48,6 +48,19 @@ This does not prove all asynchronous cancellation cases; it is a stable unit
 fixture. A future authorized A/B can compare whether the new skill recognizes
 stale completion and cancellation risks better than the base Apple guidance.
 
+The [negative regression harness](verify-negative-regression.sh) runs **only**
+`RevisionedInboxTests.staleResponseIsRejected` in its disposable mutated copy.
+The [independent output checker](verify_expected_red.py) accepts a nonzero Swift
+exit **only** if this exact test starts and fails on the expected revision-guard
+`#expect` with a **one-test/one-issue** summary. Other test failures, compiler
+errors, no matching tests or a zero exit fail closed. The original REVIEW
+false-PASS (target test passes, another test fails) is covered by
+[negative checker unit regressions](../../tests/test_swift_negative_red_parser.py).
+
+For real Xcode integration tests, ensure requested `.xcresult` bundles are
+[retained before disposable wrapper cleanup](../../.agents/skills/swift-testing-concurrency/references/DIRECT_QA_CONTRACT.md#result-bundle-retention-before-wrapper-cleanup),
+including on test failure. No Xcode app/result bundle was generated in this fixture.
+
 ## Upstream
 
 - [Swift Testing](https://developer.apple.com/documentation/testing)
