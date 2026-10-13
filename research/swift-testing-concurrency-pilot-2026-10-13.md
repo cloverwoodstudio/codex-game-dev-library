@@ -14,7 +14,7 @@
 | Shared game-testing and Apple build playbooks | `guides/workflows/game-testing.md`, `guides/workflows/apple-build-release.md` | General test pyramid, XCTest/XCUIAutomation, simulator/device matrix, release evidence | Another entire test pyramid or device deployment policy |
 | Paul Hudson Swift Concurrency Pro (upstream candidate) | https://github.com/twostraws/Swift-Concurrency-Agent-Skill | Advanced Swift concurrency coding/review guidance; not a library-local installed skill | Vendoring upstream content or replacing its general concurrency expertise |
 
-The requested increment is **testing-specific evidence engineering**: use Swift Testing to catch stale async completions, cancellation/state isolation defects and isolate compiler diagnostics from test claims. No broad migration to Swift 6 or toolchain updates. The pilot proposes `.agents/skills/swift-testing-concurrency/SKILL.md` with `metadata.opencode/autoinvoke: "false"` (manual-only until owner adopts). No addition to the pinned v1 capability registry until a separately approved adoption; avoiding a registry entry prevents falsely advertising a production-installed helper and avoids rehashing unrelated pinned sources.
+The requested increment is **testing-specific evidence engineering**: use Swift Testing to catch stale async completions, cancellation/state isolation defects and isolate compiler diagnostics from test claims. No broad migration to Swift 6 or toolchain updates. The pilot proposes `.agents/skills/swift-testing-concurrency/SKILL.md` with `metadata.opencode/autoinvoke: "false"` (manual-only **within OpenCode**; Codex may still discover it on this isolated branch, so its description limits usage to explicit owner requests). No addition to the pinned v1 capability registry until a separately approved adoption; avoiding a registry entry prevents falsely advertising a production-installed helper and avoids rehashing unrelated pinned sources.
 
 ## Primary source findings
 
@@ -30,6 +30,7 @@ The requested increment is **testing-specific evidence engineering**: use Swift 
 - [Direct QA receipt and 16 static decision fixtures](../.agents/skills/swift-testing-concurrency/references/DIRECT_QA_CONTRACT.md)
 - [Isolated Swift 6 fixture](../samples/swift-testing-concurrency-pilot/README.md): one actor, four tests for stale completion, invalid ticket, concurrent token issuance and task cancellation, no sleeps or external packages.
 - [Intentionally broken disposable fixture runner](../samples/swift-testing-concurrency-pilot/verify-negative-regression.sh): drops the revision guard in a disposable copy only, and must observe a **real Swift Testing failure** while the verified source stays untouched.
+- [Strict single-test red-output checker](../samples/swift-testing-concurrency-pilot/verify_expected_red.py) and [11 parser regressions](../tests/test_swift_negative_red_parser.py): fail closed on unrelated test failures, no matching test, wrong assertion, compiler errors and zero-test runs.
 - [Static contract tests](../tests/test_swift_testing_concurrency_pilot.py) and [macOS CI job](../.github/workflows/swift-testing-concurrency-pilot.yml).
 
 ### Initial isolated Mac evidence — real, not app QA
@@ -53,6 +54,18 @@ The isolated pilot was executed on GitHub at exact commit `1f62e4d90a5a46b4e85e8
 - No paid services or project accounts accessed. The Apple CI runtime is a **small pure SwiftPM fixture**, not an iPhone app build or device acceptance.
 
 These are **compiler/runtime and integrity** results. An agent actually using this skill to find defects better than baseline Apple routing is still **NOT_MEASURED**. Any later documentation-only commit advances PR HEAD; revalidate checks on that exact HEAD before review or merge.
+
+## Review FIX — 2026-10-13
+
+The independent REVIEW of PR #10 on `d187be16227b28a6bb5a88a66e8fa361435bea2a` reported one P1 and two P2 findings. **This section documents fixes in the pilot branch; not a production adoption.**
+
+- **P1 — false red-test PASS:** A synthetic fake Swift runner on the owner Mac printed that the **expected stale-response test passed** and **another test failed**. The former harness incorrectly returned `EXPECTED_RED_TEST_PASS` (exit 0). The fixed `verify-negative-regression.sh` now filters to the specific Swift Testing method and delegates to `verify_expected_red.py`, which requires the **sole started/failed test** to be the expected one, the **exact revision-guard expectation**, and a **one-test/one-issue failed run**; it rejects other passing/failing tests, compile failures and zero-test runs. Eleven focused parser regressions include the original independently reproduced false-PASS, plus the real Swift mutant run.
+- **P2 — lost `.xcresult` evidence:** The prior instructions generated a bundle within a disposable directory without a mandatory within-wrapper save step. The skill and [direct QA contract](../.agents/skills/swift-testing-concurrency/references/DIRECT_QA_CONTRACT.md#result-bundle-retention-before-wrapper-cleanup) now require **copy/inspect to an approved persistent external evidence directory before cleanup**, on success or failure, while preserving original `xcodebuild` exit status. The example intentionally uses project/scheme/destination placeholders; an app-specific `.xcresult` retention run is **NOT_RUN** and no app build is claimed.
+- **P2 — Codex implicit discovery:** OpenCode's `opencode/autoinvoke: "false"` preference does not disable Codex. The pilot skill now says this explicitly in frontmatter description and main instructions, restricting **policy usage** to explicit owner invocation; the DRAFT branch is **not** merged or installed globally. This is not a technical switch guaranteeing non-discovery in Codex. A Codex model invocation is **NOT_RUN**.
+
+**Local FIX test receipt:** owner Mac external isolated checkout at `/Volumes/CLOVERWOOD_DEV/Pilots/SwiftTestingConcurrency-01/workspace/library` on code-bearing HEAD `a8809985348abc4517af5fb83b7948452e3e80b4`; Apple Swift 6.4; `20/20` Python pilot regressions PASS, `4/4` real Swift Testing PASS, intentionally mutated stale-response test **failed with the expected exact assertion** and the red verifier PASS, `REGISTRY_CHECK_PASS`, cleanup PASS. Evidence log retained at `/Volumes/CLOVERWOOD_DEV/Pilots/SwiftTestingConcurrency-01/evidence/review_fix_local.log`.
+
+**CI:** dedicated macOS workflow updated to run the parser unit regressions and real green/red Swift tests. The **latest post-FIX PR HEAD** must have its own successful GitHub checks; old `d187be16` CI is not a substitute. **SKILL A/B effectiveness remains NOT_MEASURED**, and no app/production changes were authorized.
 
 ## Adoption / independent A-B required
 
