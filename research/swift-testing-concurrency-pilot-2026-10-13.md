@@ -67,6 +67,8 @@ The independent REVIEW of PR #10 on `d187be16227b28a6bb5a88a66e8fa361435bea2a` r
 
 **CI:** dedicated macOS workflow updated to run the parser unit regressions and real green/red Swift tests. The **latest post-FIX PR HEAD** must have its own successful GitHub checks; old `d187be16` CI is not a substitute. **SKILL A/B effectiveness remains NOT_MEASURED**, and no app/production changes were authorized.
 
+**A/B preparation outcome (2026-10-13):** [Frozen benchmark and actual Swift compiler oracle evidence](swift-testing-concurrency-ab-2026-10-13.md) now establish a synthetic, same-source baseline-vs-treatment task. Buggy code had **three deterministic Swift Testing failures**, a corrected oracle had **4/4 PASS**; the planned agent runs themselves are **BLOCKED** because the existing OpenCode CLI free model returned **HTTP 403 / FreeTierError** and no provider account was connected. **No actual A/B agent responses, no skill-value measurement.** Do not merge or install from this preliminary fixture proof.
+
 ## Adoption / independent A-B required
 
 | Gate | Evidence required | Status |
