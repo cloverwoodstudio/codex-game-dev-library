@@ -120,7 +120,7 @@ promoted merely because a filename mentions Tripo.
   within a desktop DCC still has residual risk; use isolated projects.
 
 ## Official sources
-- Tripo Studio workspace: https://www.tripo.studio/
+- Tripo Studio workspace: https://studio.tripo3d.ai/
 - Tripo Studio DCC Bridge/manual exports:
   https://www.tripo3d.ai/help/features/how-to-export-and-import-to-dcc-tools
 - Tripo Studio subscription and API separation:
