@@ -9,6 +9,10 @@ This library should grow through focused, verifiable passes.
 - [x] macOS SpriteKit/Swift conformance port with Swift Testing, Release build and rendered evidence
 - [x] Universal iPhone/iPad SpriteKit app target with simulator build, launch and visual runtime evidence
 - [ ] Port determinism conformance fixture to Unity and Unreal
+- [x] Game-agent read-only project/engine/MCP routing gate with 9 isolated tests (pilot DRAFT only; no account-wide adoption)
+- [ ] Verify dedicated Godot MCP in disposable editor project, strict project-root controls, read-only first
+- [ ] Add Blender rig/material/LOD/import QA receipts for Unity/Godot, with preserved MASTER assets
+- [ ] Review per-game Codex desktop session routing and independent full editor smoke before broad rollout
 
 - [x] Deep production playbooks: Godot, Unity, Unreal and browser/Phaser
 - [x] Deep engine playbooks: Three.js, Babylon.js, Bevy, raylib and MonoGame
