@@ -245,3 +245,15 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
 
 - [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).
+
+
+## Codex Game Dev Router 01 — reviewed 2026-10-14
+
+- [Read-only multi-game preflight](../scripts/game_agent_preflight.py), [offline router tests](../tests/test_game_agent_preflight.py) and [scope/evidence](../docs/CODEX_GAME_DEV_ROUTER_01.md).
+- [Router skill](../.agents/skills/cloverwood-game-dev-router/SKILL.md): proposed DRAFT, not enabled account-wide; actual project-specific game authority takes precedence.
+- OpenAI September 2026 skill design guidance: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+- Unity first-party Codex plugin documentation: https://unity.com/blog/unity-plugin-codex
+- Godot MCP Toolkit, **third-party community option for research only**, not adopted: https://godotengine.org/asset-library/asset/5375
+
+The router only checks local state and Codex routing. It neither starts Editors
+nor proves 3D asset/animation quality, full game QA, or Godot MCP integration.
