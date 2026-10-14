@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "source": "tripo_studio",
+  "asset_id": "PROJECT-ASSET-001",
+  "source_file_sha256": "REPLACE_WITH_REAL_SHA256",
+  "target_engine": "unity",
+  "export_method": "studio_download",
+  "license_status": "unverified",
+  "notes": "Owner records studio model/revision, datasheet gate, source reference, license evidence, credits charged and date here. No API credits. Commercial release remains HOLD."
+}

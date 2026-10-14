@@ -36,6 +36,9 @@ This library should grow through focused, verifiable passes.
 - [x] ViewForge source/mask/projection overlays, machine-readable IoU quality gate and inconsistent-view failure fixture
 - [ ] ViewForge dimension-led holes/cutters, cross-sections, LODs, collision and engine import evidence
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset
+- [x] Tripo Studio-first offline Blender GLB/FBX geometry/rig/animation QA; historical Mara Voss GLB and isolated Godot import pilot (DRAFT, independent owner gate)
+- [ ] Audit Tripo Studio Blender DCC Bridge live session and source+subscription evidence; NO Tripo API generation
+- [ ] Verify real Unity Editor import and target-device optimization budgets for a separately owner-approved GAME derivative
 - [ ] Tested engine-specific asset import presets and sample assets
 - [x] Production-tested premium Blender → USDZ → RealityKit module workflow with stable state nodes and physical-device gate
 - [x] Tested Three.js procedural mechanical-asset prototype with orbit, pivot animation, energy-flow demonstration and GLB export
