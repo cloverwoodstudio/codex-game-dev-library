@@ -245,3 +245,16 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
 
 - [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).
+
+
+## CODEX GAME DEV 03 — Tripo Studio asset QA (reviewed 2026-10-14)
+
+- [Studio-first Blender → engine pipeline](../docs/TRIPO_STUDIO_GAME_ASSET_PIPELINE_03.md)
+- [Read-only Blender inspector](../scripts/blender_studio_asset_qa.py), [guarded runner](../scripts/run_tripo_studio_qa.sh), [pure Python QA contract](../scripts/studio_asset_contract.py), [unit tests](../tests/test_studio_asset_contract.py).
+- [Opt-in Tripo Studio agent skill](../.agents/skills/cloverwood-tripo-studio-game-assets/SKILL.md); DRAFT-only, no global installation, credit use or game integration.
+- [Tripo official Studio export/DCC Bridge instructions](https://www.tripo3d.ai/help/features/how-to-export-and-import-to-dcc-tools).
+- [Tripo official Studio/API credit separation](https://www.tripo3d.ai/de/help/api-plugins/tripo-studiotripo-api).
+- [Tripo official rigging and animation information](https://www.tripo3d.ai/help/features/can-tripo-create-animation-ready-3d-models).
+
+Imported-model compatibility does not establish Studio provenance, ownership,
+license rights, shape fidelity, runtime performance or shipping approval.
