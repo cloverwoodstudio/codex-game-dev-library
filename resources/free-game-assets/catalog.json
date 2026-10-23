@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-10-23",
   "owner": "Cloverwood Studio",
   "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
   "resources": [
@@ -941,6 +941,22 @@
       ],
       "notes": "Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release.",
       "reviewed": "2026-10-09"
+    },
+    {
+      "id": "hi3d-v1-geometry-refinement",
+      "name": "Hi3D v1.0 Geometry Refinement",
+      "category": "tools",
+      "url": "https://github.com/hi3d-official/Hi3Dv1.0",
+      "license": "custom",
+      "license_url": "https://github.com/hi3d-official/Hi3Dv1.0/blob/main/LICENSE",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "Experimental image plus coarse mesh geometry refinement; Linux NVIDIA CUDA only in official stack. Hi3D Open License v1.0 needs integration, branding and commercial-scale review. No texture, rig, or automatic game approval.",
+      "reviewed": "2026-10-23"
     }
   ]
 }
