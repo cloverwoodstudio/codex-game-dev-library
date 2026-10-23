@@ -12,6 +12,7 @@ Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súb
 - [Výber pre naše hry](PROJECT_RECIPES.md) — BB, Hotel Panic, Starfall Rescue, Split a Neluvo.
 - [Karta pôvodu stiahnutého assetu](DOWNLOAD_LEDGER.template.csv) — pred použitím v hre.
 - [Ako rozširovať katalóg](CONTRIBUTING.md).
+- [Hi3D v1.0 — skúšobný AI 3D workflow](HI3D-V1-EXPERIMENT.md) — externý nástroj na vylepšenie geometrie, licencia a 3-case QA brány; zatiaľ bez inference.
 
 ## Kategórie
 
