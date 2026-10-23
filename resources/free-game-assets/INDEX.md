@@ -1,6 +1,6 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**55 zdrojov · Reviewed: 2026-10-09**
+**56 zdrojov · Reviewed: 2026-10-23**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
@@ -84,7 +84,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | Godot Shaders (`godotshaders.com/`) | per-item (`godotshaders.com/license/`) | ⚠️ | zdarma | BB, HOTEL\_PANIC, STARFALL\_RESCUE | Shader code CC0 MIT or GPL per entry. Preview media not included in license. Automated CI HTTP probe returns 455; review the official site manually. |
 | [Kenney Particle Pack \(80\)](https://kenney.nl/assets/particle-pack) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, STARFALL\_RESCUE | 80 2D particle effect sprites. |
 
-## Nástroje na tvorbu hier (9)
+## Nástroje na tvorbu hier (10)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -93,6 +93,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [Bosca Ceoil Blue](https://github.com/YuriSizov/boscaceoil-blue) | [open-source](https://github.com/YuriSizov/boscaceoil-blue) | ⚠️ | zdarma | SPLIT, NELUVO | Simple music sequencer. Validate packaged samples. REVIEW HOLD: Exact code/license and any built-in sample rights need confirmation from the original release. |
 | [Godot Asset Library](https://godotengine.org/asset-library/asset) | [per-item](https://godotengine.org/asset-library/asset) | ⚠️ | zdarma | GENERAL | Each community plugin has its own license. |
 | [Godot Engine](https://godotengine.org/) | [MIT](https://godotengine.org/license/) | ✅ | zdarma | BB, HOTEL\_PANIC, STARFALL\_RESCUE | Open-source game engine. Include MIT engine license notice in published game. |
+| [Hi3D v1.0 Geometry Refinement](https://github.com/hi3d-official/Hi3Dv1.0) | [custom](https://github.com/hi3d-official/Hi3Dv1.0/blob/main/LICENSE) | ⚠️ | zdarma | GENERAL | Experimental image plus coarse mesh geometry refinement; Linux NVIDIA CUDA only in official stack. Hi3D Open License v1.0 needs integration, branding and commercial-scale review. No texture, rig, or automatic game approval. |
 | [JFXR](https://jfxr.frozenfractal.com/) | [tool-terms](https://jfxr.frozenfractal.com/) | ⚠️ | zdarma | SPLIT, NELUVO | Synthesized video game sound effects. REVIEW HOLD: Generated audio rights and bundling terms still require an explicit provider reference. |
 | [Krita](https://krita.org/) | [GPL](https://krita.org/) | ✅ | zdarma | GENERAL | 2D sprites concept art and texture painting. |
 | [LMMS](https://lmms.io/) | [GPL](https://lmms.io/) | ✅ | zdarma | GENERAL | Music sequencer. Imported samples and plugins may have separate rights. |
