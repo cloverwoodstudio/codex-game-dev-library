@@ -47,6 +47,10 @@ Aktuálny katalóg úmyselne označuje `texturecan`, `material-maker`, `jfxr` a 
 
 Freesound, OpenGameArt, Poly Pizza, itch.io, Godot Asset Library a jednotlivé shader portály nepovažujeme za univerzálne komerčne schválené. **Schválenie poskytovateľa nie je schválením každého jeho súboru.**
 
+## Hi3D v1.0 — vlastná licencia, nie MIT alebo Apache
+
+Oficiálny zdroj: https://github.com/hi3d-official/Hi3Dv1.0 ; záväzná licencia: https://github.com/hi3d-official/Hi3Dv1.0/blob/main/LICENSE . Hi3D Open License Agreement v1.0 stanovuje oznámenia a branding pri komerčnej integrácii modelových materiálov a samostatné hranice používania pri dosiahnutí MAU/príjmov. Samostatné mesh výstupy bez zabudovaných Hi3D materiálov majú podľa dohody odlišný režim, ale externé vstupy si uchovávajú svoje práva. **Katalógový status: verify-item / REVIEW HOLD.** Neimportovať model do hry bez preverenia originálneho assetu a samostatného schválenia. Kompletný experimentálny protokol: [HI3D-V1-EXPERIMENT.md](HI3D-V1-EXPERIMENT.md).
+
 ## Nezamieňaj licenciu nástroja s licenciou výstupu
 
 Blender, Godot, Krita, Audacity a LMMS sú výrobné nástroje. Licencia aplikácie **automaticky neurčuje** licenciu každej práce v nej vyrobenej; externé sample balíky, fonty, pluginy a assety si uchovávajú vlastné podmienky.
