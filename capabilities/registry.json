@@ -3,7 +3,7 @@
   "mode": "DISCOVERY_ONLY",
   "repository": "cloverwoodstudio/codex-game-dev-library",
   "sourceCommit": "45d91d6c191b7e42a462e70962161fc439d39a95",
-  "reviewedOn": "2026-09-22",
+  "reviewedOn": "2026-10-28",
   "isExecutionAuthority": false,
   "capabilities": [
     {
@@ -409,7 +409,7 @@
       "entrypoint": "guides/engine-selection.md",
       "sources": {
         "guides/engine-selection.md": "ce7457f0d7e483312f8e05874f53c6a4c4c7037ccb3bd6eff526b07b693b6430",
-        ".agents/skills/apple-platform-development/references/tool-catalog.md": "3e6bd1e4918c9b254b7cb2635a1f599b4068c4bb9ab536614d1172e58acd3973"
+        ".agents/skills/apple-platform-development/references/tool-catalog.md": "126bae2307e2b5c183f47784b6ffed7ec68203d4b5af0fa026478cf38307cf00"
       },
       "requiredTools": [
         "No runtime needed for reading"
