@@ -258,7 +258,7 @@ Sources: [Reality Composer Pro](https://developer.apple.com/augmented-reality/to
 | ffmpeg / ffprobe | LGPL/GPL configurations | Automated transcode and media inspection |
 | sox | GPL | Scriptable audio conversion/analysis |
 
-Sources: [Logic Pro](https://www.apple.com/logic-pro/), [Final Cut Pro](https://www.apple.com/final-cut-pro/), [AVFoundation](https://developer.apple.com/av-foundation/), [FMOD](https://www.fmod.com/docs/), [Wwise](https://www.audiokinetic.com/en/public-library/), [FFmpeg](https://ffmpeg.org/documentation.html).
+Sources: [Logic Pro](https://www.apple.com/logic-pro/), [Final Cut Pro](https://www.apple.com/final-cut-pro/), [AVFoundation](https://developer.apple.com/av-foundation/), [FMOD](https://www.fmod.com/docs/), [Wwise](https://www.audiokinetic.com/en/public-library/), [FFmpeg](https://github.com/FFmpeg/FFmpeg/blob/master/doc/ffmpeg.texi).
 
 ## 10. Engines and cross-platform application stacks
 
