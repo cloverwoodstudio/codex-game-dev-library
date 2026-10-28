@@ -51,6 +51,12 @@ Freesound, OpenGameArt, Poly Pizza, itch.io, Godot Asset Library a jednotlivé s
 
 Oficiálny zdroj: https://github.com/hi3d-official/Hi3Dv1.0 ; záväzná licencia: https://github.com/hi3d-official/Hi3Dv1.0/blob/main/LICENSE . Hi3D Open License Agreement v1.0 stanovuje oznámenia a branding pri komerčnej integrácii modelových materiálov a samostatné hranice používania pri dosiahnutí MAU/príjmov. Samostatné mesh výstupy bez zabudovaných Hi3D materiálov majú podľa dohody odlišný režim, ale externé vstupy si uchovávajú svoje práva. **Katalógový status: verify-item / REVIEW HOLD.** Neimportovať model do hry bez preverenia originálneho assetu a samostatného schválenia. Kompletný experimentálny protokol: [HI3D-V1-EXPERIMENT.md](HI3D-V1-EXPERIMENT.md).
 
+## NVIDIA SimReady Assets — CC BY 4.0, per-package kontrola
+
+Dataset: https://huggingface.co/datasets/nvidia/simready-assets ; znenie CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ .
+
+K 2026-10-28 datasetová karta Hugging Face uvádza CC BY 4.0. Pri konkrétnom balíku skontroluj `com.nvidia.simready.packaging.json`, prípadný `.metadata/LICENSE.txt`, vlastníka, materiály a ďalšie závislosti. CC BY 4.0 typicky povoľuje komerčné použitie a úpravy s požadovanou atribúciou, odkazom na licenciu a uvedením zmien. **Katalógový status: verify-item / REVIEW HOLD**, nie automatické schválenie na distribúciu v App Store. Pozri [NVIDIA-SIMREADY-ASSETS.md](NVIDIA-SIMREADY-ASSETS.md).
+
 ## Nezamieňaj licenciu nástroja s licenciou výstupu
 
 Blender, Godot, Krita, Audacity a LMMS sú výrobné nástroje. Licencia aplikácie **automaticky neurčuje** licenciu každej práce v nej vyrobenej; externé sample balíky, fonty, pluginy a assety si uchovávajú vlastné podmienky.

@@ -1,8 +1,8 @@
 # Cloverwood Free Game Assets & Tools
 
-**Reviewed:** 2026-10-09 · **Owner:** Cloverwood Studio · **Scope:** commercial iPhone games, Blender/Godot workflows, 2D games.
+**Reviewed:** 2026-10-28 · **Owner:** Cloverwood Studio · **Scope:** commercial iPhone games, Blender/Godot workflows, 2D games.
 
-Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súborov. Je súčasťou [Codex Game Development Library](../../README.md) a môže ju čítať ChatGPT, Codex aj ďalší autorizovaní agenti.
+Vyhľadateľná knižnica **57** bezplatných **zdrojov**, nie úložisko cudzích súborov. Je súčasťou [Codex Game Development Library](../../README.md) a môže ju čítať ChatGPT, Codex aj ďalší autorizovaní agenti.
 
 ## Začni tu
 
@@ -12,6 +12,7 @@ Vyhľadateľná knižnica bezplatných **zdrojov**, nie úložisko cudzích súb
 - [Výber pre naše hry](PROJECT_RECIPES.md) — BB, Hotel Panic, Starfall Rescue, Split a Neluvo.
 - [Karta pôvodu stiahnutého assetu](DOWNLOAD_LEDGER.template.csv) — pred použitím v hre.
 - [Ako rozširovať katalóg](CONTRIBUTING.md).
+- [NVIDIA SimReady Assets — OpenUSD 3D zdroj](NVIDIA-SIMREADY-ASSETS.md) — licenčné a technické brány pred herným použitím; iba odkaz, bez modelov.
 - [Hi3D v1.0 — skúšobný AI 3D workflow](HI3D-V1-EXPERIMENT.md) — externý nástroj na vylepšenie geometrie, licencia a 3-case QA brány; zatiaľ bez inference.
 
 ## Kategórie

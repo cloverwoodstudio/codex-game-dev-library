@@ -245,3 +245,11 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 - Source protocol: SPLIT wrapper Git blob `aa89add520d291ce0234d9186e4637965d7d16fc`, inspected read-only; no game code migration is implied.
 
 - [PR #4 scoped cleanup review and regression evidence](../research/pr4-review-2026-09-22.md).
+
+## NVIDIA SimReady Assets — source review (2026-10-28)
+
+- Dataset and root licensing marker: https://huggingface.co/datasets/nvidia/simready-assets
+- NVIDIA SimReady Central publishing / package validation: https://docs.omniverse.nvidia.com/simready/latest/simready-central.html
+- Hugging Face SimReady 3D package structure: https://huggingface.co/docs/hub/en/datasets-3d
+- Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
+- Internal review and game-specific gates: `resources/free-game-assets/NVIDIA-SIMREADY-ASSETS.md`

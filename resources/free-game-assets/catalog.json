@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-23",
+  "reviewed": "2026-10-28",
   "owner": "Cloverwood Studio",
   "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
   "resources": [
@@ -957,6 +957,24 @@
       ],
       "notes": "Experimental image plus coarse mesh geometry refinement; Linux NVIDIA CUDA only in official stack. Hi3D Open License v1.0 needs integration, branding and commercial-scale review. No texture, rig, or automatic game approval.",
       "reviewed": "2026-10-23"
+    },
+    {
+      "id": "nvidia-simready-assets",
+      "name": "NVIDIA SimReady Assets (OpenUSD)",
+      "category": "3d-models",
+      "url": "https://huggingface.co/datasets/nvidia/simready-assets",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "GENERAL"
+      ],
+      "notes": "Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use.",
+      "reviewed": "2026-10-28"
     }
   ]
 }

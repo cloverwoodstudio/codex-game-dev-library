@@ -1,12 +1,12 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**56 zdrojov · Reviewed: 2026-10-23**
+**57 zdrojov · Reviewed: 2026-10-28**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
 **Licencie:** ✅ = povolené za podmienok zdroja; ⚠️ = over konkrétnu položku; ⛔ = zakázané pre videohry. Ani ✅ nenahrádza kontrolu stiahnutého archívu.
 
-## 3D modely a kompletné balíky (15)
+## 3D modely a kompletné balíky (16)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -23,6 +23,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [Kenney Prototype Kit \(145\)](https://kenney.nl/assets/prototype-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | GENERAL, SPLIT | Blockout and mechanics prototyping. |
 | [Kenney Space Kit \(150\)](https://kenney.nl/assets/space-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Space themed models. |
 | [Kenney Space Station Kit \(90\)](https://kenney.nl/assets/space-station-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Station interiors and props. |
+| [NVIDIA SimReady Assets \(OpenUSD\)](https://huggingface.co/datasets/nvidia/simready-assets) | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | ⚠️ | zdarma | BB, HOTEL\_PANIC, GENERAL | Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use. |
 | [Poly Pizza Models](https://poly.pizza/) | [per-item](https://poly.pizza/) | ⚠️ | zdarma časť | BB, HOTEL\_PANIC, GENERAL | Licenses vary by individual creator and model including credit requirements. |
 | [Quaternius Free Game Assets](https://quaternius.com/) | [QAL](https://quaternius.com/license.html) | ✅ | zdarma časť | BB, HOTEL\_PANIC, STARFALL\_RESCUE | QAL permits commercial games but prohibits standalone redistribution. Historic packs may have other terms. |
 

@@ -133,3 +133,5 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] Add accessibility/audio normalization and mobile polygon/texture budget data after measured asset QA.
 
 **Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.
+
+- [ ] NVIDIA SimReady: after owner source-PR review, test one individually licensed OpenUSD package through Blender -> optimized GLB -> Godot/iPhone, preserving attribution and provenance; no download or conversion authorized by catalog registration.
