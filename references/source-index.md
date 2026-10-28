@@ -250,6 +250,6 @@ These are repository-owned contracts/evidence, not fresh verification of every u
 
 - Dataset and root licensing marker: https://huggingface.co/datasets/nvidia/simready-assets
 - NVIDIA SimReady Central publishing / package validation: https://docs.omniverse.nvidia.com/simready/latest/simready-central.html
-- Hugging Face SimReady 3D package structure: https://huggingface.co/docs/hub/en/datasets-3d
+- NVIDIA SimReady Packaging Workflow (package manifest, BOM, validation): https://nvidia.github.io/simready-foundation/2026.08.0/guides/packaging_workflow.html
 - Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 - Internal review and game-specific gates: `resources/free-game-assets/NVIDIA-SIMREADY-ASSETS.md`

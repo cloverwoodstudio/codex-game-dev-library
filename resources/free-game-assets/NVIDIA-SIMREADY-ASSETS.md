@@ -9,7 +9,7 @@
 
 - Dataset na Hugging Face: https://huggingface.co/datasets/nvidia/simready-assets
 - NVIDIA SimReady Central: https://docs.omniverse.nvidia.com/simready/latest/simready-central.html
-- Hugging Face SimReady štruktúra balíkov: https://huggingface.co/docs/hub/en/datasets-3d
+- NVIDIA SimReady Packaging Workflow (manifest, BOM a validácia): https://nvidia.github.io/simready-foundation/2026.08.0/guides/packaging_workflow.html
 - Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 
 Pri prehliadke 2026-10-28 karta datasetu zobrazovala **2 603 3D assets**, približne **476 GB** dát a licenčný štítok **cc-by-4.0**. Ide o časovo závislý snapshot, nie počítadlo importovaných alebo pre hry optimalizovaných súborov. Formát je **OpenUSD** s fyzikálnymi / simulačnými metadátami; jednotlivé balíky môžu obsahovať textúry, materiály, metadata a ďalšie závislosti. Nie je to katalóg hotových GLB pre Godot.
