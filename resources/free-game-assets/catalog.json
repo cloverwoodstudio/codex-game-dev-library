@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-28",
+  "reviewed": "2026-11-09",
   "owner": "Cloverwood Studio",
   "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
   "resources": [
@@ -975,6 +975,22 @@
       ],
       "notes": "Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use.",
       "reviewed": "2026-10-28"
+    },
+    {
+      "id": "pixel-art-atlas-1-4m",
+      "name": "Pixel Art Atlas 1.4M (synthetic 16x16 sprites)",
+      "category": "ui-2d",
+      "url": "https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m",
+      "license": "CC0",
+      "license_url": "https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m/blob/main/LICENSE",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free",
+      "projects": [
+        "GENERAL"
+      ],
+      "notes": "1.4M synthetic RGBA pixel-art sprites. Verify Krea output-use conditions and game-specific rights. Complete pinned snapshot mirrored in this repo's GitHub Releases, not Git history.",
+      "reviewed": "2026-11-09"
     }
   ]
 }
