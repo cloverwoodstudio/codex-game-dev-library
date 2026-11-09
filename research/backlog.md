@@ -37,6 +37,7 @@ This library should grow through focused, verifiable passes.
 - [ ] ViewForge dimension-led holes/cutters, cross-sections, LODs, collision and engine import evidence
 - [ ] Tested Blender CAD-tessellation, retopology, bake and engine-import reference asset
 - [ ] Tested engine-specific asset import presets and sample assets
+- [ ] Polyfork free GLB sample import + material/rig/triangle budget validation in Godot/Unity on iPhone/iPad (catalog source only; no runtime QA yet)
 - [x] Production-tested premium Blender → USDZ → RealityKit module workflow with stable state nodes and physical-device gate
 - [x] Tested Three.js procedural mechanical-asset prototype with orbit, pivot animation, energy-flow demonstration and GLB export
 - [x] Engine-neutral visual-regression and replay-driven testing foundation

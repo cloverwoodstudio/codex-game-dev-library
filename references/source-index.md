@@ -76,6 +76,7 @@ See the [full machine-readable external resource registry](../resources/free-gam
 - Mixkit stock music **disallows games**: https://mixkit.co/license/modal/musicFree/
 - Freesound per-item licenses: https://freesound.org/help/faq/
 - Poly Haven CC0: https://polyhaven.com/license
+- Polyfork free low-poly mesh licence (CC BY 4.0 or Polyfork terms): https://polyfork.dev/licensing ; agent workflow: https://polyfork.dev/agents
 
 ## Worlds, characters, art and 3D
 

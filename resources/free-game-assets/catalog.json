@@ -991,6 +991,25 @@
       ],
       "notes": "1.4M synthetic RGBA pixel-art sprites. Verify Krea output-use conditions and game-specific rights. Complete pinned snapshot mirrored in this repo's GitHub Releases, not Git history.",
       "reviewed": "2026-11-09"
+    },
+    {
+      "id": "polyfork",
+      "name": "Polyfork Free Low-Poly 3D Models & Kits",
+      "category": "3d-models",
+      "url": "https://polyfork.dev/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://polyfork.dev/licensing",
+      "commercial_game_use": "yes",
+      "attribution": "required",
+      "access": "free",
+      "projects": [
+        "BB",
+        "HOTEL_PANIC",
+        "STARFALL_RESCUE",
+        "GENERAL"
+      ],
+      "notes": "Free low-poly meshes and kits: CC BY 4.0 with credit for redistribution, or Polyfork terms without credit but no standalone redistribution. MJS and paid HD use separate terms; see POLYFORK.md.",
+      "reviewed": "2026-11-09"
     }
   ]
 }
