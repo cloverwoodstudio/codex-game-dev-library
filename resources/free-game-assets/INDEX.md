@@ -1,6 +1,6 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**57 zdrojov · Reviewed: 2026-10-28**
+**58 zdrojov · Reviewed: 2026-11-09**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
@@ -66,7 +66,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [OpenGameArt CC0 Music Collection](https://opengameart.org/content/free-music-cc0) | [per-item](https://opengameart.org/content/free-music-cc0) | ⚠️ | zdarma | BB, HOTEL\_PANIC, SPLIT, NELUVO | Curated CC0 selection but verify track license and author. |
 | [Soundimage Eric Matyas](https://soundimage.org/) | [Soundimage](https://soundimage.org/attribution-info/) | ✅ | zdarma | BB, HOTEL\_PANIC | Attribution must appear inside actual game not only store listing. |
 
-## 2D grafika, ikony a UI (7)
+## 2D grafika, ikony a UI (8)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -77,6 +77,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [Kenney Sci-Fi UI \(130\)](https://kenney.nl/assets/ui-pack-sci-fi) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Sci-fi buttons and HUD. |
 | [Kenney UI Pack \(430\)](https://kenney.nl/assets/ui-pack) | [CC0](https://kenney.nl/support) | ✅ | zdarma | BB, HOTEL\_PANIC, SPLIT, NELUVO | Interface buttons panels and sliders. |
 | [Lucide Icons](https://lucide.dev/) | [ISC](https://lucide.dev/license) | ✅ | zdarma | GENERAL | Retain copyright and license notice. |
+| [Pixel Art Atlas 1.4M \(synthetic 16x16 sprites\)](https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m) | [CC0](https://huggingface.co/datasets/Angais/pixel-art-atlas-1.4m/blob/main/LICENSE) | ⚠️ | zdarma | GENERAL | 1.4M synthetic RGBA pixel-art sprites. Verify Krea output-use conditions and game-specific rights. Complete pinned snapshot mirrored in this repo's GitHub Releases, not Git history. |
 
 ## VFX a shadery (2)
 
