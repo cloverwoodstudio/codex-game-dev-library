@@ -43,6 +43,10 @@
 
 Aktuálny katalóg úmyselne označuje `texturecan`, `material-maker`, `jfxr` a `bosca-ceoil-blue` ako `verify-item`: prvé vydanie uvádzalo všeobecné/licenčne nešpecifické URL, ktoré ešte nie sú dôkazom práv ku konkrétnemu assetu alebo vzorkám. Záznam môže zostať ako užitočný odkaz na nástroj či materiály, ale žiadny agent z neho nesmie odvodiť hotový komerčne schválený asset.
 
+## Polyfork — dve licenčné vetvy, nie univerzálne CC0
+
+Polyfork poskytuje bezplatné **low-poly mesh súbory** (GLB/FBX/USD/OBJ, baked varianty aj scény kitov) voliteľne pod **CC BY 4.0** — vrátane samostatného šírenia s kreditom a uvedením zmien — alebo pod **vlastnou licenciou Polyfork** — komerčné použitie vo videohre bez kreditu, avšak **bez samostatnej redistribúcie mesh súborov**. Zdrojové `.mjs` programy, HD verzie, náhľady a texty **nie sú** pod týmto CC BY povolením. Hromadné sťahovanie bez potreby, mirroring zdrojových programov a zmeny účtu nie sú súčasťou bežného katalógového zápisu. Pred game importom overiť konkrétny model, zvolenú licenciu a záznam v projektovom ledgeri. Primárny zdroj: https://polyfork.dev/licensing . Návod: [POLYFORK.md](POLYFORK.md).
+
 ## Trh so zmiešanými licenciami
 
 Freesound, OpenGameArt, Poly Pizza, itch.io, Godot Asset Library a jednotlivé shader portály nepovažujeme za univerzálne komerčne schválené. **Schválenie poskytovateľa nie je schválením každého jeho súboru.**

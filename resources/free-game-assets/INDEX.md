@@ -1,12 +1,12 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**58 zdrojov · Reviewed: 2026-11-09**
+**59 zdrojov · Reviewed: 2026-11-09**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
 **Licencie:** ✅ = povolené za podmienok zdroja; ⚠️ = over konkrétnu položku; ⛔ = zakázané pre videohry. Ani ✅ nenahrádza kontrolu stiahnutého archívu.
 
-## 3D modely a kompletné balíky (16)
+## 3D modely a kompletné balíky (17)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -25,6 +25,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [Kenney Space Station Kit \(90\)](https://kenney.nl/assets/space-station-kit) | [CC0](https://kenney.nl/support) | ✅ | zdarma | STARFALL\_RESCUE | Station interiors and props. |
 | [NVIDIA SimReady Assets \(OpenUSD\)](https://huggingface.co/datasets/nvidia/simready-assets) | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | ⚠️ | zdarma | BB, HOTEL\_PANIC, GENERAL | Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use. |
 | [Poly Pizza Models](https://poly.pizza/) | [per-item](https://poly.pizza/) | ⚠️ | zdarma časť | BB, HOTEL\_PANIC, GENERAL | Licenses vary by individual creator and model including credit requirements. |
+| [Polyfork Free Low-Poly 3D Models &amp; Kits](https://polyfork.dev/) | [CC-BY-4.0](https://polyfork.dev/licensing) | ✅ | zdarma | BB, HOTEL\_PANIC, STARFALL\_RESCUE, GENERAL | Free low-poly meshes and kits: CC BY 4.0 with credit for redistribution, or Polyfork terms without credit but no standalone redistribution. MJS and paid HD use separate terms; see POLYFORK.md. |
 | [Quaternius Free Game Assets](https://quaternius.com/) | [QAL](https://quaternius.com/license.html) | ✅ | zdarma časť | BB, HOTEL\_PANIC, STARFALL\_RESCUE | QAL permits commercial games but prohibits standalone redistribution. Historic packs may have other terms. |
 
 ## Postavy, rigy a animácie (5)
