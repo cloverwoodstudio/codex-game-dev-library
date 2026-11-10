@@ -87,6 +87,15 @@ See the [full machine-readable external resource registry](../resources/free-gam
 
 See [Quixel source workflow](../resources/free-game-assets/QUIXEL-MEGASCANS.md); registration is not asset clearance.
 
+### Megascans mobile pilot lessons — reviewed 2026-11-10
+
+- Blender weighted normals and Keep Sharp: https://docs.blender.org/manual/en/5.2/modeling/modifiers/normals/weighted_normal.html
+- Unity iOS environment setup: https://docs.unity3d.com/6000.0/Documentation/Manual/ios-environment-setup.html
+- Unity texture import settings: https://docs.unity3d.com/6000.0/Documentation/Manual/texture-type-default.html
+- Unity texture compression and runtime formats: https://docs.unity3d.com/6000.0/Documentation/Manual/texture-compression-formats.html
+
+See [bounded Wooden Pallet FIX01 evidence and protocol](../resources/free-game-assets/MEGASCANS-PIPELINE-LESSONS.md). Pilot evidence is owner-side, not a public asset mirror or a fresh upstream compatibility test.
+
 ## Worlds, characters, art and 3D
 
 - Blender manual: https://docs.blender.org/manual/en/latest/
