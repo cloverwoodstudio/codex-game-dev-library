@@ -28,7 +28,9 @@ Pred osobitne autorizovanou akvizíciou zaznamenaj listing URL/ID, autora, verzi
 
 Country Road a BLACKOUT nie sú aktuálne ID v schéme katalógu; `GENERAL` umožňuje discovery bez zmeny schémy.
 
-## Mobilný Unity / Blender workflow — budúci pilot
+## Mobilný Unity / Blender workflow
+
+Prvý izolovaný Wooden Pallet pilot bol uzavretý OWNER schválením 3K FIX01; nejde o schválenie do hry. Pred ďalším pilotom použi [ponaučenia a akceptačný protokol](MEGASCANS-PIPELINE-LESSONS.md).
 
 1. Zvoliť jeden konkrétny bezplatný listing podľa art direction, mierky a výkonového rozpočtu; overiť licenčnú bránu a získať osobitný súhlas s downloadom.
 2. Na schválenom externom úložisku zachovať originálny archív nemenný (MASTER), SHA-256 a ledger. Fab v Launcheri podporuje výber download priečinka; nesťahovať na interný disk ani neinštalovať plugin bez samostatného súhlasu. Ak export nevie garantovať schválené úložisko, zastaviť.

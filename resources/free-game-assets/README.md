@@ -17,6 +17,8 @@ Vyhľadateľná knižnica **58** bezplatných **zdrojov**, nie úložisko cudzí
 
 - [Quixel Megascans na Fab](QUIXEL-MEGASCANS.md) — 3D skeny, PBR povrchy a decals; per-item licenčná brána a mobilný Unity/Blender workflow.
 
+- [Megascans pipeline — ponaučenia z Wooden Pallet FIX01](MEGASCANS-PIPELINE-LESSONS.md) — vizuálna kvalita, mobilné merania, externé úložisko a presný OWNER gate.
+
 ## Kategórie
 
 3D modely a celé sady; postavy a animácie; PBR textúry a HDRI; zvukové efekty; hudba; 2D/UI; VFX/shadery; výrobné nástroje; všeobecné trhoviská.

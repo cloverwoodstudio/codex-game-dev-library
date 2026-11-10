@@ -142,3 +142,9 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 - [ ] After the pricing rollout, recheck exact listing availability and terms; separately authorize one free item for an external-only pilot, preserve source and SHA-256, optimize a GAME derivative, and test on target iPhone before Asset Viewer OWNER REVIEW.
 
 **Limits:** metadata only; no asset acquisition, download, AI training, import, merge or release authorization. See [source guide](../resources/free-game-assets/QUIXEL-MEGASCANS.md).
+
+## Megascans Wooden Pallet lessons — 2026-11-10
+
+- [x] Isolated per-item Wooden Pallet pilot: preserve MASTER, reject first visually inadequate 3K derivative, compare FIX01 3K/10K/20K, physical iPhone QA and exact 3K OWNER approval. Historical owner-side evidence; not game integration.
+- [x] Document the reusable [FIX01 workflow and evidence limits](../resources/free-game-assets/MEGASCANS-PIPELINE-LESSONS.md).
+- [ ] Separately authorize a representative game-scene pilot with actual target render pipeline, per-variant unloaded memory baseline, CPU/GPU timings, thermal soak, oldest supported device and game-specific OWNER REVIEW. No game import or release authorized here.
