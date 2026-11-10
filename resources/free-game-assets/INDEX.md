@@ -1,12 +1,12 @@
 # Free Game Assets & Tools — kompletný katalóg
 
-**57 zdrojov · Reviewed: 2026-10-28**
+**58 zdrojov · Reviewed: 2026-11-10**
 
 Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENSE_POLICY.md) · [Výber pre naše hry](PROJECT_RECIPES.md) · [Úvod](README.md)
 
 **Licencie:** ✅ = povolené za podmienok zdroja; ⚠️ = over konkrétnu položku; ⛔ = zakázané pre videohry. Ani ✅ nenahrádza kontrolu stiahnutého archívu.
 
-## 3D modely a kompletné balíky (16)
+## 3D modely a kompletné balíky (17)
 
 | Zdroj | Licencia | Hra | Dostupnosť | Odporúčané projekty | Poznámka |
 | --- | --- | :---: | --- | --- | --- |
@@ -26,6 +26,7 @@ Strojový register: [catalog.json](catalog.json) · [Licenčná politika](LICENS
 | [NVIDIA SimReady Assets \(OpenUSD\)](https://huggingface.co/datasets/nvidia/simready-assets) | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | ⚠️ | zdarma | BB, HOTEL\_PANIC, GENERAL | Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use. |
 | [Poly Pizza Models](https://poly.pizza/) | [per-item](https://poly.pizza/) | ⚠️ | zdarma časť | BB, HOTEL\_PANIC, GENERAL | Licenses vary by individual creator and model including credit requirements. |
 | [Quaternius Free Game Assets](https://quaternius.com/) | [QAL](https://quaternius.com/license.html) | ✅ | zdarma časť | BB, HOTEL\_PANIC, STARFALL\_RESCUE | QAL permits commercial games but prohibits standalone redistribution. Historic packs may have other terms. |
+| [Quixel Megascans \(Fab\)](https://www.fab.com/sellers/Quixel%20Megascans?lang=en) | [custom](https://www.fab.com/eula) | ⚠️ | zdarma časť | GENERAL, HOTEL\_PANIC | Photogrammetry models, PBR surfaces and decals. Full free-library transition announced 2026-11-05; verify current item price, Fab entitlement, license and source formats. Legacy licenses differ. Mobile optimization and owner review required. |
 
 ## Postavy, rigy a animácie (5)
 

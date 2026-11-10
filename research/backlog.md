@@ -135,3 +135,10 @@ Shared-lock implementation scope and evidence boundaries: [2026-09-22 adoption](
 **Limits:** No asset bytes were downloaded or embedded in the library, no third-party terms were accepted on behalf of owner, no in-game imports and no release permission.
 
 - [ ] NVIDIA SimReady: after owner source-PR review, test one individually licensed OpenUSD package through Blender -> optimized GLB -> Godot/iPhone, preserving attribution and provenance; no download or conversion authorized by catalog registration.
+
+## Quixel Megascans source integration — 2026-11-10
+
+- [x] Register Quixel Megascans as the 58th outbound source, retaining per-item license review and owner approval; document Fab pricing transition and mobile Unity/Blender workflow.
+- [ ] After the pricing rollout, recheck exact listing availability and terms; separately authorize one free item for an external-only pilot, preserve source and SHA-256, optimize a GAME derivative, and test on target iPhone before Asset Viewer OWNER REVIEW.
+
+**Limits:** metadata only; no asset acquisition, download, AI training, import, merge or release authorization. See [source guide](../resources/free-game-assets/QUIXEL-MEGASCANS.md).
