@@ -1,6 +1,6 @@
 # Komerčné licencie — pravidlá pre Cloverwood
 
-**Reviewed:** 2026-10-09. Praktický interný checklist, nie právne stanovisko.
+**Reviewed:** 2026-11-10. Praktický interný checklist, nie právne stanovisko.
 
 ## Pred každým použitím
 
@@ -12,6 +12,7 @@
 
 | Druh licencie | Komerčné použitie | Čo strážiť |
 | --- | --- | --- |
+| Fab Standard License | Podmienene | Komerčná hra s integrovaným assetom; overiť konkrétnu licenciu, entitlement a formát. Zakázaná samostatná redistribúcia. |
 | CC0 | Typicky áno | Overenie, že asset je skutočne CC0 a zdroj neobsahuje ďalšie chránené časti. |
 | CC BY | Áno | Pôvodný autor, názov, odkaz na licenciu a zmeny. |
 | CC BY-SA | Podmienene | ShareAlike podmienky pre úpravy; pred distribúciou osobitná kontrola. |
@@ -56,6 +57,14 @@ Oficiálny zdroj: https://github.com/hi3d-official/Hi3Dv1.0 ; záväzná licenci
 Dataset: https://huggingface.co/datasets/nvidia/simready-assets ; znenie CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ .
 
 K 2026-10-28 datasetová karta Hugging Face uvádza CC BY 4.0. Pri konkrétnom balíku skontroluj `com.nvidia.simready.packaging.json`, prípadný `.metadata/LICENSE.txt`, vlastníka, materiály a ďalšie závislosti. CC BY 4.0 typicky povoľuje komerčné použitie a úpravy s požadovanou atribúciou, odkazom na licenciu a uvedením zmien. **Katalógový status: verify-item / REVIEW HOLD**, nie automatické schválenie na distribúciu v App Store. Pozri [NVIDIA-SIMREADY-ASSETS.md](NVIDIA-SIMREADY-ASSETS.md).
+
+## Quixel Megascans — Fab Standard License, per-item REVIEW HOLD
+
+Oficiálna licencia: https://www.fab.com/eula . Quixel oznámil 5. novembra 2026 prechod celej knižnice na bezplatnú dostupnosť: https://quixel.com/news/update-megascans-are-going-free-again . Over konkrétny listing, nulovú cenu a účinné podmienky; bezplatnosť nie je licencia.
+
+Fab Standard typicky povoľuje komerčné projekty vrátane hier, úpravy, distribúciu hotového projektu s integrovaným assetom a kompatibilné nástroje mimo Unreal. Samostatný predaj alebo šírenie assetu nie je povolené. Zdieľanie s projektovými spolupracovníkmi podlieha podmienkam licencie. Verejná knižnica nesmie obsahovať surové ani samostatne použiteľné odvodené assety. Standard spravidla nevyžaduje kredit; rozhodujú podmienky konkrétnej akvizície.
+
+Rozlišuj Fab Standard, staršie Quixel/Bridge licencie, štúdiové zmluvy a iné listingové licencie; starý entitlement automaticky neprenáša nové práva. Zachovaj dôkaz o konkrétnom listingu, účinných podmienkach a oprávnenej akvizícii, SHA-256 originálu a projektový ledger. Katalógový status: `verify-item` / REVIEW HOLD. Žiadne prijatie podmienok, akvizícia, AI tréning ani import nie sú touto registráciou autorizované. Pozri [QUIXEL-MEGASCANS.md](QUIXEL-MEGASCANS.md).
 
 ## Nezamieňaj licenciu nástroja s licenciou výstupu
 

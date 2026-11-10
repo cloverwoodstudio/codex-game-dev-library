@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-28",
+  "reviewed": "2026-11-10",
   "owner": "Cloverwood Studio",
   "policy": "Curated outbound-link directory, not a license grant, download authorization, or a redistribution of third-party assets.",
   "resources": [
@@ -975,6 +975,23 @@
       ],
       "notes": "Simulation-ready OpenUSD 3D props, not game-ready GLB. Verify package license and credits, geometry, materials, conversion and iPhone performance before use.",
       "reviewed": "2026-10-28"
+    },
+    {
+      "id": "quixel-megascans",
+      "name": "Quixel Megascans (Fab)",
+      "category": "3d-models",
+      "url": "https://www.fab.com/sellers/Quixel%20Megascans?lang=en",
+      "license": "custom",
+      "license_url": "https://www.fab.com/eula",
+      "commercial_game_use": "verify-item",
+      "attribution": "per-item",
+      "access": "free-tier",
+      "projects": [
+        "GENERAL",
+        "HOTEL_PANIC"
+      ],
+      "notes": "Photogrammetry models, PBR surfaces and decals. Full free-library transition announced 2026-11-05; verify current item price, Fab entitlement, license and source formats. Legacy licenses differ. Mobile optimization and owner review required.",
+      "reviewed": "2026-11-10"
     }
   ]
 }

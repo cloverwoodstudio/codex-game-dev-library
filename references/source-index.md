@@ -77,6 +77,16 @@ See the [full machine-readable external resource registry](../resources/free-gam
 - Freesound per-item licenses: https://freesound.org/help/faq/
 - Poly Haven CC0: https://polyhaven.com/license
 
+### Quixel Megascans — reviewed 2026-11-10
+
+- Quixel Megascans seller on Fab: https://www.fab.com/sellers/Quixel%20Megascans?lang=en
+- Quixel free-library announcement (2026-11-05): https://quixel.com/news/update-megascans-are-going-free-again
+- Fab Standard License: https://www.fab.com/eula
+- Fab acquisition and legacy entitlements: https://dev.epicgames.com/documentation/en-us/fab/purchasing-and-downloading-assets-in-fab
+- Fab in Launcher export and formats: https://dev.epicgames.com/documentation/fab/exporting-assets-from-fab-in-launcher
+
+See [Quixel source workflow](../resources/free-game-assets/QUIXEL-MEGASCANS.md); registration is not asset clearance.
+
 ## Worlds, characters, art and 3D
 
 - Blender manual: https://docs.blender.org/manual/en/latest/
